@@ -1,21 +1,84 @@
 .btn {
-  border: none;
-  padding: 8px 15px;
-  background-color: rgb(233, 199, 177);
-  color: #fff;
-  font-weight: 500;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-family: inherit;
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 154px;
+  height: 44px;
+
+  border-radius: 25px;
+  padding: 11px 44px;
+
   cursor: pointer;
-  outline: none;
-  box-shadow: 1px 2px 2px 0 rgb(0 0 0 / 0.5);
+  color: #fff;
+  background-color: #ff6b08;
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
   transition: box-shadow 250ms linear;
 
-  border-radius: 10px;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+
+  letter-spacing: 0.04em;
 }
 
-.btn:hover,
-.btn:focus {
-  background-color: rgb(225, 36, 29);
+.button {
+  font-family: Montserrat;
+  display: block;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  padding: 11px 44px;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+
+  color: #ffffff;
+
+  background: #ff6b08;
+  /* orange */
+
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 768px) and (min-width: 1279px) {
+  .button {
+    margin-top: 60px;
+  }
+}
+
+.btnLink {
+  display: block;
+  text-align: center;
+
+  margin: auto;
+  margin-top: 20px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0.8;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  background-color: transparent;
+  border: none;
+
+  border-bottom: 1px solid rgba(24, 28, 39, 0.6);
+
+  cursor: pointer;
+}
+
+.btnLink:hover,
+.btnLink:active {
+  color: #ff6b08;
+  transform: scale(1.1);
+  border-color: #ff6b08;
 }
