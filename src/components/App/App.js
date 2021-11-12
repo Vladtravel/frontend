@@ -10,17 +10,16 @@ import RegisterForm from "../RegisterForm"
 
 function App() {
 return (
-<div className={s.wrapper}>
-<Header />
+
 <div className={s.container}>
 <BackgroundAuth />
 <Header />
-{/* <RegisterForm/> */}
-<Switch>
+<RegisterForm/>
+{/* <Switch>
 <Route path="/signup" component={RegisterForm} />
-</Switch>
+</Switch> */}
 </div>
-</div>
+
 );
 }
 
