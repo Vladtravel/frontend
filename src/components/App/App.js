@@ -14,9 +14,9 @@ function App() {
 
   return (
     <div className={s.wrapper}>
+      <Header />
       <div className={s.container}>
         <BackgroundAuth />
-        <Header />
         <div className={s.App}>GOOD DAY!</div>
         <Button onClick={toggleModal} text={"Open modal"} />
         {showModal && (
