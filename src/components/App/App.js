@@ -5,9 +5,9 @@ import s from "./App.module.css";
 function App() {
   return (
     <div className={s.wrapper}>
+      <Header />
       <div className={s.container}>
         <BackgroundAuth />
-        <Header />
         <div className={s.App}>GOOD DAY!</div>
       </div>
     </div>

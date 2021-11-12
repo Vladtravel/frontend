@@ -1,5 +1,5 @@
 .header {
-    background-color: #fff;
+    background-color: #f1f2f7;
     position: relative;
     z-index: 2;
     border-bottom: solid 1px;
@@ -7,9 +7,10 @@
   }
   
   .header__wrapper {
-    width: 280px;
+    width: auto;
     height: 60px;
-    margin: 0 auto;
+    margin-left: 20px;
+    margin-right: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +46,7 @@
   
   .header__logout_button {
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: #f1f2f7;
     background-size: cover;
     border: none;
     outline: none;
@@ -62,8 +63,10 @@
   
   @media (min-width: 768px) {
     .header__wrapper {
-      width: 688px;
+      width: auto;
       height: 80px;
+      margin-left: 40px;
+      margin-right: 40px;
     }
   
     .header_logo {
@@ -118,6 +121,8 @@
   
   @media (min-width: 1280px) {
     .header__wrapper {
-      width: 1110px;
+      width: auto;
+      margin-left: 55px;
+      margin-right: 55px;
     }
   }
