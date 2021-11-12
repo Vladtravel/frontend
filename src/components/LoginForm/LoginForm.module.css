@@ -1,0 +1,184 @@
+.frontPage {
+  /* border: 1px solid tomato; */
+    /* width: 100%;
+    height: 100vh; */
+    
+    /* margin: 0; */
+    /* padding-top: 47px; */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.525), rgba(0, 0, 0, 0.6)),
+      url(/src/Images/loginPhoto.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px 70px;
+    width: 570px;
+      height: 538px;
+    
+   @media screen and (max-width: 768px) {
+      width: 570px;
+      height: 538px;
+      padding: 60px 70px;
+    }
+  }
+  
+  .loginForm {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    background-color: white;
+    border-radius: 6px;
+  }
+  
+  .loginForm__title{
+    font-family: Montserrat Medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 32px;
+  }
+  
+  .loginForm__header {
+    font-family: Montserrat Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  
+  
+  .loginFormBody__label {
+    position: absolute;
+    display: block;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+  
+    color: rgba(24, 28, 39, 0.6);
+    transition-property: transform;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
+    transform: translateY(-30px);
+    left: 10px;
+    
+   
+  }
+  
+  .loginFormBody__input:focus + .loginFormBody__label{
+    transform: translateY(-40px);
+    left: 5px;
+  }
+  
+  
+  
+  .loginFormBody__input {
+    width: 100%;
+    padding-bottom: 9px;
+    outline: none;
+    border-color: transparent;
+    border-bottom: 1px solid #181C27;
+    
+  }
+  
+  
+  
+  .EmailForm {
+    position: relative;
+    margin-bottom: 58px;
+  }
+  
+  
+  
+  
+  
+  .inputIconEmail {
+    font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  
+  color: #181C27;
+  }
+  
+  .PasswordForm {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  
+  
+  .PasswordFormRepeat{
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .loginFormBody__button {
+    display: block;
+    font-family: Montserrat Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+    padding: 11px 44px;
+    align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  
+  color: #FFFFFF;
+  
+  background: #FF6B08;
+  /* orange */
+  
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+  }
+  
+  .loginFormBody__button:active {
+    transform: translate(0em, 0.2em);
+  }
+  
+  .loginFormBody__button:hover {
+    transform: scale(1.1);
+  }
+  
+  .loginFormSpan{
+    font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(24, 28, 39, 0.6);
+  text-align: center;
+  }
+  
+  .loginFormFooter {
+    font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: underline;
+  color: rgba(24, 28, 39, 0.6);
+  }
+  .loginFormPosition{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .loginFormFooter:hover,
+  .loginFormFooter:active {
+    color: #FF6B08;
+    transform: scale(1.1);
+  }
