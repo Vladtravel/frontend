@@ -1,0 +1,62 @@
+.picture1 {
+  position: absolute;
+  width: 298px;
+  height: 298px;
+  bottom: 0;
+  left: 20%;
+  z-index: 0;
+}
+
+.picture2 {
+  position: absolute;
+  width: 252px;
+  height: 252px;
+  left: 22%;
+  bottom: 0;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.picture4 {
+  position: absolute;
+  width: 118px;
+  height: 118px;
+  top: 367px;
+  left: 111px;
+}
+
+.picture3 {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 240px;
+  left: 230px;
+}
+
+.picture5 {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  top: 103px;
+  right: 475px;
+}
+
+.picture6 {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 129px;
+  right: 225px;
+}
+
+.white {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.orange {
+  position: absolute;
+  right: 0;
+  bottom: 33px;
+}
