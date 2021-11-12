@@ -4,11 +4,13 @@ import { useDispatch } from "react-redux";
 import operations from "../../redux/operations";
 import s from "./RegisterForm.module.css";
 
+
 function RegisterForm() {
 //   const history = useHistory();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
   const [error, setError] = useState(false);
 //   const dispatch = useDispatch();
 
@@ -22,7 +24,7 @@ function RegisterForm() {
         break;
     case "passwordRepeat":
         if (password === e.currentTarget.value){
-            setPassword(e.currentTarget.value);
+          setPasswordRepeat(e.currentTarget.value);
         }
         else {
           setError(true)
@@ -35,7 +37,7 @@ function RegisterForm() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ( email.trim() === "" || password.trim() === "") {
+    if ( email.trim() === "" || password.trim() === "" || passwordRepeat.trim() === "") {
       alert("Fill all fields!");
       return;
     }
@@ -88,6 +90,7 @@ function RegisterForm() {
                   />
                    <label className={s.loginFormBody__label}>
                 Пароль
+
                 </label>
                 
               </div>
