@@ -1,0 +1,76 @@
+.title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 0.81;
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  color: #181c27;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+.label {
+  position: absolute;
+  display: block;
+  font-family: Montserrat;
+
+  font-size: 12px;
+  line-height: 0.8;
+
+  color: rgba(24, 28, 39, 0.6);
+  transition-property: transform;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
+  transform: translateY(-80px);
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    font-size: 14px;
+    line-height: 1.22;
+  }
+}
+
+.input:focus + .label {
+  transform: translateY(-105px);
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 58px;
+
+  font-size: 16px;
+  line-height: 1.25;
+
+  outline: none;
+  border-color: transparent;
+  background-color: transparent;
+  transition: all 250ms linear;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .input {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}
+
+.input:focus,
+.input:hover {
+  border-bottom: 1px solid #ff6b08;
+}
