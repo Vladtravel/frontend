@@ -17,7 +17,7 @@
 }
 
 .header_logo {
-  background-image: url(../../Images/Logo.png);
+  background-image: url(../../images/Logo.png);
   background-repeat: no-repeat;
 
   background-size: cover;
@@ -50,7 +50,7 @@
   background-size: cover;
   border: none;
   outline: none;
-  background-image: url(../../Images/logout2.svg);
+  background-image: url(../../images/logout2.svg);
   fill: currentColor;
   display: block;
   height: 30px;
@@ -92,7 +92,7 @@
   }
 
   .header__logout_button {
-    background-image: url(../../Images/logout.svg);
+    background-image: url(../../images/logout.svg);
     width: 18px;
     height: 18px;
   }
