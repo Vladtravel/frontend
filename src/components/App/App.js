@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, PublicRoute } from "react-router-dom";
 import { useState } from "react";
 import s from "./App.module.css";
 import Modal from "../Modal";
@@ -12,8 +12,8 @@ function App() {
     <>
     <Header />
      <Routes>
-      <Route path="signup" element={<RegisterForm />} />
-      <Route path="login" element={<LoginForm />} />
+      <Route path="/signup" element={<RegisterForm />} />
+      <Route path="/login" element={<LoginForm />} />
       </Routes>
     <div className={s.container}>
       <BackgroundAuth />
