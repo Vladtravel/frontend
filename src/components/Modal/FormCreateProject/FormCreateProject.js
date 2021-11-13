@@ -45,7 +45,6 @@ function FormCreateProject({ toggleModal }) {
         <label className={s.label}>Назва проекту</label>
 
         <input
-          focus={true}
           className={s.input}
           type="text"
           name="description"
@@ -57,7 +56,7 @@ function FormCreateProject({ toggleModal }) {
         />
         <label className={s.label}>Опис</label>
 
-        <Button className="button" type="submit" text={"Увійти"} />
+        <Button className="button" type="submit" text={"Готово"} />
       </form>
 
       <Button
