@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-// import operations from "../../redux/operations";
+import operations from "../../redux/operations";
 import s from "./LoginForm.module.css";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     switch (e.currentTarget.name) {
@@ -27,7 +27,7 @@ function LoginForm() {
       alert("Fill all fields!");
       return;
     }
-    // dispatch(operations.logIn({ email, password }));
+    dispatch(operations.logIn({ email, password }));
     setEmail("");
     setPassword("");
   };
@@ -75,8 +75,6 @@ function LoginForm() {
                 </label>
                 
               </div>
-             
-               {/* <span>Паролі не співпадають</span> */}
               <button className={s.loginFormBody__button} type="submit">
               Увійти
               </button>
