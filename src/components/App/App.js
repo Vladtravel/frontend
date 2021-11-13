@@ -11,13 +11,13 @@ function App() {
   return (
     <>
     <Header />
-    <div className={s.container}>
-      <BackgroundAuth />
-    </div>
-    <Routes>
+     <Routes>
       <Route path="signup" element={<RegisterForm />} />
       <Route path="login" element={<LoginForm />} />
       </Routes>
+    <div className={s.container}>
+      <BackgroundAuth />
+    </div>
     </>
   );
 }
