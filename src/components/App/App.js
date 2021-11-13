@@ -6,15 +6,20 @@ import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
 import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
 
+import MemberForm from "../MemberForm/MemberForm";
+
 function App() {
   return (
     <div className={s.container}>
       <BackgroundAuth />
       <Header />
       {/* <RegisterForm /> */}
-      <Routes>
+
+      {/* <Routes>
         <Route path="/signup" component={RegisterForm} />
-      </Routes>
+      </Routes> */}
+
+      <MemberForm />
     </div>
   );
 }
