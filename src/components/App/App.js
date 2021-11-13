@@ -5,6 +5,7 @@ import Modal from "../Modal";
 import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
 import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
+import LoginForm from "../LoginForm"
 
 function App() {
   return (
@@ -12,12 +13,13 @@ function App() {
     <Header />
     <div className={s.container}>
       <BackgroundAuth />
-      
       {/* <RegisterForm /> */}
-      <Routes>
-        <Route path="/signup" component={RegisterForm} />
-      </Routes>
     </div>
+    <Routes>
+      <Route path="signup" element={<RegisterForm />} />
+      <Route path="login" element={<LoginForm />} />
+        {/* <Route path="/signup" component={RegisterForm} /> */}
+      </Routes>
     </>
   );
 }
