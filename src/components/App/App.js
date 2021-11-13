@@ -12,7 +12,7 @@ function App() {
     <>
     <Header />
      <Routes>
-      <Route path="/signup" element={<RegisterForm />} />
+      <Route path="/" element={<RegisterForm />} />
       <Route path="/login" element={<LoginForm />} />
       </Routes>
     <div className={s.container}>
