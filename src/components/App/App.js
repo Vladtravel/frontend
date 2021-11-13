@@ -13,12 +13,10 @@ function App() {
     <Header />
     <div className={s.container}>
       <BackgroundAuth />
-      {/* <RegisterForm /> */}
     </div>
     <Routes>
       <Route path="signup" element={<RegisterForm />} />
       <Route path="login" element={<LoginForm />} />
-        {/* <Route path="/signup" component={RegisterForm} /> */}
       </Routes>
     </>
   );
