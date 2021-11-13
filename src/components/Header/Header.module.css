@@ -49,15 +49,16 @@
   background-size: cover;
   border: none;
   outline: none;
-  background-image: url(../../Images/logout2.svg);
+  background-image: url(../../Images/logout-2.svg);
   fill: currentColor;
   display: block;
   height: 30px;
   width: 30px;
 }
 
+.header__logout_button:focus,
 .header__logout_button:hover {
-  color: #ff6b08;
+  background-image: url(../../Images/logout-4.svg);
 }
 
 @media (min-width: 768px) {
@@ -89,9 +90,14 @@
   }
 
   .header__logout_button {
-    background-image: url(../../Images/logout.svg);
+    background-image: url(../../Images/logout-1.svg);
     width: 18px;
     height: 18px;
+  }
+
+  .header__logout_button:focus,
+  .header__logout_button:hover {
+    background-image: url(../../Images/logout-3.svg);
   }
 
   .header__logout_button::after {
