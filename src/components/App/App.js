@@ -8,14 +8,17 @@ import RegisterForm from "../RegisterForm";
 
 function App() {
   return (
+    <>
+    <Header />
     <div className={s.container}>
       <BackgroundAuth />
-      <Header />
+      
       {/* <RegisterForm /> */}
       <Routes>
         <Route path="/signup" component={RegisterForm} />
       </Routes>
     </div>
+    </>
   );
 }
 
