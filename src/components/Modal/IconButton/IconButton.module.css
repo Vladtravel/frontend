@@ -26,9 +26,6 @@
 }
 
 .btnIconAddProject {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -40,8 +37,17 @@
   transition: all 250ms linear;
 }
 
+@media screen and (max-width: 767px) {
+  .btnIconAddProject {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .btnIconAddProject {
     position: relative;
+    margin-left: auto;
   }
 }
