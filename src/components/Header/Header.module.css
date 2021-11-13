@@ -7,10 +7,9 @@
 }
 
 .header__wrapper {
-  width: auto;
+  width: 280px;
   height: 60px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,10 +62,8 @@
 
 @media (min-width: 768px) {
   .header__wrapper {
-    width: auto;
+    width: 688px;
     height: 80px;
-    margin-left: 40px;
-    margin-right: 40px;
   }
 
   .header_logo {
@@ -121,8 +118,6 @@
 
 @media (min-width: 1280px) {
   .header__wrapper {
-    width: auto;
-    margin-left: 55px;
-    margin-right: 55px;
+    width: 1170px;
   }
 }

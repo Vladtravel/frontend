@@ -8,9 +8,11 @@ import RegisterForm from "../RegisterForm";
 import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
 
+
 function App() {
   return (
     <>
+
       <Header />
       {/* <div className={s.container}> */}
       {/* <BackgroundAuth /> */}
@@ -22,6 +24,7 @@ function App() {
         <Route path="/signup" component={RegisterForm} />
       </Routes>
       {/* </div> */}
+
     </>
   );
 }

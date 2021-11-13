@@ -84,7 +84,7 @@ function LoginForm() {
           </div>
           <div className={s.loginFormPosition}>
           <span className={s.loginFormSpan}>Немає акаунту? </span>
-          <NavLink to="/login" className={s.loginFormFooter}>
+          <NavLink to="/" className={s.loginFormFooter}>
           Зареєструватись
           </NavLink>
           </div>
