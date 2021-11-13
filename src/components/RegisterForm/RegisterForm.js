@@ -1,7 +1,7 @@
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 // import { useDispatch } from "react-redux";
-import operations from "../../redux/operations";
+// import operations from "../../redux/operations";
 import s from "./RegisterForm.module.css";
 
 
@@ -72,8 +72,7 @@ function RegisterForm() {
                     name="email"
                     value={email}
                     onChange={handleChange}
-                    autocomplete="off"
-                    required
+                   
                     placeholder="E-mail"
                   />
                 
@@ -92,8 +91,7 @@ function RegisterForm() {
                     name="password"
                     value={password}
                     onChange={handleChange}
-                    autocomplete="off"
-                    required
+                    
                     placeholder="Пароль"
                   />
            </div>
