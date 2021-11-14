@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import operations from "../../redux/operations";
 import s from "./LoginForm.module.css";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleChange = (e) => {
     switch (e.currentTarget.name) {
@@ -75,8 +75,6 @@ function LoginForm() {
                 </label>
                 
               </div>
-             
-               {/* <span>Паролі не співпадають</span> */}
               <button className={s.loginFormBody__button} type="submit">
               Увійти
               </button>
@@ -84,7 +82,7 @@ function LoginForm() {
           </div>
           <div className={s.loginFormPosition}>
           <span className={s.loginFormSpan}>Немає акаунту? </span>
-          <NavLink to="/login" className={s.loginFormFooter}>
+          <NavLink to="/" className={s.loginFormFooter}>
           Зареєструватись
           </NavLink>
           </div>
