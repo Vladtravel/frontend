@@ -1,3 +1,4 @@
+
 import { Route, Routes } from "react-router-dom";
 // import { useState } from "react";
 import s from "./App.module.css";
@@ -9,25 +10,26 @@ import LoginForm from "../LoginForm";
 import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
 
+
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route
-          path="/projects"
-          element={
-            <Container>
-              <ProjectList />
-            </Container>
-          }
-        />
+
+     <Header />
+     <Routes>
+      <Route path="/" element={<RegisterForm />} />
+      <Route path="/login" element={<LoginForm />} />
       </Routes>
-      {/* <div className={s.container}>
-        <BackgroundAuth />
-      </div> */}
+    <div className={s.container}>
+      <BackgroundAuth />
+    </div>
+      <Container>
+        <ProjectList />
+      </Container>
+      
+     
+      
+
     </>
   );
 }
