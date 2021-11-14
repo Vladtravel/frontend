@@ -20,41 +20,57 @@ function FormCreateProject({ toggleModal }) {
         return;
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
 
-    setName("");
+    reset();
+  };
+
+  const reset = () => {
     setDescription("");
+    setName("");
   };
 
   return (
     <>
       <h2 className={s.title}>Створення проекту</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          className={s.input}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          value={name}
-          onChange={handleChange}
-          autoComplete="off"
-          required
-        />
-        <label className={s.label}>Назва проекту</label>
+      <form className={s.form} onSubmit={handleSubmitForm}>
+        <div className={s.formItem}>
+          <input
+            id="project-name"
+            className={s.input}
+            placeholder=" "
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            value={name}
+            onChange={handleChange}
+            autoComplete="off"
+            required
+          />
+          <label htmlFor="project-name" className={s.label}>
+            Назва проекту
+          </label>
+        </div>
 
-        <input
-          className={s.input}
-          type="text"
-          name="description"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          value={description}
-          onChange={handleChange}
-          autoComplete="off"
-          required
-        />
-        <label className={s.label}>Опис</label>
+        <div className={s.formItem}>
+          <input
+            id="project-phone"
+            className={s.input}
+            placeholder=" "
+            type="text"
+            name="description"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            value={description}
+            onChange={handleChange}
+            autoComplete="off"
+            required
+          />
+          <label htmlFor="project-phone" className={s.label}>
+            Опис
+          </label>
+        </div>
 
         <Button className="button" type="submit" text={"Готово"} />
       </form>
