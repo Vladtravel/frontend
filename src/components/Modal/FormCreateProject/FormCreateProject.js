@@ -20,18 +20,22 @@ function FormCreateProject({ toggleModal }) {
         return;
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
 
-    setName("");
+    reset();
+  };
+
+  const reset = () => {
     setDescription("");
+    setName("");
   };
 
   return (
     <>
       <h2 className={s.title}>Створення проекту</h2>
 
-      <form className={s.form} onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleSubmitForm}>
         <div className={s.formItem}>
           <input
             id="project-name"
@@ -45,10 +49,11 @@ function FormCreateProject({ toggleModal }) {
             autoComplete="off"
             required
           />
-          <label for="project-name" className={s.label}>
+          <label htmlFor="project-name" className={s.label}>
             Назва проекту
           </label>
         </div>
+
         <div className={s.formItem}>
           <input
             id="project-phone"
@@ -62,10 +67,11 @@ function FormCreateProject({ toggleModal }) {
             autoComplete="off"
             required
           />
-          <label for="project-phone" className={s.label}>
+          <label htmlFor="project-phone" className={s.label}>
             Опис
           </label>
         </div>
+
         <Button className="button" type="submit" text={"Готово"} />
       </form>
 
