@@ -49,8 +49,7 @@ function LoginForm() {
                     name="email"
                     value={email}
                     onChange={handleChange}
-                    autocomplete="off"
-                    required
+                    
                   />
                   <label className={s.loginFormBody__label}>
                 E-mail
@@ -67,8 +66,7 @@ function LoginForm() {
                     name="password"
                     value={password}
                     onChange={handleChange}
-                    autocomplete="off"
-                    required
+                   
                   />
                    <label className={s.loginFormBody__label}>
                 Пароль
