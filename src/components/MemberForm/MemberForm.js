@@ -36,6 +36,7 @@ const MemberForm = ({ emails }) => {
     e.preventDefault();
 
     const value = { email };
+    console.log(value);
   };
 
   const addPeople = (e) => {
