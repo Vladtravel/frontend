@@ -15,11 +15,11 @@ function App() {
       <Header />
       {/* <RegisterForm /> */}
 
-      {/* <Routes>
+      <Routes>
         <Route path="/signup" component={RegisterForm} />
-      </Routes> */}
+      </Routes>
 
-      <MemberForm />
+      {/* <MemberForm /> */}
     </div>
   );
 }
