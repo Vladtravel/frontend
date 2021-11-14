@@ -9,6 +9,7 @@ import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
 import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
+import SingleSprint from "../Sprint/SingleSprint"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     </div>
       <Container>
         <ProjectList />
+        < SingleSprint/>
       </Container>
       
      
