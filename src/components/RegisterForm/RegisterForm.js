@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import operations from "../../redux/operations";
+import { useDispatch } from "react-redux";
+import operations from "../../redux/operations";
 import s from "./RegisterForm.module.css";
 
 
@@ -12,7 +12,7 @@ function RegisterForm() {
   const [password, setPassword] = useState("");
   const [password_re, setPassword_Re] = useState("");
   
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 
   const handleChange = (e) => {
@@ -42,7 +42,7 @@ function RegisterForm() {
       alert("Fill all fields!");
       return;
     }
-    // dispatch(operations.register({ email, password }));
+    dispatch(operations.register({ email, password }));
 
   
     setEmail("");
