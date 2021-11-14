@@ -102,7 +102,7 @@ function RegisterForm() {
                   <input
                     className={passwordRepeat === password ? s.loginFormBody__input : s.loginFormBody__input_error }
                     type="password"
-                    name="password_re"
+                    name="passwordRepeat"
                     value={passwordRepeat}
                     onChange={handleChange}
                     placeholder="Повторіть пароль"
