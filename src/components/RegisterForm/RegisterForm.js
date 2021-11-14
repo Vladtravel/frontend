@@ -10,7 +10,7 @@ function RegisterForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [password_re, setPassword_Re] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
   
   const dispatch = useDispatch();
 
@@ -23,8 +23,8 @@ function RegisterForm() {
       case "password":
         setPassword(e.currentTarget.value);
         break;
-    case "password_re":
-      setPassword_Re(e.currentTarget.value)
+    case "passwordRepeat":
+      setPasswordRepeat(e.currentTarget.value)
         break;
       default:
         return;
@@ -38,7 +38,7 @@ function RegisterForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ( email.trim() === "" || password.trim() === "" || password_re.trim() === "") {
+    if ( email.trim() === "" || password.trim() === "" || passwordRepeat.trim() === "") {
       alert("Fill all fields!");
       return;
     }
@@ -47,7 +47,7 @@ function RegisterForm() {
   
     setEmail("");
     setPassword("");
-    setPassword_Re("");
+    setPasswordRepeat("");
 
     // history.push("/confirmation");
   };
@@ -100,10 +100,10 @@ function RegisterForm() {
                   <div className={s.inputIconPassword}></div>
                   
                   <input
-                    className={password_re === password ? s.loginFormBody__input : s.loginFormBody__input_error }
+                    className={passwordRepeat === password ? s.loginFormBody__input : s.loginFormBody__input_error }
                     type="password"
                     name="password_re"
-                    value={password_re}
+                    value={passwordRepeat}
                     onChange={handleChange}
                     placeholder="Повторіть пароль"
                   />
@@ -111,7 +111,7 @@ function RegisterForm() {
                         {/* Повторіть пароль */}
                    </label>
                </div>
-               { password_re !== password && <span className={s.errorPassword}>
+               { passwordRepeat !== password && <span className={s.errorPassword}>
                                               Паролі не співпадають
                                             </span>}
               <button className={s.loginFormBody__button} type="submit">
