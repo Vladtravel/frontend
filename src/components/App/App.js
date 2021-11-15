@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-// import Modal from "../Modal";
 import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
@@ -13,6 +12,7 @@ import SingleSprint from "../Sprint/SingleSprint"
 // import PrivateRoute from "../PrivateRoute";
 // import PublicRoute from "../PublicRoute"
 
+
 function App() {
     const dispatch = useDispatch();
   useEffect(() => {
@@ -20,6 +20,7 @@ function App() {
   }, [dispatch]);
  return (
     <>
+
      <Header/>
        <Routes>
         <Route path="/"  element={<RegisterForm />} />
@@ -48,6 +49,7 @@ function App() {
                     redirectTo='projects'/>
       </Route>*/}
     </Routes> 
+
     </>
   );
 }
