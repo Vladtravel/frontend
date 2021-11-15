@@ -15,11 +15,20 @@ import SingleSprint from "../Sprint/SingleSprint"
 function App() {
   return (
     <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route
+          path="/projects"
+          element={
+            <Container>
+              <ProjectList />
+            </Container>
+          }
+        />
+        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
 
-     <Header />
-     <Routes>
-      <Route path="/" element={<RegisterForm />} />
-      <Route path="/login" element={<LoginForm />} />
       </Routes>
     <div className={s.container}>
       <BackgroundAuth />
