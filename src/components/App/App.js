@@ -6,8 +6,6 @@ import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
 import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
 
-import MemberForm from "../MemberForm/MemberForm";
-
 function App() {
   return (
     <div className={s.container}>
@@ -18,8 +16,6 @@ function App() {
       <Routes>
         <Route path="/signup" component={RegisterForm} />
       </Routes>
-
-      {/* <MemberForm /> */}
     </div>
   );
 }
