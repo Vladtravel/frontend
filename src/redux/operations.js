@@ -17,7 +17,7 @@ const token = {
 const register = (credential) => (dispatch) => {
   dispatch(actions.registerRequest());
   axios
-    .post("/signup", credential)
+    .post("/users/signup", credential)
     .then((res) => {
       dispatch(actions.registerSuccess(res.data));
     })
@@ -26,7 +26,7 @@ const register = (credential) => (dispatch) => {
 const logIn = (credential) => (dispatch) => {
   dispatch(actions.loginRequest());
   axios
-    .post("/login", credential)
+    .post("/users/login", credential)
     .then((res) => {
       token.set(res.data.token);
       dispatch(actions.loginSuccess(res.data));
@@ -37,7 +37,7 @@ const logOut = () => (dispatch) => {
   dispatch(actions.logoutRequest());
 
   axios
-    .post("/logout")
+    .post("/users/logout")
     .then((res) => {
       token.unset();
       dispatch(actions.logoutSuccess(res.data));
@@ -52,11 +52,15 @@ const getCurrentUser = () => (dispatch, getState) => {
   token.set(persistedToken);
   dispatch(actions.getCurrentUserRequest());
   axios
-    .get("/current")
+    .get("/users/current")
     .then((res) => {
       dispatch(actions.getCurrentUserSuccess(res.data));
     })
     .catch((error) => dispatch(actions.getCurrentUserError(error.message)));
+};
+
+const repeatEmailVerify = (email) => (dispatch) => {
+  axios.post("/users/verify", email);
 };
 
 const operations = {
@@ -64,6 +68,7 @@ const operations = {
   logIn,
   logOut,
   getCurrentUser,
+  repeatEmailVerify,
 };
 
 export default operations;
