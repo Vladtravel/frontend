@@ -3,32 +3,44 @@
   z-index: 999;
 
   background-color: white;
-    /* width: 100%;
-    height: 100vh; */
-    
-    /* margin: 0; */
-    /* padding-top: 47px; */
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.525), rgba(0, 0, 0, 0.6)),
-      url(/src/Images/loginPhoto.jpg); */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    margin-top: 56px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 60px 70px;
-    width: 570px;
-    
-    
-   
+  
+  /* margin-top: 0px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 50px;
+  width: 100%;
+  height: 100vh;
   }
 
+  @media screen and (min-width: 320px){
+    .frontPage{
+    
+    width: 320px;
+
+  }
+    }
+
+  @media screen and (min-width: 768px){
+    .frontPage{
+      height: 100%;
+    width: 570px;
+    padding: 60px 70px;
+    margin-top: 56px;
+  }
+    }
+
 .loginForm {
-  width: 360px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 2px;
   background-color: white;
   border-radius: 6px;
+
+  @media screen and (min-width: 768px){
+    
+    width: 100%;
+  }
 }
 
 .loginForm__title{

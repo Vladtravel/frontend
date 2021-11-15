@@ -1,3 +1,4 @@
+
 import { Route, Routes } from "react-router-dom";
 // import { useState } from "react";
 import s from "./App.module.css";
@@ -8,6 +9,8 @@ import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
 import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
+import SingleSprint from "../Sprint/SingleSprint"
+
 
 function App() {
   return (
@@ -25,10 +28,19 @@ function App() {
           }
         />
         <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
+
       </Routes>
-      {/* <div className={s.container}>
-        <BackgroundAuth />
-      </div> */}
+    <div className={s.container}>
+      <BackgroundAuth />
+    </div>
+      <Container>
+        <ProjectList />
+        < SingleSprint/>
+      </Container>
+      
+     
+      
+
     </>
   );
 }

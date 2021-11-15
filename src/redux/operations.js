@@ -3,7 +3,7 @@ import actions from "./actions";
 
 // axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
-axios.defaults.baseURL = "https://test-heroku-new.herokuapp.com/";
+axios.defaults.baseURL = "https://goitproject.herokuapp.com/";
 
 const token = {
   set(token) {
@@ -17,7 +17,7 @@ const token = {
 const register = (credential) => (dispatch) => {
   dispatch(actions.registerRequest());
   axios
-    .post("/users/signup", credential)
+    .post("/signup", credential)
     .then((res) => {
       dispatch(actions.registerSuccess(res.data));
     })
@@ -26,7 +26,7 @@ const register = (credential) => (dispatch) => {
 const logIn = (credential) => (dispatch) => {
   dispatch(actions.loginRequest());
   axios
-    .post("/users/login", credential)
+    .post("/login", credential)
     .then((res) => {
       token.set(res.data.token);
       dispatch(actions.loginSuccess(res.data));
@@ -37,7 +37,7 @@ const logOut = () => (dispatch) => {
   dispatch(actions.logoutRequest());
 
   axios
-    .post("/users/logout")
+    .post("/logout")
     .then((res) => {
       token.unset();
       dispatch(actions.logoutSuccess(res.data));
@@ -52,7 +52,7 @@ const getCurrentUser = () => (dispatch, getState) => {
   token.set(persistedToken);
   dispatch(actions.getCurrentUserRequest());
   axios
-    .get("/users/current")
+    .get("/current")
     .then((res) => {
       dispatch(actions.getCurrentUserSuccess(res.data));
     })
@@ -60,10 +60,10 @@ const getCurrentUser = () => (dispatch, getState) => {
 };
 
 const operations = {
-    register,
-    logIn,
-    logOut,
-    getCurrentUser
+  register,
+  logIn,
+  logOut,
+  getCurrentUser,
 };
 
 export default operations;
