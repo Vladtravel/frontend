@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import s from "./ProjectItem.module.css";
 
@@ -25,13 +25,13 @@ const ProjectItem = ({ projects }) => {
               backgroundColor: color,
             }}
           >
-            <NavLink to={`/projects/${id}`} className={s.link}>
+            <Link to={`/projects/${id}`} className={s.link}>
               <h3 className={s.subtitle}>{name}</h3>
               <p className={s.text}>{description}</p>
               <button className={s.iconDelete} aria-label="delete">
                 <MdDelete color={color} />
               </button>
-            </NavLink>
+            </Link>
           </li>
         );
       })}
