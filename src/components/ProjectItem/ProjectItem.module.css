@@ -24,7 +24,6 @@
   width: 136px;
   height: 136px;
   margin: 5px;
-  padding: 10px;
 
   background-color: #71df87;
   border-radius: 5px;
@@ -37,15 +36,16 @@
     width: 216px;
     height: 216px;
     margin: 10px;
-    padding: 20px;
 
     flex-basis: calc((100% - 3 * 20px) / 3);
 
-    background-image: url(../../images/vector1.svg),
-      url(../../images/vector2.svg);
+    background-image: url(../../Images/vector1.svg),
+      url(../../Images/vector2.svg);
     background-position: 100% 100%;
     background-size: auto;
     background-repeat: no-repeat;
+
+    overflow: hidden;
   }
 }
 
@@ -54,9 +54,26 @@
     width: 216px;
     height: 216px;
     margin: 15px;
-    padding: 20px;
 
     flex-basis: calc((100% - 4 * 30px) / 4);
+  }
+}
+
+.link {
+  padding: 10px;
+  display: block;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .link {
+    padding: 30px;
   }
 }
 
