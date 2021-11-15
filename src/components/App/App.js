@@ -1,32 +1,55 @@
 import { Route, Routes } from "react-router-dom";
-import s from "./App.module.css";
-import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
 import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
-import SingleSprint from "../Sprint/SingleSprint";
+import operations from "../../redux/operations";
+import ConfirmView from "../ConfirmView";
+import SingleSprint from "../Sprint/SingleSprint"
+// import PrivateRoute from "../PrivateRoute";
+// import PublicRoute from "../PublicRoute"
+
 
 function App() {
-  return (
+    const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(operations.getCurrentUser());
+  }, [dispatch]);
+ return (
     <>
-      <Container>
-        <Header />
-        <Routes>
-          <Route path="/" element={<RegisterForm />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/projects" element={<ProjectList />} />
-          <Route path="/projects/:projectId" element={<SingleSprint />} />
-        </Routes>
-      </Container>
-      {/* <div className={s.container}>
-        <BackgroundAuth />
-      </div>
-      <Container>
-        <ProjectList />
-        <SingleSprint />
-      </Container> */}
+
+     <Header/>
+       <Routes>
+        <Route path="/"  element={<RegisterForm />} />
+        <Route path="/login"  element={<LoginForm />} />
+        <Route path="/confirmation" element={<ConfirmView/>} />
+        <Route
+          path="/projects"
+          element={
+            <Container>
+              <ProjectList />
+            </Container>
+          }
+        />
+        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
+        
+      {/* <Route path="projects" element={<LoginForm />}>
+         <PrivateRoute isAuthenticated={false} 
+                        path="/projects" 
+                        component={LoginForm} 
+                        redirectTo='/login'/>
+     </Route>
+     <Route path="login" element={<ProjectList />}>
+        <PublicRoute isAuthenticated={true} 
+                    path="/login" 
+                    component={ProjectList} 
+                    redirectTo='projects'/>
+      </Route>*/}
+    </Routes> 
+
     </>
   );
 }
