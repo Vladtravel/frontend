@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import operations from "../../redux/operations";
 import s from "./LoginForm.module.css";
+import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
+
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -34,6 +36,7 @@ function LoginForm() {
 
   return (
     <>
+    <BackgroundAuth/>
       <div className={s.frontPage}>
         <div className={s.loginForm}>
           <div className={s.loginForm__header}>

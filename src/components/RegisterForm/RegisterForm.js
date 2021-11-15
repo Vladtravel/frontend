@@ -1,12 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import operations from "../../redux/operations";
 import s from "./RegisterForm.module.css";
+import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
 
 
 function RegisterForm() {
-  // const history = useHistory();
+  // const history = createBrowserHistory();
+  let navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,12 +50,13 @@ function RegisterForm() {
     setEmail("");
     setPassword("");
     setPasswordRepeat("");
-
+    navigate('/confirmation');
     // history.push("/confirmation");
   };
 
   return (
     <>
+    <BackgroundAuth/>
       <div className={s.frontPage}>
         <div className={s.loginForm}>
           <div className={s.loginForm__header}>
