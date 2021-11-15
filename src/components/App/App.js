@@ -24,6 +24,7 @@ function App() {
             </Container>
           }
         />
+        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
       </Routes>
       {/* <div className={s.container}>
         <BackgroundAuth />
