@@ -1,0 +1,129 @@
+.modalContainer {
+  position: relative;
+  z-index: 999;
+  /* margin-top: 121px; */
+  width: 429px;
+}
+
+@media screen and (max-width: 767px) {
+  .modalContainer {
+    width: 280px;
+    margin-top: 63px;
+  }
+}
+
+.addFormTitle {
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: Montserrat Medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.32;
+}
+
+@media screen and (max-width: 767px) {
+  .addFormTitle {
+    margin-bottom: 30px;
+    font-size: 26px;
+    line-height: 1.33;
+  }
+}
+
+::placeholder {
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22;
+}
+
+.input {
+  width: 100%;
+  padding-bottom: 8px;
+  outline: none;
+  border-color: transparent;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+}
+
+@media screen and (max-width: 767px) {
+  .input {
+    padding-bottom: 9px;
+  }
+}
+
+.usersTitle {
+  margin-top: 30px;
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+}
+
+.buttonWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  /* display: flex;
+    flex-flow: column wrap; */
+  width: 154px;
+  margin-top: 60px;
+}
+
+.btnReady {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+  color: #fff;
+  background: #ff6b08;
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+  margin-bottom: 20px;
+  border-color: transparent;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.btnCncld {
+  display: block;
+  margin: 0 auto;
+  width: 154px;
+  height: 44px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(24, 28, 39, 0.6);
+  background: #ffffff;
+  /* border-bottom: 1px solid rgba(24, 28, 39, 0.6); */
+  text-decoration-line: underline;
+  transition: all 0.25s ease-in-out;
+}
+
+.btnReady:hover,
+.btnReady:focus {
+  color: #ff6b08;
+  background: #ffffff;
+}
+
+.btnCncld:hover,
+.btnCncld:focus {
+  color: #000000;
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+
+.buttonClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 17.89px;
+  height: 17.46px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
