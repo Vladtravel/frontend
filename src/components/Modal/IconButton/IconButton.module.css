@@ -11,6 +11,12 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  transition: all 250ms linear;
+}
+
+.iconBtn:hover {
+  transform: scale(1.5);
 }
 
 .container {
@@ -34,6 +40,12 @@
   border: none;
   outline: none;
   background: #ff6b08;
+  transition: all 250ms linear;
+}
+
+.btnIconAddProject:hover {
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
+  transform: scale(1.2);
   transition: all 250ms linear;
 }
 
