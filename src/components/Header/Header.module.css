@@ -16,7 +16,7 @@
 }
 
 .header_logo {
-  /* background-image: url(../../Images/Logo.png); */
+  background-image: url(../../Images/Logo.png);
   background-repeat: no-repeat;
 
   background-size: cover;
@@ -49,7 +49,7 @@
   background-size: cover;
   border: none;
   outline: none;
-  /* background-image: url(../../Images/logout-2.svg); */
+  background-image: url(../../Images/logout-2.svg);
   fill: currentColor;
   display: block;
   height: 30px;
@@ -58,7 +58,7 @@
 
 .header__logout_button:focus,
 .header__logout_button:hover {
-  /* background-image: url(../../Images/logout-4.svg); */
+  background-image: url(../../Images/logout-4.svg);
 }
 
 @media (min-width: 768px) {
@@ -80,6 +80,7 @@
   }
 
   .header__login_name {
+    top: 4px;
     height: 20px;
     position: relative;
     margin-right: 77px;
@@ -90,14 +91,14 @@
   }
 
   .header__logout_button {
-    /* background-image: url(../../Images/logout-1.svg); */
+    background-image: url(../../Images/logout-1.svg);
     width: 18px;
     height: 18px;
   }
 
   .header__logout_button:focus,
   .header__logout_button:hover {
-    /* background-image: url(../../Images/logout-3.svg); */
+    background-image: url(../../Images/logout-3.svg);
   }
 
   .header__logout_button::after {

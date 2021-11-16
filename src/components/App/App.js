@@ -22,11 +22,10 @@ const dispatch = useDispatch();
 
 return (
     <>
-
-     <Header/>
+      <Header/>
       <Switch>
-        <Route path="/" exact component={RegisterForm } />
-        <PublicRoute path="/login"  component={LoginForm} />
+        <PublicRoute path="/" exact component={RegisterForm } />
+        <PublicRoute path="/login"  component={LoginForm}/>
         <Route path="/confirmation" component={ConfirmView} />
         <Container>
         <Route path="/projects" component={ProjectList}/>
@@ -36,20 +35,15 @@ return (
           component={LoginForm}
           restricted
           redirectTo="/projects"
-        />
-      
-      
+          />
+
         <PrivateRoute
-          path="/login"
+          path="/projects"
           component={ProjectList}
-          redirectTo="/projects"
+          redirectTo="/login"
         />  
-      
-    
-</Switch> 
-
-
-    </>
+    </Switch> 
+  </>
   );
 }
 
