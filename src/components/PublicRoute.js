@@ -16,5 +16,7 @@ export default function PublicRouter({
     <Route {...routeProps}>
       {shouldRedirect ? <Redirect to={redirectTo} /> : children}
     </Route>
+
+
   );
 }

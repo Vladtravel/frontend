@@ -10,23 +10,28 @@ import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 import SingleSprint from "../Sprint/SingleSprint";
 import PrivateRoute from "../PrivateRoute";
+
 import PublicRoute from "../PublicRoute";
 import selectors from "../../redux/selectors";
 
 function App() {
   const dispatch = useDispatch();
 
+
   const isAuthenticated = useSelector(selectors.isAuthenticated);
 
   console.log("isAuthenticated", isAuthenticated);
+
 
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
 
+
   return (
     <>
       <Header />
+
 
       <Container>
         <Suspense fallback={null}>
@@ -64,6 +69,7 @@ function App() {
           </Switch>
         </Suspense>
       </Container>
+
     </>
   );
 }
