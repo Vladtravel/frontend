@@ -62,7 +62,7 @@ const MemberForm = ({ emails }) => {
     // дописать аргументы
     dispatch(operations.addMemberOperation({ email })); 
 
-
+console.log(value)
   };
 
   const formReset = () => {
