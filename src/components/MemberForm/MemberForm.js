@@ -120,14 +120,6 @@ console.log(value)
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   emails: getEmails(state),
-// })
 
-// const mapDispatchToProps = {
-
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps) (MemberForm);
 
 export default MemberForm;

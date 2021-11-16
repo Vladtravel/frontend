@@ -4,18 +4,13 @@ import { useSelector } from "react-redux";
 import selectors from "../redux/selectors";
 
 const PublicRoute = ({ component: Component, redirectTo, ...routeProps }) => {
-  console.log("ghfhgf");
   const isAuthenticated = useSelector(selectors.isAuthenticated);
-  console.log(isAuthenticated);
+
   return (
     <Route
       {...routeProps}
       render={(props) =>
-        isAuthenticated && routeProps.restricted ? (
-          <Redirect to={redirectTo} />
-        ) : (
-          <Component {...props} />
-        )
+        isAuthenticated && routeProps.restricted ? <Redirect to={redirectTo} /> : <Component {...props} />
       }
     />
   );

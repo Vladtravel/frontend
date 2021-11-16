@@ -12,6 +12,7 @@ const getUserEmail = (state) => state.auth.user.email;
 
 const getAllProjects = (state) => state.projects;
 
+
 const getVisibleMemberList = createSelector([getAllProjects], 
   (projects) => {
     const location = useLocation();
@@ -28,3 +29,5 @@ const selectors = {
   };
 
   export default selectors;
+
+
