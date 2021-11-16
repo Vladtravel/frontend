@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-// import operations from "../../redux/operations";
+import operations from "../../redux/operations";
 import s from "./LoginForm.module.css";
+import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
+
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     switch (e.currentTarget.name) {
@@ -27,13 +29,14 @@ function LoginForm() {
       alert("Fill all fields!");
       return;
     }
-    // dispatch(operations.logIn({ email, password }));
+    dispatch(operations.logIn({ email, password }));
     setEmail("");
     setPassword("");
   };
 
   return (
     <>
+    <BackgroundAuth/>
       <div className={s.frontPage}>
         <div className={s.loginForm}>
           <div className={s.loginForm__header}>
@@ -49,8 +52,7 @@ function LoginForm() {
                     name="email"
                     value={email}
                     onChange={handleChange}
-                    autocomplete="off"
-                    required
+                    
                   />
                   <label className={s.loginFormBody__label}>
                 E-mail
@@ -67,16 +69,13 @@ function LoginForm() {
                     name="password"
                     value={password}
                     onChange={handleChange}
-                    autocomplete="off"
-                    required
+                   
                   />
                    <label className={s.loginFormBody__label}>
                 Пароль
                 </label>
                 
               </div>
-             
-               {/* <span>Паролі не співпадають</span> */}
               <button className={s.loginFormBody__button} type="submit">
               Увійти
               </button>
@@ -84,7 +83,7 @@ function LoginForm() {
           </div>
           <div className={s.loginFormPosition}>
           <span className={s.loginFormSpan}>Немає акаунту? </span>
-          <NavLink to="/signup" className={s.loginFormFooter}>
+          <NavLink to="/" className={s.loginFormFooter}>
           Зареєструватись
           </NavLink>
           </div>

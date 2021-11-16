@@ -1,0 +1,148 @@
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+  margin-top: 36px;
+}
+
+@media screen and (min-width: 768px) {
+  .item {
+    margin: -10px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .item {
+    margin: -15px;
+    margin-top: 30px;
+  }
+}
+
+.list {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  margin: 5px;
+
+  background-color: #71df87;
+  border-radius: 5px;
+
+  flex-basis: calc((100% - 2 * 10px) / 2);
+
+  transition: all 0.25s ease-in-out;
+}
+
+.list:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    width: 216px;
+    height: 216px;
+    margin: 10px;
+
+    flex-basis: calc((100% - 3 * 20px) / 3);
+
+    background-image: url(../../Images/vector1.svg),
+      url(../../Images/vector2.svg);
+    background-position: 100% 100%;
+    background-size: auto;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list {
+    width: 216px;
+    height: 216px;
+    margin: 15px;
+
+    flex-basis: calc((100% - 4 * 30px) / 4);
+  }
+}
+
+.link {
+  padding: 10px;
+  display: block;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .link {
+    padding: 30px;
+  }
+}
+
+.subtitle {
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .subtitle {
+    font-size: 26px;
+    line-height: 1.23;
+  }
+}
+
+.text {
+  font-family: Montserrat;
+
+  font-size: 10px;
+  line-height: 1.2;
+
+  margin-top: 6px;
+
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}
+
+.iconDelete {
+  position: absolute;
+
+  bottom: 10px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+
+  cursor: pointer;
+
+  background-image: url("./delete.svg");
+
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+
+  transition: all 0.25s ease-in-out;
+
+  box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+}
+
+.iconDelete:hover {
+  transform: scale(1.2);
+}

@@ -11,6 +11,12 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  transition: all 250ms linear;
+}
+
+.iconBtn:hover {
+  transform: scale(1.5);
 }
 
 .container {
@@ -26,9 +32,6 @@
 }
 
 .btnIconAddProject {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -40,8 +43,23 @@
   transition: all 250ms linear;
 }
 
+.btnIconAddProject:hover {
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
+  transform: scale(1.2);
+  transition: all 250ms linear;
+}
+
+@media screen and (max-width: 767px) {
+  .btnIconAddProject {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .btnIconAddProject {
     position: relative;
+    margin-left: auto;
   }
 }

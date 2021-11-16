@@ -4,7 +4,10 @@ import IconButton from "../Modal/IconButton";
 import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg";
 import FormCreateProject from "../Modal/FormCreateProject";
+import ProjectItem from "../ProjectItem";
 import s from "./ProjectList.module.css";
+
+import projects from "../ProjectItem/project.json";
 
 const ProjectList = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,6 +19,8 @@ const ProjectList = () => {
   return (
     <>
       <div className={s.container}>
+        <h2 className={s.title}>Проекти</h2>
+
         <IconButton
           onClick={toggleModal}
           aria-label="create project"
@@ -23,9 +28,10 @@ const ProjectList = () => {
         >
           <AddProject />
         </IconButton>
+        <p className={s.text}>Створити проект</p>
       </div>
 
-      <div className={s.containerWer}>sdfsdfsdfsdfsdfs</div>
+      <ProjectItem projects={projects} />
 
       {showModal && (
         <Modal onClose={toggleModal}>
