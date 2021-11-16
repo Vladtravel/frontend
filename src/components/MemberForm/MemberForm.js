@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
+import operations from "../../redux/operations";
 import Modal from "../Modal/Modal";
 import MemberList from "../MemberList/MemberList";
 import btnClose from "./btnClose.svg";
@@ -11,7 +12,10 @@ import s from "./MemberForm.module.css";
 const MemberForm = ({ emails }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
+  const location = useLocation();
+
+  const dispatch = useDispatch();
 
   const inputEmailValue = (e) => {
     const { email } = e.target.value;
@@ -32,12 +36,6 @@ const MemberForm = ({ emails }) => {
     return !!Object.keys(errorsObject).length;
   };
 
-  const onFormSubmit = async (e) => {
-    e.preventDefault();
-
-    const value = { email };
-  };
-
   const addPeople = (e) => {
     e.preventDefault();
     const newEmail = emails.some((email) => email.name === email);
@@ -47,6 +45,24 @@ const MemberForm = ({ emails }) => {
       return;
     }
     onFormSubmit();
+    formReset();
+  };
+
+  const onFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const projectId = location.pathname.split("/")[2];
+    const value = { projectId, email };
+
+    const result = await validateEmail(email);
+
+    if(!result) {
+      alert('Почта не вірна')
+    }
+    // дописать аргументы
+    dispatch(operations.addMemberOperation({ email })); 
+
+console.log(value)
   };
 
   const formReset = () => {
@@ -104,14 +120,6 @@ const MemberForm = ({ emails }) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   emails: getEmails(state),
-// })
 
-// const mapDispatchToProps = {
-
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps) (MemberForm);
 
 export default MemberForm;
