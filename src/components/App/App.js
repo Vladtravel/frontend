@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, Suspense } from "react";
 import Header from "../Header/Header";
