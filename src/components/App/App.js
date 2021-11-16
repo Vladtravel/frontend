@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
+
   return (
     <>
       <Header />
@@ -32,21 +33,25 @@ function App() {
             </Container>
           }
         />
-        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
 
-        {/* <Route path="projects" element={<LoginForm />}>
-         <PrivateRoute isAuthenticated={false} 
-                        path="/projects" 
-                        component={LoginForm} 
-                        redirectTo='/login'/>
-     </Route>
-     <Route path="login" element={<ProjectList />}>
-        <PublicRoute isAuthenticated={true} 
-                    path="/login" 
-                    component={ProjectList} 
-                    redirectTo='projects'/>
-      </Route>*/}
-      </Routes>
+      {/* <Route
+        path="/login"
+        element={
+          <PrivateRoute redirectTo="/projects">
+            <Container>
+              <ProjectList />
+            </Container>
+          </PrivateRoute>
+        }
+      /> */}
+        
+       
+
+      
+     
+    </Routes> 
+
+
     </>
   );
 }
