@@ -1,0 +1,16 @@
+.membersList {
+    margin: 0 auto;
+    width: 430px;
+    height: 160px;
+    overflow-y: auto; 
+}
+
+.membersItem {
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-family: "Montserrat";
+}
