@@ -9,6 +9,7 @@ import selectors from "../redux/selectors";
  */
 const PrivateRoute = ({ component: Component, redirectTo, ...routeProps }) => {
   const isAuthenticated = useSelector(selectors.isAuthenticated);
+  console.log(isAuthenticated);
 
   return (
     <Route
