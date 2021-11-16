@@ -14,6 +14,7 @@ const MemberForm = ({ emails }) => {
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(true);
   const location = useLocation();
+  console.log(errors)
 
   const dispatch = useDispatch();
 
