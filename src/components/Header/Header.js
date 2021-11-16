@@ -1,18 +1,11 @@
 import React from "react";
 import { useDispatch} from "react-redux";
-// import { getUserState } from "../../redux/selectors";
-// import { getUser } from "../../redux/actions";
 import css from "./Header.module.css";
 import operations from "../../redux/operations";
 
 const Header = () => {
-  // const user = useSelector((state) => getUserState(state));
-
   const dispatch = useDispatch();
 
-  // const logOut = () => {
-  //   dispatch(getUser(null));
-  // };
   return (
     <header className={css.header}>
       <div className={css.header__wrapper}>
