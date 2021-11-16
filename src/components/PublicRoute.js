@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import selectors from "../redux/selectors";
 
@@ -14,7 +14,7 @@ const PublicRoute = ({ component: Component, redirectTo, ...routeProps }) => {
       {...routeProps}
       render={(props) =>
         isAuthenticated && routeProps.restricted ? (
-            <Navigate to={props.redirectLink} />
+          <Redirect to={redirectTo} />
         ) : (
           <Component {...props} />
         )
