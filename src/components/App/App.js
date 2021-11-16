@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
 import ProjectList from "../ProjectList";
-// import Container from "../Container/Container";
+import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 // import SingleSprint from "../Sprint/SingleSprint"
@@ -28,8 +28,9 @@ return (
         <PublicRoute path="/" exact component={RegisterForm } />
         <Route path="/login"  component={LoginForm} />
         <Route path="/confirmation" component={ConfirmView} />
+        <Container>
         <Route path="/projects" component={ProjectList}/>
-
+        </Container>
         <PublicRoute
           path="/login"
           component={LoginForm}
