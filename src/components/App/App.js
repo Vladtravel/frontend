@@ -24,7 +24,7 @@ return (
     <>
       <Header/>
       <Switch>
-        <PublicRoute path="/" exact component={RegisterForm } />
+        <Route path="/" exact component={RegisterForm } />
         <PublicRoute path="/login"  component={LoginForm}/>
         <Route path="/confirmation" component={ConfirmView} />
         <Container>
