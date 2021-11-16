@@ -8,24 +8,22 @@ import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
-import SingleSprint from "../Sprint/SingleSprint"
+// import SingleSprint from "../Sprint/SingleSprint"
 // import PrivateRoute from "../PrivateRoute";
 // import PublicRoute from "../PublicRoute"
 
-
 function App() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
- return (
+  return (
     <>
-
-     <Header/>
-       <Routes>
-        <Route path="/"  element={<RegisterForm />} />
-        <Route path="/login"  element={<LoginForm />} />
-        <Route path="/confirmation" element={<ConfirmView/>} />
+      <Header />
+      <Routes>
+        <Route path="/" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/confirmation" element={<ConfirmView />} />
         <Route
           path="/projects"
           element={
@@ -35,8 +33,8 @@ function App() {
           }
         />
         <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
-        
-      {/* <Route path="projects" element={<LoginForm />}>
+
+        {/* <Route path="projects" element={<LoginForm />}>
          <PrivateRoute isAuthenticated={false} 
                         path="/projects" 
                         component={LoginForm} 
@@ -48,8 +46,7 @@ function App() {
                     component={ProjectList} 
                     redirectTo='projects'/>
       </Route>*/}
-    </Routes> 
-
+      </Routes>
     </>
   );
 }
