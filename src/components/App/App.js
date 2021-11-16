@@ -12,23 +12,19 @@ import ConfirmView from "../ConfirmView";
 // import PrivateRoute from "../PrivateRoute";
 // import PublicRoute from "../PublicRoute"
 
-
 function App() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
 
-  // const isAuthenticated = (state) => state.auth.isAuthenticated;
-
- return (
+  return (
     <>
-
-     <Header/>
-       <Routes>
-        <Route path="/"  element={<RegisterForm />} />
-        <Route path="/login"  element={<LoginForm />} />
-        <Route path="/confirmation" element={<ConfirmView/>} />
+      <Header />
+      <Routes>
+        <Route path="/" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/confirmation" element={<ConfirmView />} />
         <Route
           path="/projects"
           element={
@@ -37,6 +33,7 @@ function App() {
             </Container>
           }
         />
+
       {/* <Route
         path="/login"
         element={
@@ -53,6 +50,7 @@ function App() {
       
      
     </Routes> 
+
 
     </>
   );
