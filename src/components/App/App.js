@@ -25,24 +25,26 @@ return (
 
      <Header/>
       <Switch>
-        <PublicRoute path="/" exact component={RegisterForm } />
-        <Route path="/login"  component={LoginForm} />
+        <Route path="/" exact component={RegisterForm } />
+        <PublicRoute path="/login"  component={LoginForm} />
         <Route path="/confirmation" component={ConfirmView} />
-        <Container>
+        {/* <Container>
         <Route path="/projects" component={ProjectList}/>
-        </Container>
+        </Container> */}
         <PublicRoute
           path="/login"
           component={LoginForm}
           restricted
           redirectTo="/projects"
         />
-
+      
+      <Container>
         <PrivateRoute
-          path="/projects"
+          path="/login"
           component={ProjectList}
-          redirectTo="/login"
+          redirectTo="/projects"
         />  
+      </Container>
     
 </Switch> 
 
