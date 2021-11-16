@@ -8,7 +8,7 @@ import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
-import SingleSprint from "../Sprint/SingleSprint"
+// import SingleSprint from "../Sprint/SingleSprint"
 // import PrivateRoute from "../PrivateRoute";
 // import PublicRoute from "../PublicRoute"
 
@@ -18,6 +18,9 @@ function App() {
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
+
+  // const isAuthenticated = (state) => state.auth.isAuthenticated;
+
  return (
     <>
 
@@ -34,20 +37,21 @@ function App() {
             </Container>
           }
         />
-        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
+      {/* <Route
+        path="/login"
+        element={
+          <PrivateRoute redirectTo="/projects">
+            <Container>
+              <ProjectList />
+            </Container>
+          </PrivateRoute>
+        }
+      /> */}
         
-      {/* <Route path="projects" element={<LoginForm />}>
-         <PrivateRoute isAuthenticated={false} 
-                        path="/projects" 
-                        component={LoginForm} 
-                        redirectTo='/login'/>
-     </Route>
-     <Route path="login" element={<ProjectList />}>
-        <PublicRoute isAuthenticated={true} 
-                    path="/login" 
-                    component={ProjectList} 
-                    redirectTo='projects'/>
-      </Route>*/}
+       
+
+      
+     
     </Routes> 
 
     </>
