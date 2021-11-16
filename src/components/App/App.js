@@ -1,55 +1,49 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Header from "../Header/Header";
 import RegisterForm from "../RegisterForm";
 import LoginForm from "../LoginForm";
 import ProjectList from "../ProjectList";
-import Container from "../Container/Container";
+// import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 // import SingleSprint from "../Sprint/SingleSprint"
-// import PrivateRoute from "../PrivateRoute";
-// import PublicRoute from "../PublicRoute"
+import PrivateRoute from "../PrivateRoute";
+import PublicRoute from "../PublicRoute"
 
 function App() {
-  const dispatch = useDispatch();
+
+const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
 
-  return (
+return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/confirmation" element={<ConfirmView />} />
-        <Route
-          path="/projects"
-          element={
-            <Container>
-              <ProjectList />
-            </Container>
-          }
+
+     <Header/>
+      <Switch>
+        <PublicRoute path="/" exact component={RegisterForm } />
+        <Route path="/login"  component={LoginForm} />
+        <Route path="/confirmation" component={ConfirmView} />
+        <Route path="/projects" component={ProjectList}/>
+
+        <PublicRoute
+          path="/login"
+          component={LoginForm}
+          restricted
+          redirectTo="/projects"
         />
 
-      {/* <Route
-        path="/login"
-        element={
-          <PrivateRoute redirectTo="/projects">
-            <Container>
-              <ProjectList />
-            </Container>
-          </PrivateRoute>
-        }
-      /> */}
-        
-       
-
-      
-     
-    </Routes> 
+        <PrivateRoute
+          path="/projects"
+          component={ProjectList}
+          redirectTo="/login"
+        />  
+    
+</Switch> 
 
 
     </>
