@@ -27,22 +27,13 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={RegisterForm} />
-        <PublicRoute path="/login" component={LoginForm} />
+        <PublicRoute path="/login" component={LoginForm} restricted
+          redirectTo="/projects"/>
         <Route path="/confirmation" component={ConfirmView} />
         <Container>
-          <Route path="/projects" component={ProjectList} />
+          <PrivateRoute path="/projects" component={ProjectList} redirectTo="/login" />
         </Container>
-        <PublicRoute
-          path="/login"
-          component={LoginForm}
-          restricted
-          redirectTo="/projects"
-        />
-
-        <PrivateRoute
-          path="/projects"
-          component={ProjectList}
-          redirectTo="/login" />
+       
       </Switch>
     </>
   );

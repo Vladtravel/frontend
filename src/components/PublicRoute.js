@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import selectors from "../redux/selectors";
 
 const PublicRoute = ({ component: Component, redirectTo, ...routeProps }) => {
-  console.log("ghfhgf");
   const isAuthenticated = useSelector(selectors.isAuthenticated);
   console.log(isAuthenticated);
   return (
