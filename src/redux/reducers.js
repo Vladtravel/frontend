@@ -32,15 +32,15 @@ const isAuthenticated = createReducer(false, {
 });
 
 // const projects = combineReducers({
-
+  
 // });
 
 const auth = combineReducers({
-  user,
-  isAuthenticated,
-  token,
-  error,
-});
-
-const reducers = { auth };
-export default reducers;
+    user,
+    isAuthenticated,
+    token,
+    error,
+  });
+  
+  const reducers = { auth };
+  export default reducers;

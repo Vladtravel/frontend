@@ -36,14 +36,15 @@ return (
           restricted
           redirectTo="/projects"
           />
-
+      
+      
         <PrivateRoute
           path="/projects"
           component={ProjectList}
           redirectTo="/login"
         />  
-    </Switch> 
-  </>
+      </Switch> 
+    </>
   );
 }
 
