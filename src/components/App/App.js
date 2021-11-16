@@ -10,40 +10,45 @@ import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 // import SingleSprint from "../Sprint/SingleSprint"
 import PrivateRoute from "../PrivateRoute";
-import PublicRoute from "../PublicRoute";
+import PublicRoute from "../PublicRoute"
 
 function App() {
-  const dispatch = useDispatch();
+
+const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
 
-  return (
+return (
     <>
-      <Header />
+
+     <Header/>
       <Switch>
-        <Route path="/" exact component={RegisterForm} />
-        <PublicRoute path="/login" component={LoginForm} />
+        <Route path="/" exact component={RegisterForm } />
+        <PublicRoute path="/login"  component={LoginForm} />
         <Route path="/confirmation" component={ConfirmView} />
-        {/* <Container>
+        <Container>
         <Route path="/projects" component={ProjectList}/>
-        </Container> */}
+        </Container>
         <PublicRoute
           path="/login"
           component={LoginForm}
           restricted
           redirectTo="/projects"
         />
+      
+      
+        <PrivateRoute
+          path="/login"
+          component={ProjectList}
+          redirectTo="/projects"
+        />  
+      
+    
+</Switch> 
 
-        <Container>
-          <PrivateRoute
-            path="/login"
-            component={ProjectList}
-            redirectTo="/projects"
-          />
-        </Container>
-      </Switch>
+
     </>
   );
 }
