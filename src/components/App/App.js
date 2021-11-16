@@ -13,6 +13,7 @@ import SingleSprint from "../Sprint/SingleSprint"
 // import PublicRoute from "../PublicRoute"
 
 
+
 function App() {
     const dispatch = useDispatch();
   useEffect(() => {
@@ -21,7 +22,7 @@ function App() {
  return (
     <>
 
-     <Header/>
+      <Header/>
        <Routes>
         <Route path="/"  element={<RegisterForm />} />
         <Route path="/login"  element={<LoginForm />} />
@@ -34,7 +35,9 @@ function App() {
             </Container>
           }
         />
-        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
+        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} /> 
+
+        
         
       {/* <Route path="projects" element={<LoginForm />}>
          <PrivateRoute isAuthenticated={false} 
@@ -48,7 +51,7 @@ function App() {
                     component={ProjectList} 
                     redirectTo='projects'/>
       </Route>*/}
-    </Routes> 
+     </Routes> 
 
     </>
   );

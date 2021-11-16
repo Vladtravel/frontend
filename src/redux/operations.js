@@ -63,12 +63,18 @@ const repeatEmailVerify = (email) => (dispatch) => {
   axios.post("/users/verify", email);
 };
 
+const addMemberOperation = ({ projectId, email }) => {};
+
+const updateMemberList = () => {};
+
 const operations = {
   register,
   logIn,
   logOut,
   getCurrentUser,
   repeatEmailVerify,
+  addMemberOperation,
+  updateMemberList,
 };
 
 export default operations;
