@@ -12,15 +12,15 @@ import ConfirmView from "../ConfirmView";
 import PrivateRoute from "../PrivateRoute";
 import PublicRoute from "../PublicRoute"
 
-
 function App() {
+
 const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
 
-
- return (
+return (
     <>
 
      <Header/>
@@ -43,11 +43,8 @@ const dispatch = useDispatch();
           redirectTo="/login"
         />  
     
-       
+</Switch> 
 
-      
-     
-    </Switch> 
 
     </>
   );
