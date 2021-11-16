@@ -15,7 +15,7 @@ const token = {
 };
 
 const register = (credential) => (dispatch) => {
-  dispatch(actions.registerRequest());
+  // dispatch(actions.registerRequest());
   axios
     .post("/users/signup", credential)
     .then((res) => {
