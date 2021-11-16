@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import selectors from "../redux/selectors";
 
@@ -9,7 +9,6 @@ import selectors from "../redux/selectors";
  */
 const PrivateRoute = ({ component: Component, redirectTo, ...routeProps }) => {
   const isAuthenticated = useSelector(selectors.isAuthenticated);
-  console.log(isAuthenticated);
 
   return (
     <Route
@@ -18,7 +17,7 @@ const PrivateRoute = ({ component: Component, redirectTo, ...routeProps }) => {
         isAuthenticated ? (
           <Component {...props} />
         ) : (
-          <Navigate to={redirectTo} />
+          <Redirect to={redirectTo} />
         )
       }
     />
@@ -26,3 +25,4 @@ const PrivateRoute = ({ component: Component, redirectTo, ...routeProps }) => {
 };
 
 export default PrivateRoute;
+

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Header from "../Header/Header";
@@ -9,44 +9,44 @@ import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 // import SingleSprint from "../Sprint/SingleSprint"
-// import PrivateRoute from "../PrivateRoute";
-// import PublicRoute from "../PublicRoute"
+import PrivateRoute from "../PrivateRoute";
+import PublicRoute from "../PublicRoute"
 
 function App() {
-  const dispatch = useDispatch();
+
+const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(operations.getCurrentUser());
   }, [dispatch]);
-  return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/confirmation" element={<ConfirmView />} />
-        <Route
-          path="/projects"
-          element={
-            <Container>
-              <ProjectList />
-            </Container>
-          }
-        />
-        <Route path="/projects/:projectId" element={<h1>Hello World</h1>} />
 
-        {/* <Route path="projects" element={<LoginForm />}>
-         <PrivateRoute isAuthenticated={false} 
-                        path="/projects" 
-                        component={LoginForm} 
-                        redirectTo='/login'/>
-     </Route>
-     <Route path="login" element={<ProjectList />}>
-        <PublicRoute isAuthenticated={true} 
-                    path="/login" 
-                    component={ProjectList} 
-                    redirectTo='projects'/>
-      </Route>*/}
-      </Routes>
+return (
+    <>
+
+     <Header/>
+      <Switch>
+        <PublicRoute path="/" exact component={RegisterForm } />
+        <Route path="/login"  component={LoginForm} />
+        <Route path="/confirmation" component={ConfirmView} />
+        <Container>
+        <Route path="/projects" component={ProjectList}/>
+        </Container>
+        <PublicRoute
+          path="/login"
+          component={LoginForm}
+          restricted
+          redirectTo="/projects"
+        />
+
+        <PrivateRoute
+          path="/projects"
+          component={ProjectList}
+          redirectTo="/login"
+        />  
+    
+</Switch> 
+
+
     </>
   );
 }

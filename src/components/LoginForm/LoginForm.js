@@ -5,7 +5,6 @@ import operations from "../../redux/operations";
 import s from "./LoginForm.module.css";
 import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
 
-
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
