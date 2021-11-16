@@ -23,12 +23,12 @@ function App() {
     <>
       <Header />
       <Switch>
-        <PublicRoute path="/" exact component={RegisterForm} />
-        <Route path="/login" component={LoginForm} />
+        <Route path="/" exact component={RegisterForm} />
+        <PublicRoute path="/login" component={LoginForm} />
         <Route path="/confirmation" component={ConfirmView} />
-        <Container>
-          <Route path="/projects" component={ProjectList} />
-        </Container>
+        {/* <Container>
+        <Route path="/projects" component={ProjectList}/>
+        </Container> */}
         <PublicRoute
           path="/login"
           component={LoginForm}
@@ -36,11 +36,13 @@ function App() {
           redirectTo="/projects"
         />
 
-        <PrivateRoute
-          path="/projects"
-          component={ProjectList}
-          redirectTo="/login"
-        />
+        <Container>
+          <PrivateRoute
+            path="/login"
+            component={ProjectList}
+            redirectTo="/projects"
+          />
+        </Container>
       </Switch>
     </>
   );

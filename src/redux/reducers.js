@@ -31,16 +31,16 @@ const isAuthenticated = createReducer(false, {
   [actions.getCurrentUserError.type]: () => false,
 });
 
-const contacts = combineReducers({
-  
-});
+// const projects = combineReducers({
+
+// });
 
 const auth = combineReducers({
-    user,
-    isAuthenticated,
-    token,
-    error,
-  });
-  
-  const reducers = { auth, contacts };
-  export default reducers;
+  user,
+  isAuthenticated,
+  token,
+  error,
+});
+
+const reducers = { auth };
+export default reducers;
