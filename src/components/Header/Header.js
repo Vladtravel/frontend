@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import css from "./Header.module.css";
 import operations from "../../redux/operations";
 
@@ -9,12 +9,10 @@ const Header = () => {
   return (
     <header className={css.header}>
       <div className={css.header__wrapper}>
-        <a href="/">
-          <span className={css.header_logo}></span>
-        </a>
+        <a href="/"><span className={css.header_logo}></span></a>
 
         <div className={css.header__login_wrapper}>
-          <p className={css.header__login_name}>{"User.username"}</p>
+          <p className={css.header__login_name}>{'User.username'}</p>
 
           <button
             onClick={() => dispatch(operations.logOut())}
