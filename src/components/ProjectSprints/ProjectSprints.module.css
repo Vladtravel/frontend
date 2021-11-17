@@ -1,0 +1,21 @@
+.Sprints{
+    display: flex;
+
+}
+.menuSprints{
+    width: 255px;
+    height: 100vh;
+    border-right: 1px solid #181C27;
+  }
+  
+.menuLink{
+    width: 119px;
+    height: 34px;
+
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+
+    color: #181C27;
+}
