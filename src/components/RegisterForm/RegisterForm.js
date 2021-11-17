@@ -7,7 +7,6 @@ import BackgroundAuth from "../BackgroundAuth/BackgroundAuth";
 
 function RegisterForm() {
   const history = useHistory();
-  // let navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,53 +45,47 @@ function RegisterForm() {
     setEmail("");
     setPassword("");
     setPasswordRepeat("");
-    // navigate("/confirmation");
     history.push("/confirmation");
   };
 
   return (
     <>
       <BackgroundAuth />
-      <div className={s.frontPage}>
-        <div className={s.loginForm}>
-          <div className={s.loginForm__header}>
-            <h1 className={s.loginForm__title}>Реєстрація</h1>
-          </div>
-          <div className={s.loginFormBody}>
-            <form onSubmit={handleSubmit}>
-              <div className={s.EmailForm}>
-                <div className={s.inputIconEmail}></div>
-                <label className={s.loginFormBody__label}>{/* E-mail */}</label>
-                <input
-                  className={s.loginFormBody__input}
+      <div className={s.forma}>
+          <form onSubmit={handleSubmit}>
+          <h1 className={s.formaTitle}>Реєстрація</h1>
+            <div className={s.formaEmail}>
+               <input
+                  className={s.formaInput}
                   type="email"
                   name="email"
                   value={email}
                   onChange={handleChange}
                   placeholder="E-mail"
+                  // autocomplete="off"
                 />
-              </div>
+                <label className={s.formaLabel}>E-mail</label>
+            </div>
 
-              <div className={s.PasswordForm}>
-                <div className={s.inputIconPassword}></div>
-                <label className={s.loginFormBody__label}>{/* Пароль */}</label>
+              <div className={s.formaPassword}>
                 <input
-                  className={s.loginFormBody__input}
+                  className={s.formaInput}
                   type="password"
                   name="password"
                   value={password}
                   onChange={handleChange}
                   placeholder="Пароль"
+                  
                 />
+                <label className={s.formaLabel}>Пароль</label>
               </div>
-              <div className={s.PasswordFormRepeat}>
-                <div className={s.inputIconPassword}></div>
-
+              
+              <div className={s.formaPasswordRepeat}>
                 <input
                   className={
                     passwordRepeat === password
-                      ? s.loginFormBody__input
-                      : s.loginFormBody__input_error
+                      ? s.formaInput
+                      : s.formaInputError
                   }
                   type="password"
                   name="passwordRepeat"
@@ -100,25 +93,26 @@ function RegisterForm() {
                   onChange={handleChange}
                   placeholder="Повторіть пароль"
                 />
-                <label className={s.loginFormBody__label}>
-                  {/* Повторіть пароль */}
-                </label>
-              </div>
+                <label className={s.formaLabel}>
+                  Повторіть пароль
+                </label> 
+                {/* <br></br> */}
+              
               {passwordRepeat !== password && (
                 <span className={s.errorPassword}>Паролі не співпадають</span>
               )}
-              <button className={s.loginFormBody__button} type="submit">
+              </div>
+              <button className={s.formaButton} type="submit">
                 Зареєструватися
               </button>
             </form>
-          </div>
-          <div className={s.loginFormPosition}>
-            <span className={s.loginFormSpan}>Маєте акаунт? </span>
-            <NavLink to="/login" className={s.loginFormFooter}>
+          
+          <div className={s.formaNavigate}>
+            <span>Маєте акаунт? </span>
+            <NavLink to="/login" className={s.formaNavigateLink}>
               Увійти
             </NavLink>
           </div>
-        </div>
       </div>
     </>
   );
