@@ -7,9 +7,10 @@
 }
 
 .header__wrapper {
-  width: 280px;
+  width: auto;
   height: 60px;
-  margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +33,6 @@
 .header__login_name {
   display: inline-flex;
   align-items: center;
-
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -63,8 +63,10 @@
 
 @media (min-width: 768px) {
   .header__wrapper {
-    width: 688px;
+    width: auto;
     height: 80px;
+    margin-right: 40px;
+    margin-left: 40px;
   }
 
   .header_logo {
@@ -83,6 +85,7 @@
     height: 20px;
     position: relative;
     margin-right: 77px;
+    top: 4px;
   }
 
   .header__logout_button {
@@ -124,6 +127,8 @@
 
 @media (min-width: 1280px) {
   .header__wrapper {
-    width: 1170px;
+    width: auto;
+    margin-left: 55px;
+    margin-right: 55px;
   }
 }

@@ -1,9 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./Header.module.css";
 import operations from "../../redux/operations";
+import selectors from "../../redux/selectors";
 
 const Header = () => {
+  const email = useSelector(selectors.getUserEmail);
   const dispatch = useDispatch();
 
   return (
@@ -12,15 +14,17 @@ const Header = () => {
         <a href="/signup">
           <span className={css.header_logo}></span>
         </a>
-
+        
+        {email && (
         <div className={css.header__login_wrapper}>
-          <p className={css.header__login_name}>{"User.username"}</p>
+          <p className={css.header__login_name}>{email}</p>
 
           <button
             onClick={() => dispatch(operations.logOut())}
             className={css.header__logout_button}
           ></button>
         </div>
+        )}
       </div>
     </header>
   );
