@@ -1,14 +1,8 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
-import {
-  fetchProjects,
-  deleteProject,
-} from "../../redux/projects/projects-operations";
-import {
-  getAllProjects,
-  getError,
-} from "../../redux/projects/projects-selectors";
+import { fetchProjects, deleteProject } from "../../redux/projects/projects-operations";
+import { getAllProjects, getError } from "../../redux/projects/projects-selectors";
 import s from "./ProjectItem.module.css";
 
 const randomColor = [
@@ -33,7 +27,7 @@ const ProjectItem = () => {
   const { url } = useRouteMatch();
 
   if (error) {
-    return <h2 className={s.error}>Что-то пошло не так :(</h2>;
+    return <h2 className={s.error}>Что-то пошло не так:(</h2>;
   }
 
   const onClick = (_id) => dispatch(deleteProject(_id));
@@ -41,8 +35,7 @@ const ProjectItem = () => {
   return (
     <ul className={s.item}>
       {projects.data?.map(({ name, description, _id }) => {
-        const color =
-          randomColor[Math.floor(Math.random() * randomColor.length)];
+        const color = randomColor[Math.floor(Math.random() * randomColor.length)];
         return (
           <li
             key={_id}
@@ -56,11 +49,7 @@ const ProjectItem = () => {
               <h3 className={s.subtitle}>{name}</h3>
               <p className={s.text}>{description}</p>
             </Link>
-            <button
-              className={s.iconDelete}
-              onClick={() => onClick(_id)}
-              aria-label="delete"
-            ></button>
+            <button className={s.iconDelete} onClick={() => onClick(_id)} aria-label="delete"></button>
           </li>
         );
       })}
