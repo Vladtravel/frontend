@@ -1,5 +1,5 @@
 import axios from "axios";
-// import shortid from "shortid";
+import shortid from "shortid";
 import {
   getProjectsRequest,
   getProjectsSuccess,
@@ -12,13 +12,13 @@ import {
   deleteProjectsError,
 } from "./projects-actions";
 
-axios.defaults.baseURL = "https://goitproject.herokuapp.com/api";
+axios.defaults.baseURL = "https://goitproject.herokuapp.com";
 
 export const fetchProjects = () => async (dispatch) => {
   dispatch(getProjectsRequest());
 
   axios
-    .get("/projects")
+    .get("api/projects")
     .then(({ data }) => dispatch(getProjectsSuccess(data)))
     .catch((error) => dispatch(getProjectsError(error.message)));
 };
@@ -28,7 +28,7 @@ export const addProject =
   (dispatch) => {
     const project = {
       name,
-      // id: shortid.generate(),
+      id: shortid.generate(),
       description,
     };
 
