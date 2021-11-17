@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
+import PropTypes from "prop-types";
 import {
   fetchProjects,
   deleteProject,
@@ -21,9 +22,7 @@ const randomColor = [
 
 const ProjectItem = () => {
   const projects = useSelector(getAllProjects);
-
   const error = useSelector(getError);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,14 +32,14 @@ const ProjectItem = () => {
   const { url } = useRouteMatch();
 
   if (error) {
-    return <h2 className={s.error}>Что-то пошло не так :(</h2>;
+    return <h2 className={s.error}>Что-то пошло не так </h2>;
   }
 
   const onClick = (_id) => dispatch(deleteProject(_id));
 
   return (
     <ul className={s.item}>
-      {projects.data?.map(({ name, description, _id }) => {
+      {projects?.map(({ name, description, _id }) => {
         const color =
           randomColor[Math.floor(Math.random() * randomColor.length)];
         return (
@@ -66,6 +65,16 @@ const ProjectItem = () => {
       })}
     </ul>
   );
+};
+
+ProjectItem.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default ProjectItem;
