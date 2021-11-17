@@ -45,7 +45,7 @@
 
     flex-basis: calc((100% - 3 * 20px) / 3);
 
-    background-image: url(../../Images/vector1.svg), url(../../Images/vector2.svg);
+    background-image: url(./vector1.svg), url(./vector2.svg);
     background-position: 100% 100%;
     background-size: auto;
     background-repeat: no-repeat;
