@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-// import { MdDelete } from "react-icons/md";
+import { Link, useRouteMatch } from "react-router-dom";
 import s from "./ProjectItem.module.css";
 
 const randomColor = [
@@ -11,6 +10,8 @@ const randomColor = [
 ];
 
 const ProjectItem = ({ projects }) => {
+  const { url } = useRouteMatch();
+
   return (
     <ul className={s.item}>
       {projects.map(({ name, description, id }) => {
@@ -25,13 +26,11 @@ const ProjectItem = ({ projects }) => {
               boxShadow: `0px 3px 4px ${color}`,
             }}
           >
-            <Link to={`/projects/${id}`} className={s.link}>
+            <Link to={`${url}/${id}/sprints`} className={s.link}>
               <h3 className={s.subtitle}>{name}</h3>
               <p className={s.text}>{description}</p>
-              <button className={s.iconDelete} aria-label="delete">
-                {/* <MdDelete color={color} /> */}
-              </button>
             </Link>
+            <button className={s.iconDelete} aria-label="delete"></button>
           </li>
         );
       })}

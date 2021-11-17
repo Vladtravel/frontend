@@ -72,7 +72,12 @@ function FormCreateProject({ toggleModal }) {
           </label>
         </div>
 
-        <Button className="button" type="submit" text={"Готово"} />
+        <Button
+          className="button"
+          onClick={toggleModal}
+          type="submit"
+          text={"Готово"}
+        />
       </form>
 
       <Button
