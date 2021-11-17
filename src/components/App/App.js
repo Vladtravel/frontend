@@ -1,4 +1,4 @@
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, Suspense } from "react";
 import Header from "../Header/Header";
@@ -8,7 +8,7 @@ import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
-import SingleSprint from "../Sprint/SingleSprint";
+import ProjectSprints from "../ProjectSprints";
 import PrivateRoute from "../PrivateRoute";
 
 import PublicRoute from "../PublicRoute";
@@ -47,9 +47,9 @@ function App() {
               <ProjectList />
             </PrivateRoute>
 
-            <PrivateRoute path="/projects/:projectId/sprints" exact>
-              <SingleSprint />
-            </PrivateRoute>
+            <Route path="/projects/:projectId/sprints" >
+              < ProjectSprints/>
+            </Route>
 
             <PrivateRoute path="/projects/:projectId/sprints/:sprintId" restricted>
               <ProjectList />
