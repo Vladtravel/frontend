@@ -29,8 +29,8 @@ const ProjectItem = ({ projects }) => {
             <Link to={`${url}/${id}/sprints`} className={s.link}>
               <h3 className={s.subtitle}>{name}</h3>
               <p className={s.text}>{description}</p>
-              <button className={s.iconDelete} aria-label="delete"></button>
             </Link>
+            <button className={s.iconDelete} aria-label="delete"></button>
           </li>
         );
       })}
