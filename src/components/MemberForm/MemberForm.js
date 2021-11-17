@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import operations from "../../redux/operations";
+import operations from "../../redux/members/members-operations";
 import Modal from "../Modal/Modal";
 import MemberList from "../MemberList/MemberList";
 import btnClose from "./btnClose.svg";
@@ -12,7 +12,7 @@ import s from "./MemberForm.module.css";
 const MemberForm = ({ emails }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
 
   const dispatch = useDispatch();
