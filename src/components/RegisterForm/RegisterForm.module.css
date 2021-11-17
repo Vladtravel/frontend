@@ -1,32 +1,27 @@
-
-
-.forma{
+.forma {
   position: relative;
   z-index: 999;
   width: 100%;
   height: 100vh;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   padding-top: 47px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 79px;
 }
 
-
-@media screen and (min-width: 768px){
-  .forma{
-    
+@media screen and (min-width: 768px) {
+  .forma {
     width: 570px;
     height: 538px;
     padding: 60px 70px;
     margin-top: 56px;
     margin-left: auto;
     margin-right: auto;
- 
-}
   }
+}
 
-.formaTitle{
+.formaTitle {
   font-family: Montserrat Medium;
   font-style: normal;
   font-weight: 500;
@@ -36,32 +31,34 @@
   text-align: center;
   letter-spacing: 0.04em;
 
-  color: #181C27;
+  color: #181c27;
 
   margin-bottom: 30px;
 }
 
-@media screen and (min-width: 768px){
-  .formaTitle{
+@media screen and (min-width: 768px) {
+  .formaTitle {
     font-size: 36px;
     line-height: 44px;
     margin-bottom: 30px;
-}
   }
+}
 
-.formaEmail{
+.formaEmail {
   position: relative;
   margin-bottom: 66px;
 }
 
-input {outline: none;}
+input {
+  outline: none;
+}
 input:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0 50px #FAFAFA !important; /* Цвет фона */
-    -webkit-text-fill-color: #181C27 !important; /* цвет текста */
-    color: #181C27 !important; /* цвет текста */
+  -webkit-box-shadow: inset 0 0 0 50px #fafafa !important; /* Цвет фона */
+  -webkit-text-fill-color: #181c27 !important; /* цвет текста */
+  color: #181c27 !important; /* цвет текста */
 }
 
-.formaInput{
+.formaInput {
   display: block;
   width: 100%;
   outline: 0px;
@@ -71,53 +68,49 @@ input:-webkit-autofill {
   font-family: Montserrat;
   font-size: 16px;
   line-height: 20px;
-  
+
   align-items: center;
   letter-spacing: 0.04em;
 
-  color: #181C27;
-  
+  color: #181c27;
+
   background-color: transparent;
   box-shadow: none;
   padding-left: 10px;
   padding-bottom: 5px;
   transition: all 0.25s ease-in-out;
-
 }
 
-@media screen and (min-width: 768px){
-  .formaInput{
+@media screen and (min-width: 768px) {
+  .formaInput {
     font-size: 18px;
     line-height: 22px;
   }
-  }
+}
 
-
-
-.formaInput::placeholder{
+.formaInput::placeholder {
   color: transparent;
 }
 
-.formaInput:not(:placeholder-shown) + .formaLabel{
+.formaInput:not(:placeholder-shown) + .formaLabel {
   font-size: 14px;
   line-height: 17px;
   margin: -15px 0 0 1px;
 }
 
-
-.formaLabel{
-position: absolute;
-top:0;
-left: 5px;
-z-index: -1;
+.formaLabel {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  z-index: -1;
 }
 
-.formaPassword{
+.formaPassword {
   position: relative;
   margin-bottom: 66px;
 }
 
-.formaInputError{
+.formaInputError {
   display: block;
   width: 100%;
   outline: 0px;
@@ -127,39 +120,39 @@ z-index: -1;
   font-family: Montserrat;
   font-size: 16px;
   line-height: 20px;
-  
+
   align-items: center;
   letter-spacing: 0.04em;
 
-  color:#FF6B08;
+  color: #ff6b08;
   background-color: transparent;
   padding-left: 10px;
   transition: all 0.25s ease-in-out;
 }
 
-@media screen and (min-width: 768px){
-  .formaInputError{
+@media screen and (min-width: 768px) {
+  .formaInputError {
     font-size: 18px;
     line-height: 22px;
   }
-  }
+}
 
-.formaInputError::placeholder{
+.formaInputError::placeholder {
   color: transparent;
 }
 
-.formaInputError:not(:placeholder-shown) + .formaLabel{
+.formaInputError:not(:placeholder-shown) + .formaLabel {
   font-size: 14px;
   line-height: 17px;
   margin: -12px 0 0 1px;
 }
 
-.formaPasswordRepeat{
+.formaPasswordRepeat {
   position: relative;
   margin-bottom: 40px;
 }
 
-.errorPassword{
+.errorPassword {
   font-family: Montserrat;
   font-size: 12px;
   line-height: 15px;
@@ -170,58 +163,54 @@ z-index: -1;
   color: rgba(24, 28, 39, 0.6);
 
   padding: 0;
-  
-
 }
 
-.formaButton{
+.formaButton {
   display: block;
   font-family: Montserrat Medium;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
-  
+
   align-items: center;
   text-align: center;
   letter-spacing: 0.04em;
-  
-  color: #FFFFFF;
+
+  color: #ffffff;
 
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 18px;
   padding: 11px 44px;
 
-  background: #FF6B08;
-
+  background: #ff6b08;
 
   box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
   border-radius: 25px;
   transition: all 0.25s ease-in-out;
 }
 
-.formaButton:hover{
+.formaButton:hover {
   transform: scale(1.1);
 }
 
-.formaNavigate{
+.formaNavigate {
   text-align: center;
   font-family: Montserrat;
   font-size: 12px;
   line-height: 15px;
-  
+
   letter-spacing: 0.04em;
 
   color: rgba(24, 28, 39, 0.6);
 }
-.formaNavigateLink{
+.formaNavigateLink {
   color: rgba(24, 28, 39, 0.6);
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
 }
 
 .formaNavigateLink:hover,
-.formaNavigateLink:focus{
-  color: #FF6B08;
-
+.formaNavigateLink:focus {
+  color: #ff6b08;
 }
