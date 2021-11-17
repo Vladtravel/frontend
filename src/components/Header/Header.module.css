@@ -59,6 +59,7 @@
 .header__logout_button:focus,
 .header__logout_button:hover {
   background-image: url(../../Images/logout-4.svg);
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width: 768px) {
@@ -101,10 +102,11 @@
   .header__logout_button:focus,
   .header__logout_button:hover {
     background-image: url(../../Images/logout-3.svg);
+    transition: all 0.25s ease-in-out;
   }
 
   .header__logout_button::after {
-    content: "Log Out";
+    content: "Вихід";
     display: block;
     height: 20px;
     position: absolute;
@@ -116,16 +118,17 @@
     line-height: 1.2;
     letter-spacing: 0.04em;
     font-family: "Montserrat";
-    transition: color 0.2s linear;
+    transition: all 0.25s ease-in-out;
   }
 
   .header__logout_button:focus::after,
   .header__logout_button:hover::after {
     color: #ff6b08;
+    transition: all 0.25s ease-in-out;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .header__wrapper {
     width: auto;
     margin-left: 55px;

@@ -5,6 +5,8 @@ import operations from "../../redux/operations";
 import selectors from "../../redux/selectors";
 
 const Header = () => {
+  const auth = useSelector(selectors.isAuthenticated);
+
   const email = useSelector(selectors.getUserEmail);
   const dispatch = useDispatch();
 
@@ -15,7 +17,7 @@ const Header = () => {
           <span className={css.header_logo}></span>
         </a>
         
-        {email && (
+        { auth && (
         <div className={css.header__login_wrapper}>
           <p className={css.header__login_name}>{email}</p>
 
