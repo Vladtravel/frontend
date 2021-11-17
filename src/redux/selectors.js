@@ -6,8 +6,6 @@ const getToken = (state) => state.auth.token;
 
 const isAuthenticated = (state) => state.auth.isAuthenticated;
 
-console.log(isAuthenticated);
-
 const getUserEmail = (state) => state.auth.user.email;
 
 const getAllProjects = (state) => state.projects;
