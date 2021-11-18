@@ -47,9 +47,11 @@ function App() {
               <ProjectList />
             </PrivateRoute>
 
+
             <Route path="/projects/:projectId/sprints" >
               < ProjectSprints/>
             </Route>
+
 
             <PrivateRoute path="/projects/:projectId/sprints/:sprintId" restricted>
               <ProjectList />
