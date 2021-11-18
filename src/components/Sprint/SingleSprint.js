@@ -1,12 +1,16 @@
 import React from "react";
+import RenameSprint from "./RenameSprint";
+
 
 import s from "./SingleSprint.module.css";
 
-const SingleSprint = ({ sprint, deleteSprint, history, id }) => {
+const SingleSprint = ({ sprint, deleteSprint, history, id, renameSprint }) => {
   const openSprintPage = () => {
     // history.push()
   };
   return (
+    <div className={s.container__sprints}>
+    <RenameSprint/>
     <li className={s.single__item}>
       <div className={s.single__card}>
         <h3 className={s.card__header}>Sprint Burndown Chart 1 </h3>
@@ -35,6 +39,7 @@ const SingleSprint = ({ sprint, deleteSprint, history, id }) => {
         ></button>
       </div>
     </li>
+    </div>
   );
 };
 

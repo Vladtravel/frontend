@@ -1,4 +1,4 @@
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, Suspense } from "react";
 import Header from "../Header/Header";
@@ -48,10 +48,10 @@ function App() {
             </PrivateRoute>
 
 
-            <PrivateRoute path="/projects/:projectId/sprints" exact>
-              <ProjectSprints />
+            <Route path="/projects/:projectId/sprints" >
+              < ProjectSprints/>
+            </Route>
 
-            </PrivateRoute>
 
             <PrivateRoute path="/projects/:projectId/sprints/:sprintId" restricted>
               <ProjectList />
