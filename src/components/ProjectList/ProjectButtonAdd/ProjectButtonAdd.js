@@ -6,7 +6,7 @@ import FormCreateProject from "../../Modal/FormCreateProject";
 import Modal from "../../Modal";
 import s from "./ProjectButtonAdd.module.css";
 
-const ProjectButtonAdd = ({ text, description }) => {
+const ProjectButtonAdd = ({ text, description, className }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -21,7 +21,7 @@ const ProjectButtonAdd = ({ text, description }) => {
         <IconButton
           onClick={toggleModal}
           aria-label="create project"
-          className="btnIconAddProject"
+          className={className}
         >
           <IconAddProject />
         </IconButton>
