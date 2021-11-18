@@ -45,8 +45,6 @@ export const deleteProject = (projectId) => (dispatch) => {
 
   axios
     .delete(`api/projects/${projectId}`)
-    .then(() => {
-      dispatch(deleteProjectsSuccess(projectId));
-    })
+    .then(() => dispatch(deleteProjectsSuccess(projectId)))
     .catch((error) => dispatch(deleteProjectsError(error.message)));
 };
