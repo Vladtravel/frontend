@@ -25,12 +25,32 @@
   height: 136px;
   margin: 5px;
 
-  background-color: #71df87;
+  /* background-color: #71df87; */
   border-radius: 5px;
 
   flex-basis: calc((100% - 2 * 10px) / 2);
 
   transition: all 0.25s ease-in-out;
+}
+
+.list:nth-child(5n + 1) {
+  background-color: rgba(255, 107, 8);
+}
+
+.list:nth-child(5n + 2) {
+  background-color: rgba(140, 114, 223);
+}
+
+.list:nth-child(5n + 3) {
+  background-color: rgba(113, 223, 129);
+}
+
+.list:nth-child(5n + 4) {
+  background-color: rgba(60, 114, 223);
+}
+
+.list:nth-child(5n + 5) {
+  background-color: rgba(113, 191, 231);
 }
 
 .list:hover {
