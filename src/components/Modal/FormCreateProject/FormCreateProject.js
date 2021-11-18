@@ -76,7 +76,8 @@ function FormCreateProject({ toggleModal }) {
             placeholder=" "
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
+            pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             value={name}
             onChange={handleInputChange}
             autoComplete="off"
@@ -94,9 +95,10 @@ function FormCreateProject({ toggleModal }) {
             placeholder=" "
             type="text"
             name="description"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             value={description}
             onChange={handleInputChange}
+            title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
             autoComplete="off"
             required
           />
