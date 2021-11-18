@@ -1,9 +1,10 @@
-import { NavLink, Link, useRouteMatch } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css"
 import { useSelector } from "react-redux";
 import {getAllProjects} from "../../redux/projects/projects-selectors"
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
+import RenameSprint from "../Sprint/RenameSprint";
 
 import AddMember from "../MemberForm/MemberForm"
 
@@ -55,12 +56,14 @@ return(
     </ul>
              </div>
             <div className={s.menuAdd}>
-                <ProjectButtonAdd className={s.menuButtonAdd}/>
+                <ProjectButtonAdd className={"btnIconAddProject"}/>
                 <samp>Створити проект</samp>
             </div>
     </div>
     <div>
-    < AddMember/>
+        <RenameSprint/>
+        {/* Сдесь делай кнопку */}
+        < AddMember/>
         <SingleSprint/> 
     </div>
     
