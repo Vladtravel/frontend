@@ -4,7 +4,11 @@ import ProjectButtonAdd from "./ProjectButtonAdd/ProjectButtonAdd";
 const ProjectList = () => {
   return (
     <>
-      <ProjectButtonAdd text={"Проекти"} description={" Створити проект"} />
+      <ProjectButtonAdd
+        text={"Проекти"}
+        description={" Створити проект"}
+        className={"btnIconAddProject"}
+      />
 
       <ProjectItem />
     </>
