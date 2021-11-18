@@ -55,6 +55,7 @@ const getCurrentUser = () => (dispatch, getState) => {
   axios
     .get("/users/current")
     .then((res) => {
+      console.log(res.data.user);
       dispatch(actions.getCurrentUserSuccess(res.data.user));
     })
     .catch((error) => dispatch(actions.getCurrentUserError(error.message)));

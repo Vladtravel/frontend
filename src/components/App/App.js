@@ -8,7 +8,7 @@ import ProjectList from "../ProjectList";
 import Container from "../Container/Container";
 import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
-import ProjectSprints from "../ProjectSprints";
+import SingleSprint from "../Sprint/SingleSprint";
 import PrivateRoute from "../PrivateRoute";
 
 import PublicRoute from "../PublicRoute";
@@ -47,8 +47,10 @@ function App() {
               <ProjectList />
             </PrivateRoute>
 
-            <PrivateRoute path="/projects/:projectId/sprints" >
-              < ProjectSprints/>
+
+            <PrivateRoute path="/projects/:projectId/sprints" exact>
+              <SingleSprint />
+
             </PrivateRoute>
 
             <PrivateRoute path="/projects/:projectId/sprints/:sprintId" restricted>
