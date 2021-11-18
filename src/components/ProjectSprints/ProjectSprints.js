@@ -1,8 +1,9 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css"
 
-
+// projects = useSelector(fechPpro)
 function ProjectSprints(){
 
 return(
