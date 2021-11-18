@@ -40,7 +40,6 @@ const ProjectItem = () => {
   return (
     <ul className={s.item}>
       {projects.map(({ name, description, _id }) => {
-        console.log(_id);
         const color =
           randomColor[Math.floor(Math.random() * randomColor.length)];
         return (

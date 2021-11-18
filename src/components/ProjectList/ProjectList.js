@@ -5,35 +5,23 @@ import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import { ReactComponent as IconAddProject } from "../Modal/IconButton/addProject.svg";
 import FormCreateProject from "../Modal/FormCreateProject";
 import ProjectItem from "../ProjectItem";
-import s from "./ProjectList.module.css";
-
 import projects from "../ProjectItem/project.json";
+import ProjectButtonAdd from "./ProjectButtonAdd/ProjectButtonAdd";
 
 const ProjectList = () => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // const toggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
   return (
     <>
-      <div className={s.container}>
-        <h2 className={s.title}>Проекти</h2>
-
-        <IconButton
-          onClick={toggleModal}
-          aria-label="create project"
-          className="btnIconAddProject"
-        >
-          <IconAddProject />
-        </IconButton>
-        <p className={s.text}>Створити проект</p>
-      </div>
+      <ProjectButtonAdd text={"Проекти"} description={" Створити проект"} />
 
       <ProjectItem projects={projects} />
 
-      {showModal && (
+      {/* {showModal && (
         <Modal onClose={toggleModal}>
           <IconButton
             onClick={toggleModal}
@@ -44,7 +32,7 @@ const ProjectList = () => {
           </IconButton>
           <FormCreateProject toggleModal={toggleModal} />
         </Modal>
-      )}
+      )} */}
     </>
   );
 };
