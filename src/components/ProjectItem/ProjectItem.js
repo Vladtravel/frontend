@@ -12,14 +12,6 @@ import {
 } from "../../redux/projects/projects-selectors";
 import s from "./ProjectItem.module.css";
 
-const randomColor = [
-  "rgba(255, 107, 8)",
-  "rgba(140, 114, 223)",
-  "rgba(113, 223, 129)",
-  "rgba(60, 114, 223)",
-  "rgba(113, 191, 231)",
-];
-
 const ProjectItem = () => {
   const projects = useSelector(getAllProjects);
   const error = useSelector(getError);
@@ -40,17 +32,8 @@ const ProjectItem = () => {
   return (
     <ul className={s.item}>
       {projects.map(({ name, description, _id }) => {
-        const color =
-          randomColor[Math.floor(Math.random() * randomColor.length)];
         return (
-          <li
-            key={_id}
-            className={s.list}
-            style={{
-              backgroundColor: color,
-              boxShadow: `0px 3px 4px ${color}`,
-            }}
-          >
+          <li key={_id} className={s.list}>
             <Link to={`${url}/${_id}/sprints`} className={s.link}>
               <h3 className={s.subtitle}>{name}</h3>
               <p className={s.text}>{description}</p>
