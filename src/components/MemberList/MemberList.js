@@ -1,17 +1,17 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import operations from "../../redux/operations"
+import operations from "../../redux/members/members-operations"
 import selectors from "../../redux/selectors"
 
 import s from "./MemberList.module.css";
 
 const MemberList = () => {
-    const members = useSelector(selectors.getVisibleMemberList);
+    const { members, id } = useSelector(selectors.getVisibleMemberList);
     const dispatch = useDispatch();
 
-    useEffect(() => dispatch(operations.updateMemberList()), 
-    [dispatch]);
+    useEffect(() => dispatch(operations.updateMemberList({members, id})), 
+    [dispatch, id, members]);
 
     return (
         <>
