@@ -1,11 +1,21 @@
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useRouteMatch } from "react-router-dom";
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css"
+import { useSelector } from "react-redux";
+import {getAllProjects} from "../../redux/projects/projects-selectors"
+import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
 
-// projects = useSelector(fechPpro)
+const randomColor = [
+    "rgba(255, 107, 8)",
+    "rgba(140, 114, 223)",
+    "rgba(113, 223, 129)",
+    "rgba(60, 114, 223)",
+    "rgba(113, 191, 231)",
+  ];
+  
 function ProjectSprints(){
-
+    const getProjects = useSelector(getAllProjects);
+    const { url } = useRouteMatch();
 return(
     <div className={s.Sprints}>
     <div className={s.menuSprints}>
@@ -16,23 +26,34 @@ return(
                 </NavLink>
             </div>
             <div className={s.menuProjects}>
-                <ul>
-                <li><NavLink to="/projects/1" className={s.menuLink}>
-                    Проект 1
-                    </NavLink>
-                </li>
-                <li><NavLink to="/projects/2" className={s.menuLink}>
-                    Проект 2
-                    </NavLink>
-                </li>
-                <li><NavLink to="/projects/3" className={s.menuLink}>
-                    Проект 3
-                    </NavLink>
-                </li>
-                 
-                </ul>
+            <ul className={s.item}>
+      {getProjects.map(({ name, _id }) => {
+        console.log(_id);
+        const color =
+          randomColor[Math.floor(Math.random() * randomColor.length)];
+        return (
+          <li
+            key={_id}
+            className={s.menuProjectLink}
+            
+          >
+            <div 
+            className={s.menuProjectIcon}
+            style={{
+              backgroundColor: color,
+              boxShadow: `0px 3px 4px ${color}`,
+            }}></div>
+            <NavLink to={`/projects/${_id}/sprints`} className={s.link}>
+              <h3 className={s.subtitle}>{name}</h3>
+            </NavLink>
+        
+          </li>
+        );
+      })}
+    </ul>
              </div>
             <div className={s.menuAdd}>
+                <ProjectButtonAdd className={s.menuButtonAdd}/>
                 <samp>Створити проект</samp>
             </div>
     </div>
