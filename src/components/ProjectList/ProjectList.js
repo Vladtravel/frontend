@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "../Modal";
 import IconButton from "../Modal/IconButton";
 import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
-import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg";
+import { ReactComponent as IconAddProject } from "../Modal/IconButton/addProject.svg";
 import FormCreateProject from "../Modal/FormCreateProject";
 import ProjectItem from "../ProjectItem";
 import s from "./ProjectList.module.css";
@@ -26,7 +26,7 @@ const ProjectList = () => {
           aria-label="create project"
           className="btnIconAddProject"
         >
-          <AddProject />
+          <IconAddProject />
         </IconButton>
         <p className={s.text}>Створити проект</p>
       </div>

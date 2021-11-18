@@ -19,7 +19,7 @@ export const fetchProjects = () => async (dispatch) => {
 
   axios
     .get("api/projects")
-    .then(({ data }) => dispatch(getProjectsSuccess(data)))
+    .then(({ data }) => dispatch(getProjectsSuccess(data.data)))
     .catch((error) => dispatch(getProjectsError(error.message)));
 };
 
@@ -35,7 +35,7 @@ export const addProject =
     dispatch(addProjectsRequest());
 
     axios
-      .post("/projects", project)
+      .post("api/projects", project)
       .then(({ data }) => dispatch(addProjectsSuccess(data)))
       .catch((error) => dispatch(addProjectsError(error.message)));
   };
@@ -43,8 +43,11 @@ export const addProject =
 export const deleteProject = (projectId) => (dispatch) => {
   dispatch(deleteProjectsRequest());
 
-  axios
-    .delete(`api/project/${projectId}`)
-    .then(() => dispatch(deleteProjectsSuccess(projectId)))
+
+    .delete(`api/projects/${projectId}`)
+    .then(() => {
+      dispatch(deleteProjectsSuccess(projectId));
+    })
+
     .catch((error) => dispatch(deleteProjectsError(error.message)));
 };
