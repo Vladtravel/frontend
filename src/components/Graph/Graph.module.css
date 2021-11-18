@@ -1,0 +1,85 @@
+.butn{
+    position: fixed;
+    height: 44px;
+    bottom: 22px;
+    left: 20px;
+
+    background-image: url(./analytics.png);
+    
+    background-position: 50% 50%;
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 44px;
+  
+    border-radius: 25px;
+    padding: 11px;
+  
+    cursor: pointer;
+    color: #fff;
+    background-color: #ff6b08;
+    
+    transition: box-shadow 250ms linear;
+  
+    border: none;   
+}
+
+.butn:hover,.butn:focus{
+    box-shadow: 1px 1px 5px 1px #ff6b08;
+}
+
+.graphBtn{ position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    top: 10px;
+    right: 10px;
+  
+    background-color: transparent;
+    border: none;
+    cursor: pointer;}
+
+    .grBackdrop{
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(24, 28, 39, 0.25);
+    }
+    @media screen and (max-width: 767px) {
+        .grBackdrop {
+          width: 100%;
+          
+        }
+      }
+
+      .grContent{
+        position: fixed;
+        width: 859px;
+        height: 474px;
+        left: 0px;
+        top: 90px;
+        border-radius: 5px;
+        filter: drop-shadow(0px 6px 26px rgba(0, 5, 97, 0.1));
+        background: #fff;
+      }
+      @media screen and (min-width: 767px) {
+        .grContent {
+            width: 688px;
+            height: 390px;
+            left: 40px;
+            top: 342px;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        .grContent {
+            width: 933px;
+            height: 510px;
+            left: 174px;
+            top: 154px;
+        }
+      }
