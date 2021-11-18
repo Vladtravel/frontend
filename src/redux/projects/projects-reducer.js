@@ -11,7 +11,6 @@ import {
   deleteProjectsRequest,
   deleteProjectsSuccess,
   deleteProjectsError,
-  filterProject,
 } from "./projects-actions";
 
 const itemReducer = createReducer([], {
@@ -20,7 +19,7 @@ const itemReducer = createReducer([], {
     return [...state, payload];
   },
   [deleteProjectsSuccess]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+    state.filter(({ _id }) => _id !== payload),
 });
 
 const loadingReducer = createReducer(false, {
@@ -35,10 +34,6 @@ const loadingReducer = createReducer(false, {
   [deleteProjectsError]: () => false,
 });
 
-const filterReducer = createReducer("", {
-  [filterProject]: (_, { payload }) => payload,
-});
-
 const errorReducer = createReducer(null, {
   [getProjectsError]: (_, { payload }) => payload,
   [getProjectsSuccess]: () => null,
@@ -50,7 +45,6 @@ const errorReducer = createReducer(null, {
 
 export const projectsReducer = combineReducers({
   items: itemReducer,
-  filter: filterReducer,
   loading: loadingReducer,
   error: errorReducer,
 });
