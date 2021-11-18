@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import {getAllProjects} from "../../redux/projects/projects-selectors"
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
 
+import AddMember from "../MemberForm/MemberForm"
+
 const randomColor = [
     "rgba(255, 107, 8)",
     "rgba(140, 114, 223)",
@@ -58,6 +60,7 @@ return(
             </div>
     </div>
     <div>
+    < AddMember/>
         <SingleSprint/> 
     </div>
     
