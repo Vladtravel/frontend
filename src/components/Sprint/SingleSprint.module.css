@@ -1,3 +1,62 @@
+.container__sprints{
+  padding: 40px 70px;
+}
+
+.hederSprint__title{
+  display: flex;
+  align-items: baseline;
+}
+.hederSprint{
+  display: inline-block;
+    position: relative;
+    max-width: 70vw;
+    font-weight: 500;
+    margin-right: 20px;
+    font-size: 26px;
+    line-height: 1.231;
+    letter-spacing: .04em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.penBtn{
+    display: block;
+    outline: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-image: url("./Pen.svg");
+    border-radius: 25px;
+    margin-right: 425px;
+    }
+.penBtn:hover {
+  cursor: pointer;
+  background-image: url("./ActivBin.svg");
+}
+.hederSprint__text{
+  margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: .04em;
+}
+.create__sprint{
+  
+    outline: none;
+    border: none;
+    
+    width: 44px;
+    height: 44px;
+    fill: #fff;
+    background-color: #ff6b08;
+    text-align: center;
+    border-radius: 25px;
+    margin-right: 20px;
+}
+.create__sprint:hover{
+  box-shadow: 1px 1px 5px 1px #ff6b08;
+}
 .single__item {
   list-style: none;
   cursor: pointer;
