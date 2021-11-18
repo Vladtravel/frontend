@@ -15,13 +15,13 @@ const ProjectButtonAdd = ({ text, description, className }) => {
 
   return (
     <>
-      <div className={s.container}>
+      <div className={s[className]}>
         <h2 className={s.title}>{text}</h2>
 
         <IconButton
           onClick={toggleModal}
           aria-label="create project"
-          className={className}
+          className={"btnIconAddProject"}
         >
           <IconAddProject />
         </IconButton>

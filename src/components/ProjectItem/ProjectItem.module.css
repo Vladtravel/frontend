@@ -90,7 +90,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .list {
     width: 216px;
     height: 216px;
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .link {
     padding: 30px;
   }
@@ -154,13 +154,13 @@
   margin-top: 0;
   margin-bottom: 0;
 
-  transform: translateY(101%);
+  transform: translateX(101%);
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:hover .text {
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 @media screen and (min-width: 768px) {

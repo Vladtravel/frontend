@@ -7,7 +7,7 @@ const ProjectList = () => {
       <ProjectButtonAdd
         text={"Проекти"}
         description={" Створити проект"}
-        className={"btnIconAddProject"}
+        className={"container"}
       />
 
       <ProjectItem />
