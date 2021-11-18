@@ -12,7 +12,7 @@ import s from "./MemberForm.module.css";
 const MemberForm = ({ emails }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const location = useLocation();
 
   const dispatch = useDispatch();
@@ -115,7 +115,7 @@ console.log(value)
             </div>
           </div>
         </Modal>
-      )}
+       )}
     </>
   );
 };

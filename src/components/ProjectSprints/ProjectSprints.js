@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { NavLink, useRouteMatch } from "react-router-dom";
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css"
@@ -7,6 +8,7 @@ import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
 import RenameSprint from "../Sprint/RenameSprint";
 
 import AddMember from "../MemberForm/MemberForm"
+import img from "./Vector.svg";
 
 const randomColor = [
     "rgba(255, 107, 8)",
@@ -17,8 +19,20 @@ const randomColor = [
   ];
   
 function ProjectSprints(){
+  const [showModal, setShowModal] = useState(false);
+
     const getProjects = useSelector(getAllProjects);
     const { url } = useRouteMatch();
+
+//  const ShowModal = (e) => {
+//    setShowModal(!showModal);
+//  }
+
+ const toggleModal = (e) => {
+  setShowModal(!showModal);
+  console.log(e)
+};
+
 return(
     <div className={s.Sprints}>
     <div className={s.menuSprints}>
@@ -59,12 +73,21 @@ return(
                 <ProjectButtonAdd className={"btnIconAddProject"}/>
                 <samp>Створити проект</samp>
             </div>
+
+  
     </div>
     <div>
         <RenameSprint/>
-        {/* Сдесь делай кнопку */}
-        < AddMember/>
-        <SingleSprint/> 
+         
+        <div className={s.addWrapper}> 
+          <img src={img} onClick={toggleModal}  alt={"addMember"}/>
+              <button type="button" onClick={toggleModal} className={s.addMemberBtn}>Додати людей</button>  
+              {showModal &&  < AddMember /> }
+       
+        </div>
+       
+          <SingleSprint/> 
+       
     </div>
     
     </div>
