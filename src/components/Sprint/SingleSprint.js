@@ -10,7 +10,7 @@ const SingleSprint = ({ sprint, deleteSprint, history, id, renameSprint }) => {
   };
   return (
     <div className={s.container__sprints}>
-    <RenameSprint/>
+    {/* <RenameSprint/> */}
     <li className={s.single__item}>
       <div className={s.single__card}>
         <h3 className={s.card__header}>Sprint Burndown Chart 1 </h3>
