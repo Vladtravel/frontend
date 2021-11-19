@@ -7,17 +7,41 @@ import { useSelector } from "react-redux";
 import { getAllProjects } from "../../redux/projects/projects-selectors";
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
 import RenameSprint from "../Sprint/RenameSprint";
+
 import { useRouteMatch } from "react-router-dom";
 // import addButton from "../addButton";
 import AddMember from "../MemberForm/MemberForm";
 // import arrowButton from "../arrowButton/arrowButton";
 const randomColor = [
-  "rgba(255, 107, 8)",
-  "rgba(140, 114, 223)",
-  "rgba(113, 223, 129)",
-  "rgba(60, 114, 223)",
-  "rgba(113, 191, 231)",
-];
+
+
+import AddMember from "../MemberForm/MemberForm";
+import ModalCreateSprint from "../ModalCreateSprint/ModalCreateSprint";
+import { useRouteMatch } from "react-router-dom";
+// import addButton from "../addButton";
+// import arrowButton from "../arrowButton/arrowButton";
+
+const randomColor = [
+
+    "rgba(255, 107, 8)",
+    "rgba(140, 114, 223)",
+    "rgba(113, 223, 129)",
+    "rgba(60, 114, 223)",
+    "rgba(113, 191, 231)",
+  ];
+  
+function ProjectSprints(){
+  const [showModal, setShowModal] = useState(false);
+
+    const getProjects = useSelector(getAllProjects);
+
+ const toggleModal = (e) => {
+  setShowModal(!showModal);
+  console.log(e)
+};
+
+ 
+
 
 function ProjectSprints() {
   const getProjects = useSelector(getAllProjects);
@@ -67,14 +91,18 @@ function ProjectSprints() {
       <div>
         <arrowButton />
         <RenameSprint />
+
         {/* Сдесь делай кнопку */}
         {/* <addButton /> */}
+
         <arrowButton />
         <AddMember />
         <SingleSprint />
       </div>
 
+
     </div>
+
   );
 }
 export default ProjectSprints;

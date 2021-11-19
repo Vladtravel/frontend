@@ -9,10 +9,14 @@ const getUserEmail = (state) => state.auth.user.email;
 
 const getAllProjects = (state) => state.projects;
 
+// const getId = (state) => state.projects.items.[id];
+
 const getVisibleMemberList = createSelector([getAllProjects], (projects) => {
   const location = useLocation();
   return projects.find((project) => location.pathname.includes(project.id));
 });
+
+
 
 const selectors = {
   getToken,
@@ -20,6 +24,7 @@ const selectors = {
   getUserEmail,
   getAllProjects,
   getVisibleMemberList,
+  // getId,
 };
 
 export default selectors;
