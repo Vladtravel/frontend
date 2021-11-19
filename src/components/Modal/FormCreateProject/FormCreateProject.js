@@ -21,7 +21,6 @@ function FormCreateProject({ toggleModal }) {
   const dispatch = useDispatch();
 
   const onSubmit = ({ name, description }) => {
-    console.log(name, description);
     return dispatch(addProject({ name, description }));
   };
 
@@ -44,7 +43,8 @@ function FormCreateProject({ toggleModal }) {
     e.preventDefault();
 
     if (nameItems.join("").toLowerCase().includes(name.toLowerCase())) {
-      toast.error(`${name} is already in contacts`);
+      toast.error(`${name} is already in project`);
+
       reset();
       return;
     }
