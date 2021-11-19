@@ -10,6 +10,7 @@ import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 import ProjectSprints from "../ProjectSprints";
 import PrivateRoute from "../PrivateRoute";
+import TasksView from "../../views/tasksView";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -25,10 +26,12 @@ function App() {
   return (
     <>
       <Header />
-
       <Container>
         <Suspense fallback={null}>
           <Switch>
+            <PublicRoute exact path="/tasks" restricted>
+              <TasksView />
+            </PublicRoute>
             <PublicRoute exact path="/" restricted>
               <RegisterForm />
             </PublicRoute>
@@ -54,10 +57,10 @@ function App() {
               />
             </PrivateRoute>
 
-
-            <PrivateRoute path="/projects/:projectId/sprints" exact>
+            <Route path="/projects/:projectId/sprints">
               <ProjectSprints />
-            </PrivateRoute>
+            </Route>
+
 
 
             <PrivateRoute
