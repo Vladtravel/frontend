@@ -100,22 +100,26 @@
   }
 }
 
-.link {
+.overlay {
+  position: relative;
   padding: 10px;
-  display: block;
-  height: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .link {
+  .overlay {
     padding: 20px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .link {
+  .overlay {
     padding: 30px;
   }
+}
+
+.link {
+  display: block;
+  height: 100%;
 }
 
 .subtitle {
@@ -124,6 +128,7 @@
   font-size: 16px;
   line-height: 1.25;
 
+  word-wrap: break-word;
   letter-spacing: 0.04em;
 
   color: #ffffff;
@@ -139,8 +144,6 @@
 .text {
   position: absolute;
 
-  top: 35px;
-  left: 10px;
   margin-top: 0;
   margin-bottom: 0;
 
@@ -208,4 +211,20 @@
 .iconDelete:hover {
   transform: scale(1.2);
   box-shadow: 0px 0px 20px 7px rgba(255, 255, 255, 0.5);
+}
+
+.loader {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
 }
