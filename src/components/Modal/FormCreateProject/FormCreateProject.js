@@ -43,7 +43,7 @@ function FormCreateProject({ toggleModal }) {
     e.preventDefault();
 
     if (nameItems.join("").toLowerCase().includes(name.toLowerCase())) {
-      toast.error(`${name} is already in project`);
+      toast.error(`Проєкт з ім'ям "${name}" уже є!`);
 
       reset();
       return;
