@@ -1,0 +1,33 @@
+.title {
+  max-width: 337px;
+
+  font-family: Montserrat;
+  font-style: 400;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: #181c27;
+  word-wrap: break-word;
+  margin-right: 43px;
+}
+.btn {
+  width: 25px;
+  height: 25px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  width: 18px;
+  height: 18px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+}
