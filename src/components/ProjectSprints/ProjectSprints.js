@@ -27,8 +27,6 @@ function ProjectSprints(){
 
     const getProjects = useSelector(getAllProjects);
 
-    const { url } = useRouteMatch();
-
  const toggleModal = (e) => {
   setShowModal(!showModal);
   console.log(e)

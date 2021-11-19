@@ -2,11 +2,13 @@ import  { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+
+import { useRouteMatch } from "react-router-dom";
 import operations from "../../redux/members/members-operations";
 import Button from "../Modal/Button/Button";
 import MemberList from "../MemberList/MemberList";
 import btnClose from "./btnClose.svg";
-import { getEmails } from "../../redux/selectors";
+import getId from "../../redux/selectors";
 import s from "./MemberForm.module.css";
 
 const MemberForm = ({ toggleModal }) => {
@@ -14,12 +16,12 @@ const MemberForm = ({ toggleModal }) => {
   const [errors, setErrors] = useState({});
   const location = useLocation();
 
-  const dispatch = useDispatch();
+  const { url } = useRouteMatch();
+  console.log(url)
 
-  const inputEmailValue = (e) => {
-    const { email, value  } = e.currentTarget;
-    setEmail(value);
-  };
+  const dispatch = useDispatch();
+  // const id = useSelector((state) => state.projects.items.map((project) => project.id))
+
 
   const validateEmail = (email) => {
     const errorsObject = {};
@@ -70,22 +72,30 @@ const MemberForm = ({ toggleModal }) => {
   const formReset = () => {
     setEmail("");
   };
+
+  const inputEmailValue = (e) => {
+    const { email, value  } = e.currentTarget;
+    setEmail(value);
+  };
+
+  const id = url.split("/")[2];
+
 // 1
-  const onSubmitEmail = ({ email }) => {
-    return dispatch(operations.addMemberOperation({ email }))
+  const onSubmitEmail = ( id,  email ) => {
+    
+    return dispatch(operations.addMemberOperation( id, email))
   }
-  console.log(onSubmitEmail({email}))
+
 
 // 2
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(e)
     
-    onSubmitEmail({ email })
+    onSubmitEmail(id,  email)
     formReset();
     toggleModal();
-
   }
-
 
   return (
     <>
