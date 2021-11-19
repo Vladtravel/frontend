@@ -1,9 +1,12 @@
-import { NavLink, Link, useRouteMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css"
 import { useSelector } from "react-redux";
 import {getAllProjects} from "../../redux/projects/projects-selectors"
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
+import RenameSprint from "../Sprint/RenameSprint";
+
+import AddMember from "../MemberForm/MemberForm"
 
 const randomColor = [
     "rgba(255, 107, 8)",
@@ -15,12 +18,12 @@ const randomColor = [
   
 function ProjectSprints(){
     const getProjects = useSelector(getAllProjects);
-    const { url } = useRouteMatch();
+    
 return(
     <div className={s.Sprints}>
     <div className={s.menuSprints}>
             <div className={s.menuNav}>
-                <span className={s.iconLink}></span>
+                <div className={s.iconLink}></div>
                 <NavLink to="/projects" className={s.menuLink}>
                     Показати <br></br>проекти 
                 </NavLink>
@@ -28,14 +31,12 @@ return(
             <div className={s.menuProjects}>
             <ul className={s.item}>
       {getProjects.map(({ name, _id }) => {
-        console.log(_id);
         const color =
           randomColor[Math.floor(Math.random() * randomColor.length)];
         return (
           <li
             key={_id}
             className={s.menuProjectLink}
-            
           >
             <div 
             className={s.menuProjectIcon}
@@ -53,11 +54,14 @@ return(
     </ul>
              </div>
             <div className={s.menuAdd}>
-                <ProjectButtonAdd className={s.menuButtonAdd}/>
+                <ProjectButtonAdd className={"projectSprintsAdd"}/>
                 <samp>Створити проект</samp>
             </div>
     </div>
     <div>
+        <RenameSprint/>
+        {/* Сдесь делай кнопку */}
+        < AddMember/>
         <SingleSprint/> 
     </div>
     
