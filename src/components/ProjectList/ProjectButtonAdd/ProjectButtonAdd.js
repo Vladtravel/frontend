@@ -14,6 +14,12 @@ const ProjectButtonAdd = ({ text, description, className }) => {
     setShowModal(!showModal);
   };
 
+  if (showModal) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "scroll";
+  }
+
   return (
     <>
       <div className={s[className]}>
