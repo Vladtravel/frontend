@@ -10,7 +10,7 @@ import operations from "../../redux/operations";
 import ConfirmView from "../ConfirmView";
 import ProjectSprints from "../ProjectSprints";
 import PrivateRoute from "../PrivateRoute";
-
+import TasksView from "../../views/tasksView";
 import PublicRoute from "../PublicRoute";
 
 function App() {
@@ -23,10 +23,12 @@ function App() {
   return (
     <>
       <Header />
-
       <Container>
         <Suspense fallback={null}>
           <Switch>
+            <PublicRoute exact path="/tasks" restricted>
+              <TasksView />
+            </PublicRoute>
             <PublicRoute exact path="/" restricted>
               <RegisterForm />
             </PublicRoute>
@@ -47,13 +49,14 @@ function App() {
               <ProjectList />
             </PrivateRoute>
 
-
-            <Route path="/projects/:projectId/sprints" >
-              < ProjectSprints/>
+            <Route path="/projects/:projectId/sprints">
+              <ProjectSprints />
             </Route>
 
-
-            <PrivateRoute path="/projects/:projectId/sprints/:sprintId" restricted>
+            <PrivateRoute
+              path="/projects/:projectId/sprints/:sprintId"
+              restricted
+            >
               <ProjectList />
             </PrivateRoute>
           </Switch>
