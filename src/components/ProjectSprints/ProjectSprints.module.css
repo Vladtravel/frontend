@@ -1,32 +1,6 @@
 .Sprints {
   display: flex;
 }
-.menuSprints {
-  display: flexbox;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 255px;
-  height: 100vh;
-  border-right: 1px solid #181c27;
-
-  padding-top: 20px;
-  padding-right: 30px;
-  padding-bottom: 50px;
-}
-
-.menuNav {
-  display: flex;
-  margin-bottom: 165px;
-}
-
-.menuLink {
-  font-family: Montserrat;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-
-  color: #181c27;
-}
 
 .iconLink {
   content: "";

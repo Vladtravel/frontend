@@ -11,6 +11,9 @@ import ConfirmView from "../ConfirmView";
 import ProjectSprints from "../ProjectSprints";
 import PrivateRoute from "../PrivateRoute";
 import TasksView from "../../views/tasksView";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import PublicRoute from "../PublicRoute";
 
 function App() {
@@ -47,6 +50,11 @@ function App() {
 
             <PrivateRoute path="/projects" exact>
               <ProjectList />
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                theme={"colored"}
+              />
             </PrivateRoute>
 
             <Route path="/projects/:projectId/sprints">
