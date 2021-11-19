@@ -47,7 +47,7 @@ function LoginForm() {
                   value={email}
                   onChange={handleChange}
                   placeholder="E-mail"
-                  // autocomplete="off"
+                  // autoComplete="off"
                 />
                 <label className={s.formaLabel}>E-mail</label>
             </div>
@@ -71,7 +71,7 @@ function LoginForm() {
             </form>
           
           <div className={s.formaNavigate}>
-            <span>Маєте акаунт? </span>
+            <span>Немає акаунту?? </span>
             <NavLink to="/" className={s.formaNavigateLink}>
             Зареєструватись
             </NavLink>

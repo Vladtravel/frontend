@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 255px;
-    height: 100vh;
+    /* height: 100vh; */
     border-right: 1px solid #181C27;
 
     padding-top: 20px;
@@ -56,7 +56,7 @@
 }
 
 .menuAdd{
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
     
 }
 

@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import {getAllProjects} from "../../redux/projects/projects-selectors"
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
 import RenameSprint from "../Sprint/RenameSprint";
-
-import AddMember from "../MemberForm/MemberForm"
+import AddMember from "../MemberForm/MemberForm";
+import ModalCreateSprint from "../ModalCreateSprint/ModalCreateSprint";
 
 const randomColor = [
     "rgba(255, 107, 8)",
@@ -63,8 +63,9 @@ return(
         {/* Сдесь делай кнопку */}
         < AddMember/>
         <SingleSprint/> 
+        
     </div>
-    
+    <ModalCreateSprint/>
     </div>
 )
 }
