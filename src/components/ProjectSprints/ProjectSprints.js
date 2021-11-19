@@ -8,6 +8,9 @@ import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd"
 import RenameSprint from "../Sprint/RenameSprint";
 
 import AddMember from "../MemberForm/MemberForm"
+import Modal from "../Modal/Modal";
+import IconButton from "../Modal/IconButton";
+import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import img from "./Vector.svg";
 
 const randomColor = [
@@ -23,10 +26,6 @@ function ProjectSprints(){
 
     const getProjects = useSelector(getAllProjects);
     const { url } = useRouteMatch();
-
-//  const ShowModal = (e) => {
-//    setShowModal(!showModal);
-//  }
 
  const toggleModal = (e) => {
   setShowModal(!showModal);
@@ -78,14 +77,28 @@ return(
     </div>
     <div>
         <RenameSprint/>
-         
-        <div className={s.addWrapper}> 
-          <img src={img} onClick={toggleModal}  alt={"addMember"}/>
+
+          <div className={s.addWrapper}>
+             <img src={img} onClick={toggleModal}  alt={"addMember"}/>
               <button type="button" onClick={toggleModal} className={s.addMemberBtn}>Додати людей</button>  
-              {showModal &&  < AddMember /> }
-       
-        </div>
-       
+             </div>
+         
+         {showModal && (
+           <Modal onClose={toggleModal}>
+             
+              {/* <IconButton
+            onClick={toggleModal}
+            className="iconBtn"
+            aria-label="close"
+          >
+            <Close />
+
+          </IconButton> */}
+        
+             <AddMember toggleModal={toggleModal} />
+             </Modal>
+         )}
+
           <SingleSprint/> 
        
     </div>
