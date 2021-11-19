@@ -1,4 +1,5 @@
 import axios from "axios";
+import shortid from "shortid";
 
 import { 
     addMemeberToProjectRequest,
@@ -11,22 +12,23 @@ import {
 
 axios.defaults.baseURL = "https://goitproject.herokuapp.com";
 
-const addMemberOperation = email => async dispatch => {
-    
+const addMemberOperation =( id, email) => async (dispatch) => {
+    // const id = await `api/projects/${id}`
+
     dispatch(addMemeberToProjectRequest());
 
     axios
-    .post("api/projects", email)
-    .then((email) => dispatch(addMemeberToProjectSucces(email)))
+    .patch(`api/projects/${id}/owners`, email)
+    .then((email) => dispatch(addMemeberToProjectSucces(email.email)))
     .catch((error) => dispatch(addMemeberToProjectError(error.message)))
 }
-    
 
-const updateMemberList = ({ email, id }) => async dispatch => {
+
+const updateMemberList = ({ email, _id }) => async dispatch => {
     dispatch(fetchMembersRequest());
 
     axios
-    .get(`api/projects/${id}`, email)
+    .get(`api/projects/${_id}`, email)
     .then((email) => dispatch(fetchMembersSucces(email)))
     .catch((error) => dispatch(fetchMembersError(error.message)))
     }
