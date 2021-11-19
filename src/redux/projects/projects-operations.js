@@ -36,7 +36,7 @@ export const addProject =
 
     axios
       .post("api/projects", project)
-      .then(({ data }) => dispatch(addProjectsSuccess(data)))
+      .then(({ data }) => dispatch(addProjectsSuccess(data.data.newProject)))
       .catch((error) => dispatch(addProjectsError(error.message)));
   };
 
