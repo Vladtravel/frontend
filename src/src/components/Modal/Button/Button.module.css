@@ -1,0 +1,96 @@
+.btn {
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 154px;
+  height: 44px;
+
+  border-radius: 25px;
+  padding: 11px 44px;
+
+  cursor: pointer;
+  color: #fff;
+  background-color: #ff6b08;
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  transition: box-shadow 250ms linear;
+
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+
+  letter-spacing: 0.04em;
+}
+
+.button {
+  font-family: Montserrat;
+  display: block;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  padding: 11px 44px;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+
+  color: #ffffff;
+
+  background: #ff6b08;
+  /* orange */
+
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 29px 0px rgba(255, 107, 8, 0.3);
+}
+
+@media screen and (min-width: 768px) and (min-width: 1279px) {
+  .button {
+    margin-top: 60px;
+  }
+}
+
+.btnLink {
+  display: block;
+  text-align: center;
+
+  margin: auto;
+  margin-top: 20px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0.8;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  background-color: transparent;
+  border: none;
+
+  border-bottom: 1px solid rgba(24, 28, 39, 0.6);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.btnLink:hover,
+.btnLink:active {
+  color: #ff6b08;
+  transform: scale(1.05);
+  border-color: #ff6b08;
+  transform: scale(1.05);
+
+  text-shadow: 0px 0px 29px 0px rgba(255, 107, 8, 1);
+}
