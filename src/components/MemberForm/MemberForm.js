@@ -23,6 +23,12 @@ const MemberForm = ({ toggleModal }) => {
   // const id = useSelector((state) => state.projects.items.map((project) => project.id))
 
 
+  const inputEmailValue = (e) => {
+    const { email, value  } = e.currentTarget;
+    setEmail(value);
+  };
+
+
   const validateEmail = (email) => {
     const errorsObject = {};
 
@@ -72,11 +78,29 @@ const MemberForm = ({ toggleModal }) => {
   const formReset = () => {
     setEmail("");
   };
+// 1
+  const onSubmitEmail = ({ email }) => {
+    return dispatch(operations.addMemberOperation({ email }))
+  }
+  console.log(onSubmitEmail({email}))
+
+// 2
+  const handleSubmit = e => {
+    e.preventDefault();
+    
+    onSubmitEmail({ email })
+    formReset();
+    toggleModal();
+
+  }
+
+
 
   const inputEmailValue = (e) => {
     const { email, value  } = e.currentTarget;
     setEmail(value);
   };
+
 
   const id = url.split("/")[2];
 
