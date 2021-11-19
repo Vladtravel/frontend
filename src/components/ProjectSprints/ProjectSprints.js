@@ -12,12 +12,31 @@ import { useRouteMatch } from "react-router-dom";
 import AddMember from "../MemberForm/MemberForm";
 // import arrowButton from "../arrowButton/arrowButton";
 const randomColor = [
+
+    "rgba(255, 107, 8)",
+    "rgba(140, 114, 223)",
+    "rgba(113, 223, 129)",
+    "rgba(60, 114, 223)",
+    "rgba(113, 191, 231)",
+  ];
+  
+function ProjectSprints(){
+  const [showModal, setShowModal] = useState(false);
+
+    const getProjects = useSelector(getAllProjects);
+
+ const toggleModal = (e) => {
+  setShowModal(!showModal);
+  console.log(e)
+};
+
+ 
   "rgba(255, 107, 8)",
   "rgba(140, 114, 223)",
   "rgba(113, 223, 129)",
   "rgba(60, 114, 223)",
   "rgba(113, 191, 231)",
-];
+
 
 function ProjectSprints() {
   const getProjects = useSelector(getAllProjects);
