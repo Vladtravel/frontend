@@ -15,6 +15,11 @@
     padding-right: 30px;
     padding-bottom: 50px;
   }
+  @media screen and (max-width: 769px) {
+    .menuSprints {
+    display: none;
+    }
+  }
   
 .menuNav{
     display: flex;
@@ -34,12 +39,12 @@
 }
 
 .iconLink{
-    content: '';
+    background-image:
+    url(Arrow1.svg);
     width: 30px;
-    height: 0;
-    border:0.5px solid black;
-    margin-top: 15px;
-    margin-right: 21px;
+    height: 10px;
+    margin-top: 10px;
+    margin-right: 21px; 
 }
 
 .menuProjects{
@@ -47,19 +52,14 @@
     margin-bottom: 173px;
     width: 170px;
     height: 170px;
-    border: 1px solid black;
     overflow: auto;
 }
 
 .menuAdd{
-    display: flexbox;
-    justify-content: center;
-    align-self: start;
+    padding-bottom: 80px;
+    
 }
 
-.menuAdd.menuButtonAdd{
-  justify-content: center;
-}
 
 .menuProjectLink{
     display: flex;
@@ -75,35 +75,4 @@
     margin-right: 15px;
 }
 
-.btnIconAddProject {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    padding: 0;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: #ff6b08;
-    transition: all 250ms linear;
-  }
-  
-  .btnIconAddProject:hover {
-    box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
-    transform: scale(1.2);
-    transition: all 250ms linear;
-  }
-  
-  @media screen and (max-width: 767px) {
-    .btnIconAddProject {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-    }
-  }
-  
-  @media screen and (min-width: 768px) {
-    .btnIconAddProject {
-      position: relative;
-      margin-left: auto;
-    }
-  }
+
