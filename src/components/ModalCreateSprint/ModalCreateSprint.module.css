@@ -1,0 +1,96 @@
+.backdrop{
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(24, 28, 39, 0.25);
+}
+
+
+
+.modalAddSprint{
+  position: relative;
+  /* right: 0; */
+  padding-top: 201px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  margin-left: auto;
+  width: 530px;
+
+  
+  height: 608px;
+  background: #fff;
+}
+
+.modalTitle{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+    border: none;
+  
+    border-bottom: none;
+    background: no-repeat bottom, 50% calc(100% - 1px);
+    background-size: 0 100%, 100% 100%;
+    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0),
+      linear-gradient(0deg, rgba(24, 28, 39, 0.2) 1px, hsla(0, 0%, 82%, 0) 0);
+  
+    margin-bottom: 52px;
+    padding: 5px;
+  
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .input {
+      font-size: 18px;
+      line-height: 1.22;
+    }
+  }
+  
+  .input:focus {
+    outline: none;
+    background-size: 100% 100%, 100% 100%;
+    transition-duration: 0.3s;
+    box-shadow: none;
+  }
+  
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    top: 10px;
+  }
+  .formItem {
+    position: relative;
+    padding-top: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    position: absolute;
+    left: 10px;
+    top: 43px;
+    transition: top 0.5s;
+  
+    display: block;
+    font-family: Montserrat;
+  
+    font-size: 12px;
+    line-height: 0.8;
+  
+    color: rgba(24, 28, 39, 0.6);
+  }
+  
+  @media screen and (min-width: 768px) {
+    .label {
+      font-size: 14px;
+      line-height: 1.22;
+    }
+  }
