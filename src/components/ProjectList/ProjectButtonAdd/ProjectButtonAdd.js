@@ -1,10 +1,11 @@
 import { useState } from "react";
 import IconButton from "../../Modal/IconButton";
-import { ReactComponent as IconAddProject } from "../../Modal/IconButton/+.svg";
+import { ReactComponent as IconAddProject } from "../../Modal/IconButton/addProject.svg";
 import { ReactComponent as Close } from "../../Modal/IconButton/+.svg";
 import FormCreateProject from "../../Modal/FormCreateProject";
 import Modal from "../../Modal";
 import s from "./ProjectButtonAdd.module.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProjectButtonAdd = ({ text, description, className }) => {
   const [showModal, setShowModal] = useState(false);
@@ -15,13 +16,13 @@ const ProjectButtonAdd = ({ text, description, className }) => {
 
   return (
     <>
-      <div className={s.container}>
+      <div className={s[className]}>
         <h2 className={s.title}>{text}</h2>
 
         <IconButton
           onClick={toggleModal}
           aria-label="create project"
-          className={className}
+          className={"btnIconAddProject"}
         >
           <IconAddProject />
         </IconButton>

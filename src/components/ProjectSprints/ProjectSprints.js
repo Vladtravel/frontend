@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css"
 import { useSelector } from "react-redux";
@@ -25,6 +26,7 @@ function ProjectSprints(){
   const [showModal, setShowModal] = useState(false);
 
     const getProjects = useSelector(getAllProjects);
+
     const { url } = useRouteMatch();
 
  const toggleModal = (e) => {
@@ -32,11 +34,13 @@ function ProjectSprints(){
   console.log(e)
 };
 
+ 
+
 return(
     <div className={s.Sprints}>
     <div className={s.menuSprints}>
             <div className={s.menuNav}>
-                <span className={s.iconLink}></span>
+                <div className={s.iconLink}></div>
                 <NavLink to="/projects" className={s.menuLink}>
                     Показати <br></br>проекти 
                 </NavLink>
@@ -44,14 +48,12 @@ return(
             <div className={s.menuProjects}>
             <ul className={s.item}>
       {getProjects.map(({ name, _id }) => {
-        console.log(_id);
         const color =
           randomColor[Math.floor(Math.random() * randomColor.length)];
         return (
           <li
             key={_id}
             className={s.menuProjectLink}
-            
           >
             <div 
             className={s.menuProjectIcon}
@@ -69,7 +71,7 @@ return(
     </ul>
              </div>
             <div className={s.menuAdd}>
-                <ProjectButtonAdd className={"btnIconAddProject"}/>
+                <ProjectButtonAdd className={"projectSprintsAdd"}/>
                 <samp>Створити проект</samp>
             </div>
 
