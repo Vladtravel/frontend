@@ -11,6 +11,7 @@ import { useRouteMatch } from "react-router-dom";
 // import addButton from "../addButton";
 import AddMember from "../MemberForm/MemberForm";
 // import arrowButton from "../arrowButton/arrowButton";
+
 const randomColor = [
   "rgba(255, 107, 8)",
   "rgba(140, 114, 223)",
@@ -67,8 +68,7 @@ function ProjectSprints() {
       <div>
         <arrowButton />
         <RenameSprint />
-        {/* Сдесь делай кнопку */}
-        {/* <addButton /> */}
+        {/* <addButton />  */}
         <arrowButton />
         <AddMember />
         <SingleSprint />
