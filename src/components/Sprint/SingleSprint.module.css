@@ -5,7 +5,17 @@
 .hederSprint__title{
   display: flex;
   align-items: baseline;
+  padding-top: 30px;
+  padding-left: 20px;
 }
+@media (min-width: 768px){
+  .hederSprint__title{
+    padding-top: 40px;
+  
+  }
+}
+
+
 .hederSprint{
   display: inline-block;
     position: relative;
@@ -42,6 +52,9 @@
     letter-spacing: .04em;
 }
 .create__sprint{
+  position: fixed;
+  right: 20px;
+  bottom:20px;
   
     outline: none;
     border: none;
@@ -137,3 +150,39 @@
 .card__button:hover {
   background-image: url("./ActivBin.svg");
 }
+.hederSprint__text{
+  width: 280px;
+  font-weight: 500;
+font-size: 14px;
+line-height: 1.21;
+padding-top: 20px;
+padding-left: 20px;
+}
+
+@media (min-width: 768px){
+  .hederSprint__text{
+    width: 452px;    
+  font-size: 18px;
+  line-height: 1.22;
+  }
+}
+@media (min-width: 900px){
+  .hederSprint__text{
+    width: 400px;
+    
+  }
+}
+
+.text{
+  display: none;
+}
+@media (min-width: 900px){
+  .text{
+   display: block;    
+  }
+}
+@media (min-width: 768px){
+.create__sprint{
+position: static;
+
+}}
