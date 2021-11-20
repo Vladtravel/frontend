@@ -1,0 +1,17 @@
+/* .App {
+  text-align: center;
+  color: blue;
+  font-weight: 800;
+  font-size: 40px;
+} */
+
+.wrapper {
+  background-color: #f1f2f7;
+  min-height: 100vh;
+  /* width: 100vw; */
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}

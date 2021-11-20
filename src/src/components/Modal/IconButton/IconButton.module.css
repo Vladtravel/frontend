@@ -1,0 +1,65 @@
+.iconBtn {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 10px;
+  right: 10px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: all 250ms linear;
+}
+
+.iconBtn:hover {
+  transform: scale(1.5);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+.btnIconAddProject {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #ff6b08;
+  transition: all 250ms linear;
+}
+
+.btnIconAddProject:hover {
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
+  transform: scale(1.2);
+  transition: all 250ms linear;
+}
+
+@media screen and (max-width: 767px) {
+  .btnIconAddProject {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btnIconAddProject {
+    position: relative;
+    margin-left: auto;
+  }
+}

@@ -1,142 +1,105 @@
 .Sprints{
-    display: flex;
-    
+  display: flex;
+  
 
 }
 .menuSprints{
-    display: flexbox;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 255px;
-    height: 100vh;
-    border-right: 1px solid #181C27;
+  display: flexbox;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 255px;
+  height: 100vh;
+  border-right: 1px solid #181C27;
 
-    padding-top: 20px;
-    padding-right: 30px;
-    padding-bottom: 50px;
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+}
+@media screen and (max-width: 769px) {
+  .menuSprints {
+  display: none;
   }
-  @media screen and (max-width: 769px) {
-    .menuSprints {
-    display: none;
-    }
-  }
-  
+}
+
 .menuNav{
-    display: flex;
-    margin-bottom: 165px;
+  display: flex;
+  margin-bottom: 165px;
 }
 
 .menuLink{
-    width: 119px;
-    height: 34px;
+  width: 119px;
+  height: 34px;
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
 
-    font-family: Montserrat;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
+  color: #181C27;
 
-    color: #181C27;
-}
+  }
 
-.iconLink{
+  .iconLink {
     background-image:
     url(Arrow1.svg);
     width: 30px;
     height: 10px;
     margin-top: 10px;
     margin-right: 21px; 
-}
+    
+  }
 
-.menuProjects{
+  .menuProjects {
     display: block;
     margin-bottom: 173px;
     width: 170px;
     height: 170px;
     overflow: auto;
-}
-
-.menuAdd{
-    padding-bottom: 80px;
-    
-}
-
-
-.menuProjectLink{
+  }
+  .menuProjectLink {
     display: flex;
     /* justify-content: center; */
     align-items: center;
     margin-bottom: 30px;
-}
+  }
 
-.menuProjectIcon{
-    width: 36px;
-    height: 36px;
-    border-radius: 5px;
-    margin-right: 15px;
-}
+.menuProjectIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  margin-right: 15px;
 
+}
 
 .btnIconAddProject {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    padding: 0;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: #ff6b08;
-    transition: all 250ms linear;
-  }
-  
-  .btnIconAddProject:hover {
-    box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
-    transform: scale(1.2);
-    transition: all 250ms linear;
-  }
-  
-  @media screen and (max-width: 767px) {
-    .btnIconAddProject {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-    }
-  }
-  
-  @media screen and (min-width: 768px) {
-    .btnIconAddProject {
-      position: relative;
-      margin-left: auto;
-    }
-  }
-
-  /* Tania */
-  .addMemberBtn {
-    font-family: Montserrat Medium;
-    display: block;
-    margin-left: 10px;
-    padding: 0;
-    height: 22px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.23;
-    letter-spacing: 0.04em;
-    color: rgba(24, 28, 39, 0.6);
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(24, 28, 39, 0.6);
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #ff6b08;
+  transition: all 250ms linear;
 }
 
-.addWrapper {
-  display: flex;
-  margin-left: 70px;
+.btnIconAddProject:hover {
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
+  transform: scale(1.2);
+  transition: all 250ms linear;
 }
 
 @media screen and (max-width: 767px) {
-  .addWrapper {
-    margin-left: 20px;
+  .btnIconAddProject {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .btnIconAddProject {
+    position: relative;
+    margin-left: auto;
+  }
+}
 
