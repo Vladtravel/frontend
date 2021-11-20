@@ -14,7 +14,7 @@ function TasksView(params) {
   const [page, setPage] = useState(1);
   const tasksInOnePage = 5;
   const totalPages = Math.ceil(arr.length / tasksInOnePage);
-
+  
   return (
     <div className={s.wrapper}>
       <div className={s.sideBar}>
