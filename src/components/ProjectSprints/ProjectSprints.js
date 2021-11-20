@@ -8,9 +8,14 @@ import { getAllProjects } from "../../redux/projects/projects-selectors";
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
 import RenameSprint from "../Sprint/RenameSprint";
 import { useRouteMatch } from "react-router-dom";
-// import addButton from "../addButton";
+
+
 import AddMember from "../MemberForm/MemberForm";
-// import arrowButton from "../arrowButton/arrowButton";
+import Modal from "../Modal/Modal";
+import IconButton from "../Modal/IconButton/IconButton"
+import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
+import img from "./Vector.svg"
+
 
 import Sidebar from "../Sidebar";
 
@@ -23,9 +28,19 @@ const randomColor = [
 ];
 
 function ProjectSprints() {
-  // const getProjects = useSelector(getAllProjects);
-  // const { url } = useRouteMatch();
-  // const currentProjects = url.split("/")[2];
+
+  const [showModal, setShowModal] = useState(false);
+
+  const getProjects = useSelector(getAllProjects);
+  const { url } = useRouteMatch();
+  const currentProjects = url.split("/")[2];
+
+  const toggleModal = (e) => {
+    setShowModal(!showModal);
+    console.log(e)
+  };
+
+
   return (
     <div className={s.Sprints}>
       {/* <div className={s.menuSprints}>
@@ -39,8 +54,7 @@ function ProjectSprints() {
           <ul className={s.item}>
             {getProjects.map(({ name, _id }) => {
               console.log(_id);
-              const color =
-                randomColor[Math.floor(Math.random() * randomColor.length)];
+              const color = randomColor[Math.floor(Math.random() * randomColor.length)];
               return (
                 <li key={_id} className={s.menuProjectLink}>
                   <div
@@ -69,12 +83,24 @@ function ProjectSprints() {
       </div> */}
       <Sidebar />
       <div>
-        {/* <arrowButton />
-        <RenameSprint /> */}
-        {/* <addButton />  */}
-        {/* <arrowButton />
-        <AddMember />
-        <SingleSprint /> */}
+
+        <arrowButton />
+        <RenameSprint />
+        <arrowButton />
+
+          <div className={s.addWrapper}>
+             <img src={img} onClick={toggleModal}  alt={"addMember"}/>
+              <button type="button" onClick={toggleModal} className={s.addMemberBtn}>Додати людей</button>  
+          </div>
+
+          {showModal && (
+            <Modal onClose={toggleModal}>
+              <AddMember toggleModal={toggleModal} />
+            </Modal>
+          )}
+
+        <SingleSprint />
+
       </div>
     </div>
   );
