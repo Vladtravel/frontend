@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import operations from "../../redux/members/members-operations";
-import Modal from "../Modal/Modal";
+import Button from "../Modal/Button/Button";
 import MemberList from "../MemberList/MemberList";
 import btnClose from "./btnClose.svg";
 import { getEmails } from "../../redux/selectors";
 import s from "./MemberForm.module.css";
 
-const MemberForm = ({ emails }) => {
+const MemberForm = ({ toggleModal }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
 
   const dispatch = useDispatch();
 
   const inputEmailValue = (e) => {
-    const { email } = e.target.value;
-    setEmail(email);
+    const { email, value  } = e.currentTarget;
+    setEmail(value);
   };
 
   const validateEmail = (email) => {
@@ -36,47 +35,60 @@ const MemberForm = ({ emails }) => {
     return !!Object.keys(errorsObject).length;
   };
 
-  const addPeople = (e) => {
-    e.preventDefault();
-    const newEmail = emails.some((email) => email.name === email);
-    if (newEmail) {
-      alert(`Цей користувач ${email} вже є учасником`);
-      formReset();
-      return;
-    }
-    onFormSubmit();
-    formReset();
-  };
+  // const addPeople = (e) => {
+  //   e.preventDefault();
+  //   const newEmail = emails.some((email) => email.name === email);
+  //   if (newEmail) {
+  //     alert(`Цей користувач ${email} вже є учасником`);
+  //     formReset();
+  //     return;
+  //   }
+  //   onFormSubmit();
+  //   formReset();
+  //   toggleModal();
+  // };
 
-  const onFormSubmit = async (e) => {
-    e.preventDefault();
+  // const projectId = useSelector((state) => state.projects.items.map((project) => project.name.item._id))
 
-    const projectId = location.pathname.split("/")[2];
-    const value = { projectId, email };
+  // const onFormSubmit = async ({ _id, email }) => {
+  
+  //   // const projectId = location.pathname.split("/")[2];
+   
+  //   const value = { _id, email };
 
-    const result = await validateEmail(email);
+  //   const result = await validateEmail(email);
 
-    if(!result) {
-      alert('Почта не вірна')
-    }
-    // дописать аргументы
-    dispatch(operations.addMemberOperation({ email })); 
+  //   if(!result) {
+  //     alert('Почта не вірна')
+  //   }
+   
+  //   return dispatch(operations.addMemberOperation({ _id, email })); 
+  
+  // };
 
-console.log(value)
-  };
 
   const formReset = () => {
     setEmail("");
   };
+// 1
+  const onSubmitEmail = ({ email }) => {
+    return dispatch(operations.addMemberOperation({ email }))
+  }
+  console.log(onSubmitEmail({email}))
 
-  const toggleModal = (e) => {
-    setShowModal(!showModal);
-  };
+// 2
+  const handleSubmit = e => {
+    e.preventDefault();
+    
+    onSubmitEmail({ email })
+    formReset();
+    toggleModal();
+
+  }
+
 
   return (
     <>
-      {showModal && (
-        <Modal onClose={toggleModal}>
           <div>
             <img
               onClick={toggleModal}
@@ -84,38 +96,40 @@ console.log(value)
               src={btnClose}
               alt="modal close icon"
             />
+
             <div className={s.modalContainer}>
               <h2 className={s.addFormTitle}>Додати людей</h2>
-              <form onSubmit={addPeople}>
+              <form onSubmit={handleSubmit}>
                 <input
+                id="members-email"
                   className={s.input}
                   onChange={inputEmailValue}
                   type="text"
                   name="email"
+                  value={email}
                   placeholder="Введіть e-mail"
-                  autoComplete="off"
+                  autoComplete="on"
                   required
                 />
               </form>
 
               <h4 className={s.usersTitle}>Додані користувачі:</h4>
+              {/* <MemberList /> */}
 
               <div className={s.buttonWrapper}>
-                <button type="submit" className={s.btnReady}>
-                  Готово
-                </button>
-                <button
-                  onClick={toggleModal}
-                  type="submit"
-                  className={s.btnCncld}
-                >
-                  Відміна
-                </button>
+              <Button className="button" type="submit" text={"Готово"} />
+              <Button
+                type="button"
+                className="btnLink"
+                text={"Відміна"}
+                onClick={toggleModal}
+               />
+
               </div>
             </div>
           </div>
-        </Modal>
-      )}
+     
+    
     </>
   );
 };
