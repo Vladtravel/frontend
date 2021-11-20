@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Modal from "../Modal";
+import IconButton from "../Modal/IconButton";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import s from "./ModalCreateSprint.module.css";
@@ -14,6 +16,7 @@ function ModalCreateSprint({
   const Example = () => {
     return (
       <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+
     );
   };
 
@@ -27,6 +30,7 @@ function ModalCreateSprint({
         }}
         className={s.modalAddSprint}
       >
+
         <h1 className={s.modalTitle}>Створення спринта</h1>
         <div className={s.formItem}>
           <input
@@ -52,6 +56,7 @@ function ModalCreateSprint({
         <button type="submit">submit</button>
       </form>
     </div>
+
   );
 }
 export default ModalCreateSprint;

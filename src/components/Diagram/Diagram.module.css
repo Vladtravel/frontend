@@ -1,0 +1,26 @@
+.chartContainer {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+
+  width: 688px;
+  height: 340px;
+
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .chartContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .chartContainer {
+    width: 933px;
+    height: 461px;
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg";
 import ModalCreateSprint from "../ModalCreateSprint/ModalCreateSprint";
+
 import s from "./SingleSprint.module.css";
 import {
   addSprint,
@@ -75,6 +76,7 @@ const RenameSprint = ({ id, renameSprint }) => {
           endDate={endDate}
         />
       )}
+
       <div className={s.hederSprint__title}>
         <h2 className={s.hederSprint}>Project 1</h2>
         <button
@@ -85,6 +87,7 @@ const RenameSprint = ({ id, renameSprint }) => {
         ></button>
         <button
           onClick={() => setIsModalOpen(true)}
+
           aria-label={"create sprint"}
           className={s.create__sprint}
         >
@@ -147,5 +150,6 @@ const RenameSprint = ({ id, renameSprint }) => {
   //         </>
   //     )
 };
+
 
 export default RenameSprint;
