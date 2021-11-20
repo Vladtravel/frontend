@@ -1,73 +1,63 @@
-.container__sprints{
-  padding: 40px 70px;
+.container__sprints {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  overflow-y: auto;
+  justify-content: flex-start;
 }
 
-.hederSprint__title{
+.hederSprint__title {
   display: flex;
   align-items: baseline;
-  padding-top: 30px;
-  padding-left: 20px;
+  justify-content: space-between;
 }
-@media (min-width: 768px){
-  .hederSprint__title{
-    padding-top: 40px;
-  
-  }
-}
-
-
-.hederSprint{
+.hederSprint {
   display: inline-block;
-    position: relative;
-    max-width: 70vw;
-    font-weight: 500;
-    margin-right: 20px;
-    font-size: 26px;
-    line-height: 1.231;
-    letter-spacing: .04em;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  position: relative;
+  max-width: 70vw;
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: 26px;
+  line-height: 1.231;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.penBtn{
-    display: block;
-    outline: none;
-    border: none;
-    width: 20px;
-    height: 20px;
-    background-image: url("./Pen.svg");
-    border-radius: 25px;
-    margin-right: 425px;
-    }
+.penBtn {
+  display: block;
+  outline: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-image: url("./Pen.svg");
+  border-radius: 25px;
+}
 .penBtn:hover {
   cursor: pointer;
   background-image: url("./ActivBin.svg");
 }
-.hederSprint__text{
+.hederSprint__text {
   margin-top: 20px;
-    margin-bottom: 30px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.214;
-    letter-spacing: .04em;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
 }
-.create__sprint{
-  position: fixed;
-  right: 20px;
-  bottom:20px;
-  
-    outline: none;
-    border: none;
-    
-    width: 44px;
-    height: 44px;
-    fill: #fff;
-    background-color: #ff6b08;
-    text-align: center;
-    border-radius: 25px;
-    margin-right: 20px;
+.create__sprint {
+  outline: none;
+  border: none;
+
+  width: 44px;
+  height: 44px;
+  fill: #fff;
+  background-color: #ff6b08;
+  text-align: center;
+  border-radius: 25px;
+  margin-right: 20px;
 }
-.create__sprint:hover{
+.create__sprint:hover {
   box-shadow: 1px 1px 5px 1px #ff6b08;
 }
 .single__item {
@@ -150,39 +140,8 @@
 .card__button:hover {
   background-image: url("./ActivBin.svg");
 }
-.hederSprint__text{
-  width: 280px;
-  font-weight: 500;
-font-size: 14px;
-line-height: 1.21;
-padding-top: 20px;
-padding-left: 20px;
-}
 
-@media (min-width: 768px){
-  .hederSprint__text{
-    width: 452px;    
-  font-size: 18px;
-  line-height: 1.22;
-  }
+.projectDetails {
+  padding-top: 40 px;
+  padding-left: 20 px;
 }
-@media (min-width: 900px){
-  .hederSprint__text{
-    width: 400px;
-    
-  }
-}
-
-.text{
-  display: none;
-}
-@media (min-width: 900px){
-  .text{
-   display: block;    
-  }
-}
-@media (min-width: 768px){
-.create__sprint{
-position: static;
-
-}}
