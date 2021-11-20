@@ -57,9 +57,12 @@ function App() {
               />
             </PrivateRoute>
 
-            <Route path="/projects/:projectId/sprints">
+            <PrivateRoute
+              path="/projects/:projectId/sprints"
+              redirectTo="/projects/:projectId/sprints"
+            >
               <ProjectSprints />
-            </Route>
+            </PrivateRoute>
 
             <PrivateRoute
               path="/projects/:projectId/sprints/:sprintId"
