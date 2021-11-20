@@ -1,15 +1,13 @@
-.Sprints{
+.Sprints {
   display: flex;
-  
-
 }
-.menuSprints{
+.menuSprints {
   display: flexbox;
   flex-direction: column;
   justify-content: space-between;
   width: 255px;
   height: 100vh;
-  border-right: 1px solid #181C27;
+  border-right: 1px solid #181c27;
 
   padding-top: 20px;
   padding-right: 30px;
@@ -17,16 +15,16 @@
 }
 @media screen and (max-width: 769px) {
   .menuSprints {
-  display: none;
+    display: none;
   }
 }
 
-.menuNav{
+.menuNav {
   display: flex;
   margin-bottom: 165px;
 }
 
-.menuLink{
+.menuLink {
   width: 119px;
   height: 34px;
   font-family: Montserrat;
@@ -34,11 +32,10 @@
   line-height: 17px;
   letter-spacing: 0.04em;
 
-  color: #181C27;
+  color: #181c27;
+}
 
-  }
-
-  .iconLink {
+/* .iconLink {
     background-image:
     url(Arrow1.svg);
     width: 30px;
@@ -46,28 +43,27 @@
     margin-top: 10px;
     margin-right: 21px; 
     
-  }
+  } */
 
-  .menuProjects {
-    display: block;
-    margin-bottom: 173px;
-    width: 170px;
-    height: 170px;
-    overflow: auto;
-  }
-  .menuProjectLink {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-  }
+.menuProjects {
+  display: block;
+  margin-bottom: 173px;
+  width: 170px;
+  height: 170px;
+  overflow: auto;
+}
+.menuProjectLink {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 30px;
+}
 
 .menuProjectIcon {
   width: 36px;
   height: 36px;
   border-radius: 5px;
   margin-right: 15px;
-
 }
 
 .btnIconAddProject {
@@ -102,4 +98,36 @@
     margin-left: auto;
   }
 }
+
+
+/* Tania */
+.addMemberBtn {
+  font-family: Montserrat Medium;
+  display: block;
+  margin-left: 10px;
+  padding: 0;
+  height: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.addWrapper {
+display: flex;
+margin-left: 70px;
+}
+
+@media screen and (max-width: 767px) {
+.addWrapper {
+  margin-left: 20px;
+}
+}
+
 

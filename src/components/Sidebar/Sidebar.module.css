@@ -1,0 +1,186 @@
+.menuSprints {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 255px;
+
+  border-right: 1px solid rgba(24, 28, 39, 0.1);
+
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+}
+@media screen and (max-width: 769px) {
+  .menuSprints {
+    display: none;
+  }
+}
+
+.menuNav {
+  display: flex;
+  justify-content: center;
+  width: 170px;
+  text-align: left;
+  margin-bottom: 125px;
+}
+
+.menuLink {
+  width: 120px;
+
+  padding: 0 0 0 50px;
+  font-family: "Montserrat";
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  position: relative;
+  display: block;
+
+  color: #181c27;
+}
+
+.iconLink {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 65px;
+  height: 15px;
+
+  transform: translateY(-50%);
+
+  background-repeat: no-repeat;
+  background-image: url(./Arrow1.svg);
+  outline: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuProjects {
+  display: block;
+  margin-bottom: 173px;
+  width: 170px;
+  height: 170px;
+}
+
+.menuProjectLink {
+  display: flex;
+  width: 170px;
+  height: 38px;
+  margin-bottom: 30px;
+}
+
+.subtitleCurrent {
+  word-wrap: break-word;
+  max-width: 119px;
+
+  font-family: Montserrat;
+
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+
+  color: #181c27;
+}
+
+.subtitle {
+  word-wrap: break-word;
+  max-width: 119px;
+
+  font-family: Montserrat;
+
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+
+  color: #181c27;
+}
+
+.link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.menuProjectIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.menuProjectLink:nth-child(5n + 1) .link .menuProjectIcon {
+  background-color: rgba(255, 107, 8);
+}
+
+.menuProjectLink:nth-child(5n + 2) .link .menuProjectIcon {
+  background-color: rgba(140, 114, 223);
+}
+
+.menuProjectLink:nth-child(5n + 3) .link .menuProjectIcon {
+  background-color: rgba(113, 223, 129);
+}
+
+.menuProjectLink:nth-child(5n + 4) .link .menuProjectIcon {
+  background-color: rgba(60, 114, 223);
+}
+
+.menuProjectLink:nth-child(5n + 5) .link .menuProjectIcon {
+  background-color: rgba(113, 191, 231);
+}
+
+.btnIconAddProject {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #ff6b08;
+  transition: all 250ms linear;
+}
+
+.btnIconAddProject:hover {
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
+  transform: scale(1.2);
+  transition: all 250ms linear;
+}
+
+@media screen and (max-width: 767px) {
+  .btnIconAddProject {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btnIconAddProject {
+    position: relative;
+    margin-left: auto;
+  }
+}
+
+.menuAdd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  font-family: Montserrat;
+
+  font-size: 14px;
+  line-height: 1.21;
+
+  letter-spacing: 0.04em;
+
+  color: #181c27;
+}
