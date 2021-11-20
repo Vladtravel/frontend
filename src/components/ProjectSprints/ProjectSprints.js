@@ -12,6 +12,8 @@ import { useRouteMatch } from "react-router-dom";
 import AddMember from "../MemberForm/MemberForm";
 // import arrowButton from "../arrowButton/arrowButton";
 
+import Sidebar from "../Sidebar";
+
 const randomColor = [
   "rgba(255, 107, 8)",
   "rgba(140, 114, 223)",
@@ -21,12 +23,12 @@ const randomColor = [
 ];
 
 function ProjectSprints() {
-  const getProjects = useSelector(getAllProjects);
-  const { url } = useRouteMatch();
-  const currentProjects = url.split("/")[2];
+  // const getProjects = useSelector(getAllProjects);
+  // const { url } = useRouteMatch();
+  // const currentProjects = url.split("/")[2];
   return (
     <div className={s.Sprints}>
-      <div className={s.menuSprints}>
+      {/* <div className={s.menuSprints}>
         <div className={s.menuNav}>
           <span className={s.iconLink}></span>
           <NavLink to="/projects" className={s.menuLink}>
@@ -64,16 +66,16 @@ function ProjectSprints() {
           <ProjectButtonAdd className={"btnIconAddProject"} />
           <samp>Створити проект</samp>
         </div>
-      </div>
+      </div> */}
+      <Sidebar />
       <div>
-        <arrowButton />
-        <RenameSprint />
+        {/* <arrowButton />
+        <RenameSprint /> */}
         {/* <addButton />  */}
-        <arrowButton />
+        {/* <arrowButton />
         <AddMember />
-        <SingleSprint />
+        <SingleSprint /> */}
       </div>
-
     </div>
   );
 }
