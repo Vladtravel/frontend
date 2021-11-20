@@ -2,32 +2,40 @@ import { useState } from "react";
 import Modal from "../Modal";
 import IconButton from "../Modal/IconButton";
 import DatePicker from "react-datepicker";
-
-import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import "react-datepicker/dist/react-datepicker.css";
 import s from "./ModalCreateSprint.module.css";
-
-function ModalCreateSprint({ onClick }) {
+function ModalCreateSprint({
+  onSubmit,
+  value,
+  setName,
+  data,
+  setIsModalOpen,
+  endDate,
+  setEndDate,
+}) {
   const Example = () => {
-    const [startDate, setStartDate] = useState(new Date());
     return (
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-      />
+      <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+
     );
   };
 
   return (
-    <Modal onClose={onClick}>
-      <IconButton onClick={onClick} className="iconBtn" aria-label="close">
-        <Close />
-      </IconButton>
+    <div className={s.backdrop}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(data);
+          setIsModalOpen(false);
+        }}
+        className={s.modalAddSprint}
+      >
 
-      <form className={s.modalAddSprint}>
         <h1 className={s.modalTitle}>Створення спринта</h1>
         <div className={s.formItem}>
           <input
+            value={value}
+            onChange={(e) => setName(e.currentTarget.value)}
             id="project-name"
             className={s.input}
             placeholder=" "
@@ -43,15 +51,12 @@ function ModalCreateSprint({ onClick }) {
           <label htmlFor="project-name" className={s.label}>
             Назва проекту
           </label>
-
-          <input id="project-name" className={s} type="checkbox" name="name" />
-          <label htmlFor="project-name" className={s}>
-            Попередні дні
-          </label>
         </div>
         <Example />
+        <button type="submit">submit</button>
       </form>
-    </Modal>
+    </div>
+
   );
 }
 export default ModalCreateSprint;

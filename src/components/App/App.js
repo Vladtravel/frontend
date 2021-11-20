@@ -29,9 +29,9 @@ function App() {
       <Container>
         <Suspense fallback={null}>
           <Switch>
-            <PublicRoute exact path="/tasks" restricted>
+            {/* <PublicRoute exact path="/tasks" restricted>
               <TasksView />
-            </PublicRoute>
+            </PublicRoute> */}
             <PublicRoute exact path="/" restricted>
               <RegisterForm />
             </PublicRoute>
@@ -68,7 +68,7 @@ function App() {
               path="/projects/:projectId/sprints/:sprintId"
               restricted
             >
-              <ProjectList />
+              <TasksView />
             </PrivateRoute>
           </Switch>
         </Suspense>
