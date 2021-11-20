@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Modal from "../Modal";
+import IconButton from "../Modal/IconButton";
 import DatePicker from "react-datepicker";
 
+import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import "react-datepicker/dist/react-datepicker.css";
-import s from "./ModalCreateSprint.module.css"
-function  ModalCreateSprint () {
+import s from "./ModalCreateSprint.module.css";
 
-    const Example = () => {
-        const [startDate, setStartDate] = useState(new Date());
-        return (
-          <DatePicker 
-          selected={startDate} 
-          onChange={(date) => setStartDate(date)} />
-        );
-      };
-
+function ModalCreateSprint({ onClick }) {
+  const Example = () => {
+    const [startDate, setStartDate] = useState(new Date());
     return (
-        <div className={s.backdrop}>
-            <form className={s.modalAddSprint}>
-                <h1 className={s.modalTitle}>Створення спринта</h1>
-                <div className={s.formItem}>
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+      />
+    );
+  };
+
+  return (
+    <Modal onClose={onClick}>
+      <IconButton onClick={onClick} className="iconBtn" aria-label="close">
+        <Close />
+      </IconButton>
+
+      <form className={s.modalAddSprint}>
+        <h1 className={s.modalTitle}>Створення спринта</h1>
+        <div className={s.formItem}>
           <input
             id="project-name"
             className={s.input}
@@ -36,23 +44,14 @@ function  ModalCreateSprint () {
             Назва проекту
           </label>
 
-          <input
-            id="project-name"
-            className={s}
-            type="checkbox"
-            name="name"
-           
-          />
+          <input id="project-name" className={s} type="checkbox" name="name" />
           <label htmlFor="project-name" className={s}>
-           Попередні дні
+            Попередні дні
           </label>
-          </div>
-            <Example/>
-
-
-            </form>
         </div>
-    )
-    
+        <Example />
+      </form>
+    </Modal>
+  );
 }
-export default ModalCreateSprint
+export default ModalCreateSprint;
