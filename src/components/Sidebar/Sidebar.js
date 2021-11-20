@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
 
 import { getAllProjects } from "../../redux/projects/projects-selectors";
+import { fetchProjects } from "../../redux/projects/projects-operations";
 import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
 import s from "./Sidebar.module.css";
 
@@ -10,7 +12,12 @@ function Sidebar() {
   const getProjects = useSelector(getAllProjects);
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
-  console.log(getProjects);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProjects());
+  }, [dispatch]);
 
   return (
     <div className={s.menuSprints}>
