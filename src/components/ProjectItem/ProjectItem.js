@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
-import PropTypes from "prop-types";
 import Loader from "react-loader-spinner";
 import {
   fetchProjects,
@@ -57,16 +56,6 @@ const ProjectItem = () => {
       })}
     </ul>
   );
-};
-
-ProjectItem.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    })
-  ),
 };
 
 export default ProjectItem;

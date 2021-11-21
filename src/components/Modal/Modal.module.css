@@ -19,7 +19,7 @@
   right: 0;
   padding: 67px 20px 70px 20px;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%;
 
   position: absolute;
   height: 608px;
@@ -49,10 +49,10 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .content {
     min-height: 768px;
-    max-width: 530px;
+    max-width: 512px;
 
     display: flex;
     align-items: center;
