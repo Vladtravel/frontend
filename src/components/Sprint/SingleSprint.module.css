@@ -145,3 +145,37 @@
   padding-top: 40 px;
   padding-left: 20 px;
 }
+.hederSprint_box{
+  display: flex;
+  align-items: baseline;
+}
+.text{
+  display: none;
+}
+
+@media screen and (min-width: 900px){
+  .text{
+    display: contents;
+  }
+}
+.create_box{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+@media screen and (min-width: 768px){
+  .create_box{
+    
+    top: 120px;
+    right: 40px;
+    
+  }
+}
+@media screen and (min-width: 900px){
+  .create_box{
+    
+    display: flex;
+    align-items: baseline;
+  }
+}
