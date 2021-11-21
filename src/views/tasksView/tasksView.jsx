@@ -74,6 +74,8 @@ function TasksView(params) {
               sprints.map(({ name, _id }) => (
                 <li className={s.sprint} key={_id}>
                   <FastAccessTemplate
+                    setCurrentDate={setCurrentDate}
+                    currentDate={currentDate}
                     key={_id}
                     setPage={setPage}
                     sprintName={name}
