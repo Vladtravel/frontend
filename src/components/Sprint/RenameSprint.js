@@ -78,8 +78,13 @@ const RenameSprint = ({ id, renameSprint }) => {
       )}
 
       <div className={s.hederSprint__title}>
+
+
+        <div className={s.headerSprint__titleButton}>
+        {/* <h2 className={s.hederSprint}>Project 1</h2> */}
+
         <div className={s.hederSprint_box}>
-        <h2 className={s.hederSprint}>Project 1</h2>
+
         <button
           className={s.penBtn}
           type="sabmit"
@@ -87,43 +92,60 @@ const RenameSprint = ({ id, renameSprint }) => {
           onClick={renameSprint}
         ></button>
         </div>
-        <div className={s.hederSprint_box, s.create_box}>
-        <button
-          onClick={() => setIsModalOpen(true)}
 
+//         <div className={s.hederSprint_box, s.create_box}>
+//         <button
+//           onClick={() => setIsModalOpen(true)}
+
+
+         <div className={s.headerSprint__titleButton}>
+         <button
+          onClick={() => setIsModalOpen(true)}
           aria-label={"create sprint"}
           className={s.create__sprint}
         >
           <AddProject />
         </button>
         <p className={s.text}>Створити спринт</p>
+
+         </div>
         </div>
-      </div>
+
       <ul>
         {sprints &&
           sprints.map(({ name, endDate, duration, _id }) => {
             return (
-              <li key={_id} className={s.list}>
+              <li key={_id} className={s.single__item}>
+                <div className={s.single__card}>
                 <Link to={`${url}/${_id}`} className={s.link}>
                   <div>
-                    <h3>{name}</h3>
-                    <p>{endDate}</p>
-                    <p>{duration}</p>
+                    <h3 className={s.card__header}>{name}</h3>
+                    <div className={s.sprint__wrapper}>
+                    <p className={`${s.card__content} ${s.card__content_header}`}>Дата початку</p>
+                    <p className={`${s.card__content} ${s.card__content_header}`}>Дата закінчення</p>
+                    <p className={`${s.card__content} ${s.card__content_info}`}>{endDate}</p>
+                    <p className={`${s.card__content} ${s.card__content_header}`}>Тривалість</p>
+                    <p className={`${s.card__content} ${s.card__content_info}`}>{duration}</p>
+                    </div>
                   </div>
                 </Link>
-                <button onClick={() => onClick(_id)} aria-label="delete">
-                  DELETE
+                <button 
+                className={s.card__button}
+                onClick={() => onClick(_id)} aria-label="delete">
                 </button>
+                </div>
+              
+            
               </li>
             );
           })}
       </ul>
       
       <div>
-        <p className={s.hederSprint__text}>
+        {/* <p className={s.hederSprint__text}>
           Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового
           блоку
-        </p>
+        </p> */}
       </div>
     </>
   );
