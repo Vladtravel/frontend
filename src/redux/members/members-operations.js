@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRouteMatch } from "react-router-dom";
 
 import { 
     addMemeberToProjectRequest,
@@ -11,33 +12,41 @@ import {
 
 axios.defaults.baseURL = "https://goitproject.herokuapp.com";
 
-const addMemberOperation = ({ email, _id }) => (dispatch) => {
+const addMemberOperation = value => async (dispatch) => {
+    // const { url } = useRouteMatch();
+    const owners = {
+        email: value.email,
+        currentProjectId: value.currentProjectId,
+    }
+    dispatch(addMemeberToProjectRequest());
+
+    // try {
+    //    const { value } = await axios.post(`api/projects/${owners.currentProjectId}/owners`, owners);
+    //    dispatch(addMemeberToProjectSucces({value.owners}))
+    // } catch (error) {
+    //    dispatch(addMemeberToProjectError(error));
+    // }
+
+   axios
+  .post(`api/projects/${owners.currentProjectId}/owners`, owners)
+  .then(({ data }) => { console.log(data.data.email); dispatch(addMemeberToProjectSucces(data.data.email))})
+  .catch((error) => dispatch(addMemeberToProjectError(error.message)))
   
 }
 
-    
 
-
-// dispatch(addMemeberToProjectRequest());
-
-// axios
-// .post("api/projects", email)
-// .then((email) => dispatch(addMemeberToProjectSucces(email)))
-// .catch((error) => dispatch(addMemeberToProjectError(error.message)))
-    
-
-const updateMemberList = ({ email, _id }) => async dispatch => {
+const fetchProjectById = currentProjectId =>  dispatch => {
     dispatch(fetchMembersRequest());
 
     axios
-    .get(`api/projects/${_id}`, email)
-    .then((email) => dispatch(fetchMembersSucces(email)))
+    .get(`api/projects/${currentProjectId}`,)
+    .then(() => dispatch(fetchMembersSucces(currentProjectId)))
     .catch((error) => dispatch(fetchMembersError(error.message)))
     }
 
 const operations = {
     addMemberOperation,
-    updateMemberList,
+    fetchProjectById,
 };
 
 export default operations;

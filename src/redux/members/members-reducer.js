@@ -24,6 +24,6 @@ const errorMemberReducer = createReducer(null, {
 })
 
   export const membersReducer = combineReducers({
-      members: memberReducer,
+      owners: memberReducer,
       error: errorMemberReducer,
   })
