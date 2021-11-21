@@ -8,9 +8,10 @@
 
 .hederSprint__title {
   display: flex;
-  align-items: baseline;
+  /* align-items: baseline; */
   justify-content: space-between;
 }
+
 .hederSprint {
   display: inline-block;
   position: relative;
@@ -57,6 +58,12 @@
   border-radius: 25px;
   margin-right: 20px;
 }
+@media screen and (max-width: 1023px) {
+  .create__sprint {
+    margin-right: 0;
+  }
+}
+
 .create__sprint:hover {
   box-shadow: 1px 1px 5px 1px #ff6b08;
 }
@@ -145,6 +152,26 @@
   padding-top: 40 px;
   padding-left: 20 px;
 }
+
+
+/* T */
+.headerSprint__titleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.text {
+  margin: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .text {
+    display: none;
+  }
+}
+
 .hederSprint_box{
   display: flex;
   align-items: baseline;
@@ -179,3 +206,4 @@
     align-items: baseline;
   }
 }
+

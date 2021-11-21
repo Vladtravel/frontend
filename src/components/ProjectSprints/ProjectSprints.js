@@ -80,9 +80,6 @@ function ProjectSprints() {
       <Sidebar />
       <div className={s.projectDetails}>
 
-        {/* <arrowButton /> */}
-        <RenameSprint />
-        {/* <arrowButton /> */}
 
         <div className={s.addWrapper}>
           <img src={img} onClick={toggleModal} alt={"addMember"} />
@@ -97,7 +94,12 @@ function ProjectSprints() {
           </Modal>
         )}
 
-        <SingleSprint />
+        
+        {/* <arrowButton /> */}
+        <RenameSprint />
+        {/* <arrowButton /> */}
+
+        {/* <SingleSprint /> */}
       </div>
     </div>
   );

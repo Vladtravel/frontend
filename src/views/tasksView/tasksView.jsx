@@ -98,15 +98,18 @@ function TasksView(params) {
               <CurrentTime />
             </div>
           </div>
+
           <div className={s.secondLvl}>
             <div className={s.titleWrapper}>
               <Title />
             </div>
+
             <div className={s.btnCreateTaskWrapper}>
               <TaskButtonAdd className={"container"} />
-              <p className={s.secondLevelText}>Создать задачу</p>
+              <p className={s.secondLevelText}>Створити задачу</p>
             </div>
           </div>
+          
           <div className={s.lvlSeard}>
             <ul className={s.list}>
               <li className={s.listItem}>
