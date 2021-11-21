@@ -20,6 +20,7 @@ function FastAccessTemplate({
   return (
     <Link
       onClick={() => {
+        setCurrentDate(currentDate);
         setPage(1);
       }}
       to={`/projects/${currentProjects}/sprints/${id}`}
