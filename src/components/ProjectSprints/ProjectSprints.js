@@ -34,7 +34,6 @@ function ProjectSprints() {
 
   const toggleModal = (e) => {
     setShowModal(!showModal);
-    console.log(e);
   };
 
   return (
@@ -77,8 +76,10 @@ function ProjectSprints() {
           <samp>Створити проект</samp>
         </div>
       </div> */}
+
       <Sidebar />
       <div className={s.projectDetails}>
+
         {/* <arrowButton /> */}
         <RenameSprint />
         {/* <arrowButton /> */}
