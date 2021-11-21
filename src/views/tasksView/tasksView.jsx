@@ -15,9 +15,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTasks, deleteTask } from "../../redux/tasks/operation";
 import { useRouteMatch } from "react-router-dom";
-
+import { getAllSprints } from "../../redux/sprint/selectors";
 import { getAllTasks, getLoading, getError } from "../../redux/tasks/selectors";
-const arr3 = [1, 2, 3, 4];
 function TasksView(params) {
   const [page, setPage] = useState(1);
   const tasksInOnePage = 2;
@@ -25,6 +24,8 @@ function TasksView(params) {
   console.log(getTasks, "getTasks");
   let visibleTasks = [];
   const loader = useSelector(getLoading);
+  const sprints = useSelector(getAllSprints);
+  console.log(sprints, "sprints");
   const error = useSelector(getError);
   const dispatch = useDispatch();
   const { url } = useRouteMatch();
@@ -35,7 +36,6 @@ function TasksView(params) {
     const data = { currentProjects, currentSprint };
     dispatch(fetchTasks(data));
   }, [currentProjects, currentSprint, dispatch]);
-
   const onClick = (data) => {
     console.log(data);
     dispatch(deleteTask(data));
@@ -49,16 +49,17 @@ function TasksView(params) {
         </div>
         <div className={s.sprintsWrapper}>
           <ul>
-            {arr3.map((e, i) => (
-              <li className={s.sprint} key={i}>
-                <FastAccessTemplate
-                  key={i}
-                  sprintName="Sprint Burndown Chart 3"
-                  id="1"
-                  current="1"
-                />
-              </li>
-            ))}
+            {Array.isArray(sprints) &&
+              sprints.map(({ name, _id }) => (
+                <li className={s.sprint} key={_id}>
+                  <FastAccessTemplate
+                    key={_id}
+                    sprintName={name}
+                    id={_id}
+                    current={currentSprint}
+                  />
+                </li>
+              ))}
           </ul>
         </div>
         <div className={s.btnWrapper}>
@@ -109,7 +110,7 @@ function TasksView(params) {
               <p className={s.secondLevelText}>Створити задачу</p>
             </div>
           </div>
-          
+
           <div className={s.lvlSeard}>
             <ul className={s.list}>
               <li className={s.listItem}>

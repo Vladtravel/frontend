@@ -20,7 +20,7 @@ export const fetchTasks =
     axios
       .get(`api/projects/${currentProjects}/sprints/${currentSprint}`)
       .then(({ data }) => {
-        console.log(data);
+        console.log(data.data, "tasks");
         dispatch(getSuccess(data.data.tasks));
       })
       .catch((error) => dispatch(getError(error.message)));

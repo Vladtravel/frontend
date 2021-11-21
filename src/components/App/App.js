@@ -59,10 +59,7 @@ function App() {
             >
               <TasksView />
             </PrivateRoute>
-            <PrivateRoute
-              path="/projects/:projectId/sprints"
-              redirectTo="/projects/:projectId/sprints"
-            >
+            <PrivateRoute path="/projects/:projectId/sprints" redirectTo="/">
               <ProjectSprints />
             </PrivateRoute>
           </Switch>
