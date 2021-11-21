@@ -1,217 +1,216 @@
-.frontPage {
+.forma {
   position: relative;
   z-index: 999;
-
-  background-color: white;
-  
-  /* margin-top: 0px; */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px 50px;
   width: 100%;
   height: 100vh;
-  }
+  background-color: #fafafa;
+  padding-top: 47px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 79px;
+}
 
-  @media screen and (min-width: 320px){
-    .frontPage{
-    
-    width: 320px;
-
-  }
-    }
-
-  @media screen and (min-width: 768px){
-    .frontPage{
-      height: 100%;
+@media screen and (min-width: 768px) {
+  .forma {
     width: 570px;
+    height: 538px;
     padding: 60px 70px;
     margin-top: 56px;
-  }
-    }
-
-.loginForm {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2px;
-  background-color: white;
-  border-radius: 6px;
-
-  @media screen and (min-width: 768px){
-    
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-.loginForm__title{
-  font-family: Montserrat Medium;
-font-style: normal;
-font-weight: 500;
-font-size: 26px;
-line-height: 32px;
-}
-
-.loginForm__header {
+.formaTitle {
   font-family: Montserrat Medium;
   font-style: normal;
   font-weight: 500;
   font-size: 26px;
   line-height: 32px;
-  margin-bottom: 6px;
+  align-items: center;
   text-align: center;
-}
+  letter-spacing: 0.04em;
 
+  color: #181c27;
 
-
-.loginFormBody__label {
-  position: absolute;
-  display: block;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-
-  color: rgba(24, 28, 39, 0.6);
-  /* transition-property: transform;
-  transition-duration: 150ms;
-  transition-timing-function: linear;
-  transform: translateY(-30px);
-  left: 10px; */
-  
- 
-}
-
-/* .loginFormBody__input:focus + .loginFormBody__label{
-  transform: translateY(-40px);
-  left: 5px;
-} */
-
-
-
-.loginFormBody__input {
-  width: 100%;
-  padding-bottom: 9px;
-  outline: none;
-  border-color: transparent;
-  border-bottom: 1px solid #181C27;
-  
-}
-.loginFormBody__input_error {
-  width: 100%;
-  padding-bottom: 9px;
-  outline: none;
-  border-color: transparent;
-  border-bottom: 1px solid #181C27;
-  color:#FF2C0C;
-} 
-
-
-
-.EmailForm {
-  position: relative;
-  margin-bottom: 32px;
-}
-
-
-
-
-
-/* .inputIconEmail {
-  font-family: Montserrat;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 20px;
-
-color: #181C27;
-} */
-
-.PasswordForm {
-  position: relative;
   margin-bottom: 30px;
 }
 
-
-
-
-.PasswordFormRepeat{
-  position: relative;
-  /* margin-bottom: 20px; */
+@media screen and (min-width: 768px) {
+  .formaTitle {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 30px;
+  }
 }
 
-.loginFormBody__button {
+.formaEmail {
+  position: relative;
+  margin-bottom: 66px;
+}
+
+input {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #fafafa !important; /* Цвет фона */
+  -webkit-text-fill-color: #181c27 !important; /* цвет текста */
+  color: #181c27 !important; /* цвет текста */
+}
+
+.formaInput {
+  display: block;
+  width: 100%;
+  outline: 0px;
+  border: transparent;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 20px;
+
+  align-items: center;
+  letter-spacing: 0.04em;
+
+  color: #181c27;
+
+  background-color: transparent;
+  box-shadow: none;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  transition: all 0.25s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .formaInput {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.formaInput::placeholder {
+  color: transparent;
+}
+
+.formaInput:not(:placeholder-shown) + .formaLabel {
+  font-size: 14px;
+  line-height: 17px;
+  margin: -15px 0 0 1px;
+}
+
+.formaLabel {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  z-index: -1;
+}
+
+.formaPassword {
+  position: relative;
+  margin-bottom: 66px;
+}
+
+.formaInputError {
+  display: block;
+  width: 100%;
+  outline: 0px;
+  border: transparent;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 20px;
+
+  align-items: center;
+  letter-spacing: 0.04em;
+
+  color: #ff6b08;
+  background-color: transparent;
+  padding-left: 10px;
+  transition: all 0.25s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .formaInputError {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.formaInputError::placeholder {
+  color: transparent;
+}
+
+.formaInputError:not(:placeholder-shown) + .formaLabel {
+  font-size: 14px;
+  line-height: 17px;
+  margin: -12px 0 0 1px;
+}
+
+.formaPasswordRepeat {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.errorPassword {
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 15px;
+
+  align-items: center;
+  letter-spacing: 0.04em;
+
+  color: rgba(24, 28, 39, 0.6);
+
+  padding: 0;
+}
+
+.formaButton {
   display: block;
   font-family: Montserrat Medium;
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
+
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
   margin-bottom: 18px;
   padding: 11px 44px;
-  align-items: center;
-text-align: center;
-letter-spacing: 0.04em;
 
-color: #FFFFFF;
+  background: #ff6b08;
 
-background: #FF6B08;
-/* orange */
-
-box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
-border-radius: 25px;
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+  transition: all 0.25s ease-in-out;
 }
 
-.loginFormBody__button:active {
-  transform: translate(0em, 0.2em);
-}
-
-.loginFormBody__button:hover {
+.formaButton:hover {
   transform: scale(1.1);
 }
 
-.loginFormSpan{
-  font-family: Montserrat;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 15px;
-color: rgba(24, 28, 39, 0.6);
-text-align: center;
-}
-
-.loginFormFooter {
-  font-family: Montserrat;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 15px;
-text-decoration: underline;
-color: rgba(24, 28, 39, 0.6);
-}
-.loginFormPosition{
-  display: block;
+.formaNavigate {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.loginFormFooter:hover,
-.loginFormFooter:active {
-  color: #FF6B08;
-  transform: scale(1.1);
-}
-
-.errorPassword{
   font-family: Montserrat;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 15px;
-color: rgba(24, 28, 39, 0.6);
-margin-top: 5px;
+  font-size: 12px;
+  line-height: 15px;
 
+  letter-spacing: 0.04em;
+
+  color: rgba(24, 28, 39, 0.6);
+}
+.formaNavigateLink {
+  color: rgba(24, 28, 39, 0.6);
+  text-decoration: underline;
+  transition: all 0.25s ease-in-out;
+}
+
+.formaNavigateLink:hover,
+.formaNavigateLink:focus {
+  color: #ff6b08;
 }

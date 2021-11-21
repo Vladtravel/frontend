@@ -32,7 +32,7 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1024px) {
   .text {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -47,4 +47,8 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 40px;
+}
+
+.btnIconAddProject {
+  margin-bottom: 15px;
 }

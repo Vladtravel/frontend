@@ -36,57 +36,46 @@ function LoginForm() {
   return (
     <>
     <BackgroundAuth/>
-      <div className={s.frontPage}>
-        <div className={s.loginForm}>
-          <div className={s.loginForm__header}>
-            <h1 className={s.loginForm__title}>Вхід</h1>
-          </div>
-          <div className={s.loginFormBody}>
-            <form onSubmit={handleSubmit}>
-              <div className={s.EmailForm}>
-              <div className={s.inputIconEmail}></div>
-                  <input
-                    className={s.loginFormBody__input}
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    
-                  />
-                  <label className={s.loginFormBody__label}>
-                E-mail
-                </label>
+    <div className={s.forma}>
+          <form onSubmit={handleSubmit}>
+          <h1 className={s.formaTitle}>Вхід</h1>
+            <div className={s.formaEmail}>
+               <input
+                  className={s.formaInput}
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                  placeholder="E-mail"
+                  // autocomplete="off"
+                />
+                <label className={s.formaLabel}>E-mail</label>
+            </div>
+
+              <div className={s.formaPassword}>
+                <input
+                  className={s.formaInput}
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  placeholder="Пароль"
+                  
+                />
+                <label className={s.formaLabel}>Пароль</label>
               </div>
-                
-                 
-              <div className={s.PasswordForm}>
-               
-                  <div className={s.inputIconPassword}></div>
-                  <input
-                    className={s.loginFormBody__input}
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={handleChange}
-                   
-                  />
-                   <label className={s.loginFormBody__label}>
-                Пароль
-                </label>
-                
-              </div>
-              <button className={s.loginFormBody__button} type="submit">
+              
+              <button className={s.formaButton} type="submit">
               Увійти
               </button>
             </form>
+          
+          <div className={s.formaNavigate}>
+            <span>Маєте акаунт? </span>
+            <NavLink to="/" className={s.formaNavigateLink}>
+            Зареєструватись
+            </NavLink>
           </div>
-          <div className={s.loginFormPosition}>
-          <span className={s.loginFormSpan}>Немає акаунту? </span>
-          <NavLink to="/" className={s.loginFormFooter}>
-          Зареєструватись
-          </NavLink>
-          </div>
-        </div>
       </div>
     </>
   );

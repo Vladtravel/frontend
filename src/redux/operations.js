@@ -44,6 +44,7 @@ const logOut = () => (dispatch) => {
     })
     .catch((error) => dispatch(actions.logoutError(error.message)));
 };
+
 const getCurrentUser = () => (dispatch, getState) => {
   const {
     auth: { token: persistedToken },
@@ -54,7 +55,7 @@ const getCurrentUser = () => (dispatch, getState) => {
   axios
     .get("/users/current")
     .then((res) => {
-      dispatch(actions.getCurrentUserSuccess(res.data));
+      dispatch(actions.getCurrentUserSuccess(res.data.user));
     })
     .catch((error) => dispatch(actions.getCurrentUserError(error.message)));
 };
@@ -63,18 +64,12 @@ const repeatEmailVerify = (email) => (dispatch) => {
   axios.post("/users/verify", email);
 };
 
-const addMemberOperation = ({ projectId, email }) => {};
-
-const updateMemberList = () => {};
-
 const operations = {
   register,
   logIn,
   logOut,
   getCurrentUser,
   repeatEmailVerify,
-  addMemberOperation,
-  updateMemberList,
 };
 
 export default operations;

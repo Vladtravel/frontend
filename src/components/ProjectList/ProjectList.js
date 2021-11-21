@@ -1,50 +1,57 @@
 import { useState } from "react";
-import Modal from "../Modal";
-import IconButton from "../Modal/IconButton";
-import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
-import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg";
-import FormCreateProject from "../Modal/FormCreateProject";
 import ProjectItem from "../ProjectItem";
-import s from "./ProjectList.module.css";
+import ProjectButtonAdd from "./ProjectButtonAdd/ProjectButtonAdd";
+import AnalyticsButton from "../Diagram/AnalyticsButton";
+import ModalBackdrop from "../Diagram/ModalBackdrop";
+import Diagram from "../Diagram/Diagram";
 
-import projects from "../ProjectItem/project.json";
+const backdropStyles = {
+  overflowX: "scroll",
+};
 
 const ProjectList = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showDiagram, setShowDiagram] = useState(false);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+  const buttonHandlerDiagram = () => {
+    setShowDiagram(true);
   };
+
+  const btnCloseDiagram = () => {
+    setShowDiagram(false);
+  };
+
+  const doArrayOfDate = (startDate, endDate) => {
+    let start = new Date(startDate),
+      end = new Date(endDate),
+      array = [];
+
+    for (let q = start; q <= end; q.setDate(q.getDate() + 1)) {
+      array.push(q.toLocaleDateString());
+    }
+    return array;
+  };
+
+  // const [arrayDate, setArrayDate] = useState(doArrayOfDate(currentSprint.startDate, currentSprint.endDate));
 
   return (
     <>
-      <div className={s.container}>
-        <h2 className={s.title}>Проекти</h2>
+      <ProjectButtonAdd text={"Проекти"} description={" Створити проект"} className={"container"} />
 
-        <IconButton
-          onClick={toggleModal}
-          aria-label="create project"
-          className="btnIconAddProject"
-        >
-          <AddProject />
-        </IconButton>
-        <p className={s.text}>Створити проект</p>
-      </div>
+      <ProjectItem />
 
-      <ProjectItem projects={projects} />
+      {/* {showDiagram && (
+        <ModalBackdrop onClose={btnCloseDiagram} style={backdropStyles}>
+          <Diagram
+            duration={currentSprint.duration}
+            arrayOfDate={() => doArrayOfDate(currentSprint.startDate, currentSprint.endDate)}
+          />
+        </ModalBackdrop>
+      )} */}
 
-      {showModal && (
-        <Modal onClose={toggleModal}>
-          <IconButton
-            onClick={toggleModal}
-            className="iconBtn"
-            aria-label="close"
-          >
-            <Close />
-          </IconButton>
-          <FormCreateProject toggleModal={toggleModal} />
-        </Modal>
-      )}
+      {/* Кнопка аналітки */}
+      {/* {tasks.length > 0 && ( */}
+      <AnalyticsButton onClick={buttonHandlerDiagram} />
+      {/* )} */}
     </>
   );
 };

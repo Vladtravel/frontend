@@ -1,23 +1,39 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import operations from "../../redux/operations"
-import selectors from "../../redux/selectors"
+import { useRouteMatch } from "react-router-dom";
+import operations from "../../redux/members/members-operations"
+import selectors from "../../redux/selectors";
+
 
 import s from "./MemberList.module.css";
 
 const MemberList = () => {
-    const members = useSelector(selectors.getVisibleMemberList);
+    const owners = useSelector(selectors.getVisibleOwners)
+
+    console.log(owners)
+
+    const { url } = useRouteMatch();
+
+    const currentProjectId = url.split("/")[2];
+    console.log(currentProjectId)
+
     const dispatch = useDispatch();
 
-    useEffect(() => dispatch(operations.updateMemberList()), 
-    [dispatch]);
+  console.log(  useEffect(() => dispatch(operations.fetchProjectById(currentProjectId)), 
+  [currentProjectId, dispatch]) )
+
+    // const foundProject = projects.find((project) => url.split("/")[2].includes(project.id))
+
+
+    // useEffect(() => dispatch(operations.updateMemberList({owners, id})), 
+    // [dispatch, id, owners]);
 
     return (
         <>
-       {members ? (
+       {owners ? (
             <ul className={s.membersList}>
-            {members.map(({ email }) => (
+            {owners.map(({ email }) => (
                 <li key={email} className={s.membersItem}>
                     <p>{email}</p>
                 </li>

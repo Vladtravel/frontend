@@ -1,3 +1,72 @@
+.container__sprints {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  overflow-y: auto;
+  justify-content: flex-start;
+}
+
+.hederSprint__title {
+  display: flex;
+  /* align-items: baseline; */
+  justify-content: space-between;
+}
+
+.hederSprint {
+  display: inline-block;
+  position: relative;
+  max-width: 70vw;
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: 26px;
+  line-height: 1.231;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.penBtn {
+  display: block;
+  outline: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-image: url("./Pen.svg");
+  border-radius: 25px;
+}
+.penBtn:hover {
+  cursor: pointer;
+  background-image: url("./ActivBin.svg");
+}
+.hederSprint__text {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+}
+.create__sprint {
+  outline: none;
+  border: none;
+
+  width: 44px;
+  height: 44px;
+  fill: #fff;
+  background-color: #ff6b08;
+  text-align: center;
+  border-radius: 25px;
+  margin-right: 20px;
+}
+@media screen and (max-width: 1023px) {
+  .create__sprint {
+    margin-right: 0;
+  }
+}
+
+.create__sprint:hover {
+  box-shadow: 1px 1px 5px 1px #ff6b08;
+}
 .single__item {
   list-style: none;
   cursor: pointer;
@@ -47,10 +116,12 @@
 
 .card__content_header {
   text-align: left;
+  color:rgba(0, 0, 0, 1);
 }
 
 .card__content_info {
   text-align: right;
+  color: rgba(0, 0, 0, 1);
 }
 
 .card__content_header:not(:nth-last-child(-n + 3)),
@@ -77,4 +148,91 @@
 
 .card__button:hover {
   background-image: url("./ActivBin.svg");
+}
+
+.projectDetails {
+  padding-top: 40 px;
+  padding-left: 20 px;
+}
+
+
+.headerSprint__titleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.text {
+  margin: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .text {
+    display: none;
+  }
+}
+
+.hederSprint_box{
+  display: flex;
+  align-items: baseline;
+}
+.text{
+  display: none;
+}
+
+@media screen and (min-width: 900px){
+  .text{
+    display: contents;
+  }
+}
+.create_box{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+@media screen and (min-width: 768px){
+  .create_box{
+    
+    top: 120px;
+    right: 40px;
+    
+  }
+}
+@media screen and (min-width: 900px){
+  .create_box{
+    
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+.addMemberBtn {
+  font-family: Montserrat Medium;
+  display: block;
+  margin-left: 10px;
+  padding: 0;
+  height: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.addWrapper {
+  display: flex;
+  margin-left: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .addWrapper {
+    margin-left: 20px;
+  }
 }
