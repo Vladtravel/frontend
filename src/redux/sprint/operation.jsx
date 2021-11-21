@@ -9,6 +9,7 @@ import {
   deleteRequest,
   deleteSuccess,
   deleteError,
+  nameChange,
 } from "./actions";
 
 axios.defaults.baseURL = "https://goitproject.herokuapp.com";
@@ -17,7 +18,6 @@ export const fetchSprint =
   ({ currentProjects }) =>
   async (dispatch) => {
     dispatch(getRequest());
-    console.log(currentProjects);
 
     axios
       .get(`api/projects/${currentProjects}`)
@@ -58,4 +58,22 @@ export const deleteSprint =
         dispatch(deleteSuccess(_id));
       })
       .catch((error) => dispatch(deleteError(error.message)));
+  };
+export const sprintNameChange =
+  ({ currentSprint, currentProjects, name }) =>
+  (dispatch) => {
+    dispatch(deleteRequest());
+    const data = {
+      name,
+    };
+
+    axios
+      .patch(
+        `api/projects/${currentProjects}/sprints/${currentSprint}/name`,
+        data
+      )
+      .then(() => {
+        console.log(123);
+        dispatch(nameChange(name));
+      });
   };
