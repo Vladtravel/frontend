@@ -78,6 +78,7 @@ const RenameSprint = ({ id, renameSprint }) => {
       )}
 
       <div className={s.hederSprint__title}>
+        <div className={s.hederSprint_box}>
         <h2 className={s.hederSprint}>Project 1</h2>
         <button
           className={s.penBtn}
@@ -85,6 +86,8 @@ const RenameSprint = ({ id, renameSprint }) => {
           aria-label="rename"
           onClick={renameSprint}
         ></button>
+        </div>
+        <div className={s.hederSprint_box, s.create_box}>
         <button
           onClick={() => setIsModalOpen(true)}
 
@@ -94,6 +97,7 @@ const RenameSprint = ({ id, renameSprint }) => {
           <AddProject />
         </button>
         <p className={s.text}>Створити спринт</p>
+        </div>
       </div>
       <ul>
         {sprints &&
@@ -114,7 +118,7 @@ const RenameSprint = ({ id, renameSprint }) => {
             );
           })}
       </ul>
-      );
+      
       <div>
         <p className={s.hederSprint__text}>
           Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового
