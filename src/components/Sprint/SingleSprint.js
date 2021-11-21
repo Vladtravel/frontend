@@ -27,7 +27,7 @@ const SingleSprint = ({ sprint, deleteSprint, history, id, renameSprint }) => {
       {/* <RenameSprint/> */}
       <li className={s.single__item}>
         <div className={s.single__card}>
-          <h3 className={s.card__header}>Sprint Burndown Chart 1 </h3>
+          <h3 className={s.card__header}>Sprint Burndown Chart 1</h3>
           <div className={s.sprint__wrapper} onClick={openSprintPage}>
             <p className={`${s.card__content} ${s.card__content_header}`}>
               Дата початку

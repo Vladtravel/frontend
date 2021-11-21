@@ -109,10 +109,13 @@
 
 .card__content_header {
   text-align: left;
+  color:rgba(0, 0, 0, 1);
 }
 
 .card__content_info {
   text-align: right;
+  color: rgba(0, 0, 0, 1);
+
 }
 
 .card__content_header:not(:nth-last-child(-n + 3)),
@@ -177,5 +180,35 @@
     
     display: flex;
     align-items: baseline;
+  }
+}
+
+
+.addMemberBtn {
+  font-family: Montserrat Medium;
+  display: block;
+  margin-left: 10px;
+  padding: 0;
+  height: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.addWrapper {
+  display: flex;
+  margin-left: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .addWrapper {
+    margin-left: 20px;
   }
 }
