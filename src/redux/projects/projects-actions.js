@@ -8,10 +8,8 @@ export const addProjectsRequest = createAction("projects/addProjectsRequest");
 export const addProjectsSuccess = createAction("projects/addProjectsSuccess");
 export const addProjectsError = createAction("projects/addProjectsError");
 
-export const deleteProjectsRequest = createAction(
-  "projects/deleteProjectsRequest"
-);
-export const deleteProjectsSuccess = createAction(
-  "projects/deleteProjectsSuccess"
-);
+export const deleteProjectsRequest = createAction("projects/deleteProjectsRequest");
+export const deleteProjectsSuccess = createAction("projects/deleteProjectsSuccess");
 export const deleteProjectsError = createAction("projects/deleteProjectsError");
+
+export const nameChange = createAction("projects/nameChange");

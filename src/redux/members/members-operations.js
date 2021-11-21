@@ -36,6 +36,7 @@ const addMemberOperation = value => async (dispatch) => {
 
 
 const fetchProjectById = currentProjectId =>  dispatch => {
+    console.log(currentProjectId)
     dispatch(fetchMembersRequest());
 
     axios

@@ -1,7 +1,7 @@
 import s from "./CurrentTime.module.css";
 
-function CurrentTime(params) {
-  const date = new Date();
+function CurrentTime({ currentDate }) {
+  const date = new Date(currentDate);
   return (
     <p
       className={s.text}

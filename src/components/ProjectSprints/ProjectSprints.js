@@ -29,12 +29,14 @@ function ProjectSprints() {
   const [showModal, setShowModal] = useState(false);
 
   const getProjects = useSelector(getAllProjects);
-  const { url } = useRouteMatch();
-  const currentProjects = url.split("/")[2];
+  // const getProjects = useSelector(getAllProjects);
 
   const toggleModal = (e) => {
     setShowModal(!showModal);
   };
+
+  const { url } = useRouteMatch();
+  const currentProjects = url.split("/")[2];
 
   return (
     <div className={s.Sprints}>
@@ -76,17 +78,19 @@ function ProjectSprints() {
           <samp>Створити проект</samp>
         </div>
       </div> */}
-
       <Sidebar />
       <div className={s.projectDetails}>
-
         {/* <arrowButton /> */}
         <RenameSprint />
         {/* <arrowButton /> */}
 
         <div className={s.addWrapper}>
           <img src={img} onClick={toggleModal} alt={"addMember"} />
-          <button type="button" onClick={toggleModal} className={s.addMemberBtn}>
+          <button
+            type="button"
+            onClick={toggleModal}
+            className={s.addMemberBtn}
+          >
             Додати людей
           </button>
         </div>
@@ -102,4 +106,5 @@ function ProjectSprints() {
     </div>
   );
 }
+
 export default ProjectSprints;

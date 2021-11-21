@@ -2,7 +2,13 @@ import { useState } from "react";
 import Icons from "../icons";
 import s from "./Pagimation.module.css";
 
-function Pagination({ totalPages, onNextClick, onPreviousClick, page }) {
+function Pagination({
+  totalPages,
+  onNextClick,
+  onPreviousClick,
+  page,
+  setCurrentDate,
+}) {
   return (
     <div className={s.div}>
       <button onClick={() => onPreviousClick()} className={s.button}>

@@ -8,9 +8,10 @@
 
 .hederSprint__title {
   display: flex;
-  align-items: baseline;
+  /* align-items: baseline; */
   justify-content: space-between;
 }
+
 .hederSprint {
   display: inline-block;
   position: relative;
@@ -57,6 +58,12 @@
   border-radius: 25px;
   margin-right: 20px;
 }
+@media screen and (max-width: 1023px) {
+  .create__sprint {
+    margin-right: 0;
+  }
+}
+
 .create__sprint:hover {
   box-shadow: 1px 1px 5px 1px #ff6b08;
 }
@@ -109,10 +116,12 @@
 
 .card__content_header {
   text-align: left;
+  color:rgba(0, 0, 0, 1);
 }
 
 .card__content_info {
   text-align: right;
+  color: rgba(0, 0, 0, 1);
 }
 
 .card__content_header:not(:nth-last-child(-n + 3)),
@@ -145,6 +154,25 @@
   padding-top: 40 px;
   padding-left: 20 px;
 }
+
+
+.headerSprint__titleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.text {
+  margin: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .text {
+    display: none;
+  }
+}
+
 .hederSprint_box{
   display: flex;
   align-items: baseline;
@@ -177,5 +205,34 @@
     
     display: flex;
     align-items: baseline;
+  }
+}
+
+.addMemberBtn {
+  font-family: Montserrat Medium;
+  display: block;
+  margin-left: 10px;
+  padding: 0;
+  height: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.addWrapper {
+  display: flex;
+  margin-left: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .addWrapper {
+    margin-left: 20px;
   }
 }
