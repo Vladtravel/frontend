@@ -3,30 +3,31 @@ import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg
 import ModalCreateSprint from "../ModalCreateSprint/ModalCreateSprint";
 
 import s from "./SingleSprint.module.css";
-import {
-  addSprint,
-  fetchSprint,
-  deleteSprint,
-} from "../../redux/sprint/operation";
+import { addSprint, fetchSprint, deleteSprint } from "../../redux/sprint/operation";
 import { useRouteMatch, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
 import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getError,
-  getAllSprints,
-  getLoading,
-} from "../../redux/sprint/selectors";
+import { getError, getAllSprints, getLoading } from "../../redux/sprint/selectors";
+import { getAllProjects } from "../../redux/projects/projects-selectors";
+import { projectNameChange } from "../../redux/projects/projects-operations";
 
 const RenameSprint = ({ id, renameSprint }) => {
+  const [isNameChaged, setIsNameChaged] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [endDate, setEndDate] = useState(new Date());
   const currentData = new Date();
   const [name, setName] = useState("");
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
+
+  const projects = useSelector(getAllProjects);
+
+  const currentProject = projects.find((e) => e._id === currentProjects);
+  const [text, setText] = useState(currentProject.name);
 
   const error = useSelector(getError);
   const loader = useSelector(getLoading);
@@ -63,8 +64,33 @@ const RenameSprint = ({ id, renameSprint }) => {
   if (loader) {
     return <Loader type="Circles" color="#FF6B08" className={s.loader} />;
   }
+
+  const onNameChange = (data) => {
+    return dispatch(projectNameChange(data));
+  };
+
   return (
     <>
+      {isNameChaged ? (
+        <h1 className={s.title}>{currentProject.name}</h1>
+      ) : (
+        <input
+          value={text}
+          onChange={(e) => {
+            const { value } = e.currentTarget;
+            setText(value);
+          }}
+          onBlur={() => {
+            const data = {
+              currentProject: currentProjects,
+              name: text,
+            };
+            onNameChange(data);
+            setIsNameChaged((s) => !s);
+          }}
+          type="text"
+        />
+      )}
       {isModalOpen && (
         <ModalCreateSprint
           onSubmit={onSubmit}
@@ -76,28 +102,22 @@ const RenameSprint = ({ id, renameSprint }) => {
           endDate={endDate}
         />
       )}
-
       <div className={s.hederSprint__title}>
-        <div className={s.hederSprint_box}>
-        <h2 className={s.hederSprint}>Project 1</h2>
+        {/* <h2 className={s.hederSprint}>{currentProject.name}</h2> */}
         <button
           className={s.penBtn}
-          type="sabmit"
-          aria-label="rename"
-          onClick={renameSprint}
+          onClick={() => {
+            setIsNameChaged((s) => !s);
+          }}
         ></button>
-        </div>
-        <div className={s.hederSprint_box, s.create_box}>
         <button
           onClick={() => setIsModalOpen(true)}
-
           aria-label={"create sprint"}
           className={s.create__sprint}
         >
           <AddProject />
         </button>
         <p className={s.text}>Створити спринт</p>
-        </div>
       </div>
       <ul>
         {sprints &&
@@ -118,11 +138,10 @@ const RenameSprint = ({ id, renameSprint }) => {
             );
           })}
       </ul>
-      
+      );
       <div>
         <p className={s.hederSprint__text}>
-          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового
-          блоку
+          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку
         </p>
       </div>
     </>
@@ -154,6 +173,5 @@ const RenameSprint = ({ id, renameSprint }) => {
   //         </>
   //     )
 };
-
 
 export default RenameSprint;
