@@ -16,9 +16,7 @@ import {
 const itemReducer = createReducer([], {
   [getSuccess]: (_, { payload }) => payload,
 
-  [addSuccess]: (state, { payload }) => {
-    return [...state, payload];
-  },
+  [addSuccess]: (_, { payload }) => payload,
   [deleteSuccess]: (state, { payload }) => {
     return state.filter(({ _id }) => _id !== payload);
   },

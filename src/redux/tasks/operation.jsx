@@ -41,8 +41,8 @@ export const addTask =
         task
       )
       .then(({ data }) => {
-        console.log(data.data);
-        dispatch(addSuccess(data.data));
+        console.log(data.data.tasks, "data.data.tasks");
+        dispatch(addSuccess(data.data.tasks));
       })
       .catch((error) => dispatch(addError(error.message)));
   };

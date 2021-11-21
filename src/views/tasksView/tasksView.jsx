@@ -22,6 +22,7 @@ function TasksView(params) {
   const [page, setPage] = useState(1);
   const tasksInOnePage = 2;
   const getTasks = useSelector(getAllTasks);
+  console.log(getTasks, "getTasks");
   let visibleTasks = [];
   const loader = useSelector(getLoading);
   const error = useSelector(getError);
@@ -133,7 +134,7 @@ function TasksView(params) {
                     <li id={_id} key={_id}>
                       <p>{name}</p>
                       <q>
-                        duration<span>{sheduledHours}</span>
+                        duration <span>{sheduledHours}</span>
                       </q>
                       <button
                         onClick={() =>
