@@ -57,56 +57,59 @@ function TasksForm({ toggleModal }) {
 
   return (
     <>
-      <h2 className={s.title}>Создание задачи</h2>
+    <div className={s.modalContainer}>
+    <h2 className={s.title}>Создание задачи</h2>
 
-      <form className={s.form} onSubmit={handleSubmit}>
-        <div className={s.formItem}>
-          <input
-            id="project-name"
-            className={s.input}
-            placeholder=" "
-            type="text"
-            name="name"
-            title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
-            pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            value={name}
-            onChange={handleInputChange}
-            autoComplete="off"
-            required
-          />
-          <label htmlFor="project-name" className={s.label}>
-            Название задачи
-          </label>
-        </div>
+  <form  onSubmit={handleSubmit}>
+  <div className={s.formItem}>
+    <input
+      id="project-name"
+      className={s.input}
+      placeholder=" "
+      type="text"
+      name="name"
+      title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
+      pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+      value={name}
+      onChange={handleInputChange}
+      autoComplete="off"
+      required
+    />
+    <label htmlFor="project-name" className={s.label}>
+      Название задачи
+    </label>
+  </div>
 
-        <div className={s.formItem}>
-          <input
-            id="project-phone"
-            className={s.input}
-            placeholder=" "
-            type="number"
-            name="hours"
-            pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            value={hours}
-            onChange={handleInputChange}
-            title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
-            autoComplete="off"
-            required
-          />
-          <label htmlFor="project-phone" className={s.label}>
-            Опис
-          </label>
-        </div>
-        <button type="submit">Готово</button>
-        {/* <Button className="button" type="submit" text={"Готово"} /> */}
-      </form>
+  <div className={s.formItem}>
+    <input
+      id="project-phone"
+      className={s.input}
+      placeholder=" "
+      type="number"
+      name="hours"
+      pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+      value={hours}
+      onChange={handleInputChange}
+      title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
+      autoComplete="off"
+      required
+    />
+    <label htmlFor="project-phone" className={s.label}>
+      Опис
+    </label>
+  </div>
+  <Button className="button" type="submit" text={"Готово"} />
+  {/* <button type="submit">Готово</button> */}
 
-      <Button
-        type="button"
-        className="btnLink"
-        text={"Відміна"}
-        onClick={toggleModal}
-      />
+  <Button
+  type="button"
+  className="btnLink"
+  text={"Відміна"}
+  onClick={toggleModal}
+/>
+</form>
+    </div>
+      
     </>
   );
 }

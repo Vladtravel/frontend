@@ -3,6 +3,8 @@ import Modal from "../Modal";
 import IconButton from "../Modal/IconButton";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Button from "../Modal/Button/Button";
+import btnClose from "./btnClose.svg";
 import s from "./ModalCreateSprint.module.css";
 function ModalCreateSprint({
   onSubmit,
@@ -14,7 +16,7 @@ function ModalCreateSprint({
   setEndDate,
 }) {
   const Example = () => {
-    return (
+   return (
       <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
 
     );
@@ -22,7 +24,8 @@ function ModalCreateSprint({
 
   return (
     <div className={s.backdrop}>
-      <form
+    
+    <form
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit(data);
@@ -30,8 +33,17 @@ function ModalCreateSprint({
         }}
         className={s.modalAddSprint}
       >
-
-        <h1 className={s.modalTitle}>Створення спринта</h1>
+           <img
+               onClick={(e) => {
+                e.preventDefault();
+                setIsModalOpen(false)
+              }}
+              className={s.buttonClose}
+              src={btnClose}
+              alt="modal close icon"
+            />
+       <h2 className={s.modalTitle}>Створення спринта</h2>
+       
         <div className={s.formItem}>
           <input
             value={value}
@@ -49,11 +61,23 @@ function ModalCreateSprint({
             required
           />
           <label htmlFor="project-name" className={s.label}>
-            Назва проекту
+            Назва спринта
           </label>
         </div>
         <Example />
-        <button type="submit">submit</button>
+        {/* <button type="submit">submit</button> */}
+
+        <Button className="button" type="submit" text={"Готово"} />
+              <Button
+                type="button"
+                className="btnLink"
+                text={"Відміна"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalOpen(false)
+                }}
+              
+               />
       </form>
     </div>
 

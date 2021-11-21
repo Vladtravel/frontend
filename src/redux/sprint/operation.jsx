@@ -22,7 +22,6 @@ export const fetchSprint =
     axios
       .get(`api/projects/${currentProjects}`)
       .then(({ data }) => {
-        console.log(data);
         dispatch(getSuccess(data.data.sprints));
       })
       .catch((error) => dispatch(getError(error.message)));
@@ -67,13 +66,8 @@ export const sprintNameChange =
       name,
     };
 
-    axios
-      .patch(
-        `api/projects/${currentProjects}/sprints/${currentSprint}/name`,
-        data
-      )
-      .then(() => {
-        console.log(123);
-        dispatch(nameChange(name));
-      });
+    axios.patch(`api/projects/${currentProjects}/sprints/${currentSprint}/name`, data).then(() => {
+      console.log(123);
+      dispatch(nameChange(name));
+    });
   };
