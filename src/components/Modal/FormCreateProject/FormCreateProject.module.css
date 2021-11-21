@@ -97,3 +97,18 @@
 .input:not(:placeholder-shown) + .label {
   top: 10px;
 }
+
+/* T */
+.modalContainer {
+  position: relative;
+  /* z-index: 999; */
+  margin-top: 0;
+   width: 429px;
+} 
+
+@media screen and (max-width: 767px) {
+  .modalContainer {
+    width: 280px;
+    margin-top: 63px;
+  }
+}

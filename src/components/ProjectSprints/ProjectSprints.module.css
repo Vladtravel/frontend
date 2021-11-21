@@ -1,7 +1,24 @@
 .projectDetails {
+  width: 100%;
   padding-left: 70px;
-  padding-right: 55px;
+  padding-right: 31px;
   padding-top: 40px;
+}
+@media screen and (max-width: 1023px) {
+  .projectDetails {
+    padding-left: 20px;
+    padding-right: 0;
+ 
+  }
+}
+@media screen and (max-width: 767px) {
+  .projectDetails {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+ 
+  }
 }
 
 .Sprints {
@@ -132,5 +149,11 @@
 @media screen and (max-width: 767px) {
   .addWrapper {
     margin-left: 20px;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .addWrapper {
+    margin-left: 0;
   }
 }
