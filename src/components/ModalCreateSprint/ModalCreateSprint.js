@@ -9,6 +9,9 @@ import IconButton from "../Modal/IconButton";
 import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import Button from "../Modal/Button";
 import Modal from "../Modal";
+// import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+// import btnClose from "./btnClose.svg";
 import s from "./ModalCreateSprint.module.css";
 
 const dataTheme = createTheme({
@@ -24,7 +27,6 @@ const dataTheme = createTheme({
       },
     },
 
-    // Header
     MuiPickersCalendarHeader: {
       switchHeader: {
         marginTop: 0,
@@ -41,7 +43,6 @@ const dataTheme = createTheme({
         },
       },
 
-      // Arrows
       iconButton: {
         backgroundColor: "transparent",
 
@@ -50,12 +51,10 @@ const dataTheme = createTheme({
         },
       },
 
-      // Days Header
       daysHeader: {
         padding: "23px 7px",
       },
 
-      // Days
       dayLabel: {
         fontFamily: ["Montserrat", "sans-serif"],
         fontWeight: 600,
@@ -75,7 +74,6 @@ const dataTheme = createTheme({
       },
     },
 
-    // Day selected
     MuiPickersDay: {
       day: {
         width: 32,
@@ -97,7 +95,6 @@ const dataTheme = createTheme({
       },
     },
 
-    // Day number
     MuiIconButton: {
       label: {
         "& p": {
@@ -110,8 +107,6 @@ const dataTheme = createTheme({
     },
   },
 
-  //
-
   root: {
     "& .MuiGrid-container": {
       marginRight: 30,
@@ -123,7 +118,6 @@ const dataTheme = createTheme({
       width: "100%",
     },
 
-    // Lable
     "& label": {
       fontFamily: ["Montserrat", "sans-serif"],
       fontWeight: 400,
@@ -152,7 +146,6 @@ const dataTheme = createTheme({
         color: "#181C27",
       },
 
-      // Input border
       "& .MuiInput-underline:after": {
         borderBottomColor: "#ff6b08",
       },
@@ -192,7 +185,6 @@ const useStyles = makeStyles({
       },
     },
 
-    // Lable
     "& label": {
       fontFamily: ["Montserrat", "sans-serif"],
       fontWeight: 400,
@@ -222,7 +214,6 @@ const useStyles = makeStyles({
       color: "#181C27",
     },
 
-    // Input border
     "& .MuiInput-underline:after": {
       borderBottomColor: "#ff6b08",
     },

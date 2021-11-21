@@ -1,20 +1,55 @@
 .modalAddSprint {
-  position: relative;
-  /* right: 0; */
-  padding-top: 201px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  padding-left: 50px;
+  position: absolute;
+  padding-top: 63px;
+  padding-right: 20px;
+  padding-bottom: 45px;
+  padding-left: 20px;
   margin-left: auto;
-  width: 530px;
+  width: 100vw;
 
   height: 608px;
   background: #fff;
 }
 
+@media screen and (min-width: 768px) {
+  .modalAddSprint {
+    position: relative;
+    padding-top: 121px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 32px;
+    margin-left: auto;
+    width: 512px;
+
+    height: 608px;
+    background: #fff;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modalAddSprint {
+    position: relative;
+    padding-top: 121px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    margin-left: auto;
+    width: 530px;
+
+    height: 608px;
+    background: #fff;
+  }
+}
+
 .modalTitle {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1, 21;
   text-align: center;
+
   margin-bottom: 50px;
+
+  color: #181c27;
 }
 
 .menuProjectLink {

@@ -76,7 +76,6 @@ function ProjectSprints() {
           <samp>Створити проект</samp>
         </div>
       </div> */}
-
       <Sidebar />
       <div className={s.projectDetails}>
         {/* <arrowButton /> */}
