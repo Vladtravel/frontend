@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-// import SingleSprint from "../Sprint/SingleSprint";
+import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css";
 import { useSelector } from "react-redux";
 import { getAllProjects } from "../../redux/projects/projects-selectors";
@@ -9,11 +9,11 @@ import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
 import RenameSprint from "../Sprint/RenameSprint";
 import { useRouteMatch } from "react-router-dom";
 
-// import AddMember from "../MemberForm/MemberForm";
-// import Modal from "../Modal/Modal";
+import AddMember from "../MemberForm/MemberForm";
+import Modal from "../Modal/Modal";
 import IconButton from "../Modal/IconButton/IconButton";
 import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
-// import img from "./Vector.svg";
+import img from "./Vector.svg";
 
 import Sidebar from "../Sidebar";
 
@@ -26,15 +26,15 @@ const randomColor = [
 ];
 
 function ProjectSprints() {
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const getProjects = useSelector(getAllProjects);
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
 
-  // const toggleModal = (e) => {
-  //   setShowModal(!showModal);
-  // };
+  const toggleModal = (e) => {
+    setShowModal(!showModal);
+  };
 
   return (
     <div className={s.Sprints}>
@@ -80,9 +80,6 @@ function ProjectSprints() {
       <Sidebar />
       <div className={s.projectDetails}>
 
-        {/* <arrowButton /> */}
-        {/* <RenameSprint /> */}
-        {/* <arrowButton /> */}
 
         {/* <div className={s.addWrapper}>
           <img src={img} onClick={toggleModal} alt={"addMember"} />
@@ -97,7 +94,10 @@ function ProjectSprints() {
           </Modal>
         )} */}
 
+        
+        {/* <arrowButton /> */}
         <RenameSprint />
+        {/* <arrowButton /> */}
 
         {/* <SingleSprint /> */}
       </div>
