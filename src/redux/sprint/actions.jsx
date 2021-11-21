@@ -11,3 +11,5 @@ export const getError = createAction("sprints/getError");
 export const deleteRequest = createAction("sprints/deleteRequest");
 export const deleteSuccess = createAction("sprints/deleteSuccess");
 export const deleteError = createAction("sprints/deleteError");
+
+export const nameChange = createAction("sprints/nameChange");

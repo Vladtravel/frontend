@@ -11,8 +11,7 @@ import {
   deleteRequest,
   deleteSuccess,
   deleteError,
-  nameChange,
-} from "./actions";
+} from "./action";
 
 const itemReducer = createReducer([], {
   [getSuccess]: (_, { payload }) => payload,
@@ -22,15 +21,6 @@ const itemReducer = createReducer([], {
   },
   [deleteSuccess]: (state, { payload }) => {
     return state.filter(({ _id }) => _id !== payload);
-  },
-  [nameChange]: (state, { payload }) => {
-    console.log(1);
-    return state.map((item) => {
-      if (item._id) {
-        item = { ...item, name: payload };
-      }
-      return item;
-    });
   },
 });
 const loadingReducer = createReducer(false, {
@@ -54,7 +44,7 @@ const errorReducer = createReducer(null, {
   [deleteRequest]: () => null,
 });
 
-export const sprintReducer = combineReducers({
+export const tasksReducer = combineReducers({
   items: itemReducer,
   loading: loadingReducer,
   error: errorReducer,
