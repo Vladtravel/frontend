@@ -9,13 +9,13 @@ import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
 import RenameSprint from "../Sprint/RenameSprint";
 import { useRouteMatch } from "react-router-dom";
 
-
 import AddMember from "../MemberForm/MemberForm";
 import Modal from "../Modal/Modal";
-import IconButton from "../Modal/IconButton/IconButton"
+import IconButton from "../Modal/IconButton/IconButton";
 import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
-import img from "./Vector.svg"
+import img from "./Vector.svg";
 
+import Sidebar from "../Sidebar";
 
 const randomColor = [
   "rgba(255, 107, 8)",
@@ -38,7 +38,7 @@ function ProjectSprints() {
 
   return (
     <div className={s.Sprints}>
-      <div className={s.menuSprints}>
+      {/* <div className={s.menuSprints}>
         <div className={s.menuNav}>
           <span className={s.iconLink}></span>
           <NavLink to="/projects" className={s.menuLink}>
@@ -75,22 +75,27 @@ function ProjectSprints() {
           <ProjectButtonAdd className={"btnIconAddProject"} />
           <samp>Створити проект</samp>
         </div>
-      </div>
-      <div>
+      </div> */}
+
+      <Sidebar />
+      <div className={s.projectDetails}>
+
         {/* <arrowButton /> */}
         <RenameSprint />
         {/* <arrowButton /> */}
 
-          <div className={s.addWrapper}>
-             <img src={img} onClick={toggleModal}  alt={"addMember"}/>
-              <button type="button" onClick={toggleModal} className={s.addMemberBtn}>Додати людей</button>  
-          </div>
+        <div className={s.addWrapper}>
+          <img src={img} onClick={toggleModal} alt={"addMember"} />
+          <button type="button" onClick={toggleModal} className={s.addMemberBtn}>
+            Додати людей
+          </button>
+        </div>
 
-          {showModal && (
-            <Modal onClose={toggleModal}>
-              <AddMember toggleModal={toggleModal} />
-            </Modal>
-          )}
+        {showModal && (
+          <Modal onClose={toggleModal}>
+            <AddMember toggleModal={toggleModal} />
+          </Modal>
+        )}
 
         <SingleSprint />
       </div>

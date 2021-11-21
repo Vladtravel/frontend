@@ -29,9 +29,6 @@ function App() {
       <Container>
         <Suspense fallback={null}>
           <Switch>
-            <PublicRoute exact path="/tasks" restricted>
-              <TasksView />
-            </PublicRoute>
             <PublicRoute exact path="/" restricted>
               <RegisterForm />
             </PublicRoute>
@@ -56,18 +53,17 @@ function App() {
                 theme={"colored"}
               />
             </PrivateRoute>
-
-            <Route path="/projects/:projectId/sprints">
-              <ProjectSprints />
-            </Route>
-
-
-
             <PrivateRoute
               path="/projects/:projectId/sprints/:sprintId"
               restricted
             >
-              <ProjectList />
+              <TasksView />
+            </PrivateRoute>
+            <PrivateRoute
+              path="/projects/:projectId/sprints"
+              redirectTo="/projects/:projectId/sprints"
+            >
+              <ProjectSprints />
             </PrivateRoute>
           </Switch>
         </Suspense>
