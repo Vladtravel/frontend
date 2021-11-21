@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouteMatch } from "react-router-dom";
 
 import operations from "../../redux/members/members-operations";
 import Button from "../Modal/Button/Button";
@@ -16,9 +17,13 @@ const MemberForm = ({ toggleModal }) => {
 
   const dispatch = useDispatch();
 
+  const { url } = useRouteMatch();
+  
   const inputEmailValue = (e) => {
     const { email, value  } = e.currentTarget;
-    setEmail(value);
+
+        setEmail(value);
+  
   };
 
   const validateEmail = (email) => {
@@ -35,46 +40,20 @@ const MemberForm = ({ toggleModal }) => {
     return !!Object.keys(errorsObject).length;
   };
 
-  // const addPeople = (e) => {
-  //   e.preventDefault();
-  //   const newEmail = emails.some((email) => email.name === email);
-  //   if (newEmail) {
-  //     alert(`Цей користувач ${email} вже є учасником`);
-  //     formReset();
-  //     return;
-  //   }
-  //   onFormSubmit();
-  //   formReset();
-  //   toggleModal();
-  // };
-
-  // const projectId = useSelector((state) => state.projects.items.map((project) => project.name.item._id))
-
-  // const onFormSubmit = async ({ _id, email }) => {
-  
-  //   // const projectId = location.pathname.split("/")[2];
-   
-  //   const value = { _id, email };
-
-  //   const result = await validateEmail(email);
-
-  //   if(!result) {
-  //     alert('Почта не вірна')
-  //   }
-   
-  //   return dispatch(operations.addMemberOperation({ _id, email })); 
-  
-  // };
-
-
   const formReset = () => {
     setEmail("");
   };
 // 1
-  const onSubmitEmail = ({ email }) => {
-    return dispatch(operations.addMemberOperation({ email }))
+  const onSubmitEmail = async ({email}) => {
+    console.log(email)
+    const currentProjectId = url.split("/")[2];
+    console.log(currentProjectId)
+    const value = { email, currentProjectId}
+    console.log(value)
+    // const result = await validateEmail({email})
+      return dispatch(operations.addMemberOperation(value))
+   
   }
-  console.log(onSubmitEmail({email}))
 
 // 2
   const handleSubmit = e => {
@@ -83,9 +62,7 @@ const MemberForm = ({ toggleModal }) => {
     onSubmitEmail({ email })
     formReset();
     toggleModal();
-
   }
-
 
   return (
     <>
@@ -111,10 +88,9 @@ const MemberForm = ({ toggleModal }) => {
                   autoComplete="on"
                   required
                 />
-              </form>
-
+ 
               <h4 className={s.usersTitle}>Додані користувачі:</h4>
-              {/* <MemberList /> */}
+              <MemberList />
 
               <div className={s.buttonWrapper}>
               <Button className="button" type="submit" text={"Готово"} />
@@ -126,6 +102,9 @@ const MemberForm = ({ toggleModal }) => {
                />
 
               </div>
+              </form>
+
+        
             </div>
           </div>
      

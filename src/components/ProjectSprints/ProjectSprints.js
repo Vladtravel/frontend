@@ -34,7 +34,6 @@ function ProjectSprints() {
 
   const toggleModal = (e) => {
     setShowModal(!showModal);
-    console.log(e)
   };
 
   return (
@@ -78,9 +77,9 @@ function ProjectSprints() {
         </div>
       </div>
       <div>
-        <arrowButton />
+        {/* <arrowButton /> */}
         <RenameSprint />
-        <arrowButton />
+        {/* <arrowButton /> */}
 
           <div className={s.addWrapper}>
              <img src={img} onClick={toggleModal}  alt={"addMember"}/>
