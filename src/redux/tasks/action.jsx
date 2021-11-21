@@ -11,3 +11,5 @@ export const addError = createAction("tasks/addError");
 export const deleteRequest = createAction("tasks/deleteRequest");
 export const deleteSuccess = createAction("tasks/deleteSuccess");
 export const deleteError = createAction("tasks/deleteError");
+
+export const hoursChange = createAction("tasks/hoursChange");
