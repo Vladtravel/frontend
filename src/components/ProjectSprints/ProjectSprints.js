@@ -81,7 +81,7 @@ function ProjectSprints() {
       <div className={s.projectDetails}>
 
 
-        <div className={s.addWrapper}>
+        {/* <div className={s.addWrapper}>
           <img src={img} onClick={toggleModal} alt={"addMember"} />
           <button type="button" onClick={toggleModal} className={s.addMemberBtn}>
             Додати людей
@@ -92,8 +92,9 @@ function ProjectSprints() {
           <Modal onClose={toggleModal}>
             <AddMember toggleModal={toggleModal} />
           </Modal>
-        )}
+        )} */}
 
+      
         
         {/* <arrowButton /> */}
         <RenameSprint />

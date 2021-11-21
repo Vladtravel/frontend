@@ -2,7 +2,12 @@ import React from "react";
 import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg";
 import ModalCreateSprint from "../ModalCreateSprint/ModalCreateSprint";
 
+import Modal from "../Modal/Modal";
+import AddMember from "../MemberForm/MemberForm";
+import img from "./Vector.svg";
+
 import s from "./SingleSprint.module.css";
+
 import { addSprint, fetchSprint, deleteSprint } from "../../redux/sprint/operation";
 import { useRouteMatch, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
@@ -17,6 +22,7 @@ import { projectNameChange } from "../../redux/projects/projects-operations";
 const RenameSprint = ({ id, renameSprint }) => {
   const [isNameChaged, setIsNameChaged] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const [endDate, setEndDate] = useState(new Date());
   const currentData = new Date();
@@ -49,10 +55,16 @@ const RenameSprint = ({ id, renameSprint }) => {
     endDate,
     duration,
   };
+
+  const toggleModal = (e) => {
+    setShowModal(!showModal);
+  };
+
   const onSubmit = (data) => {
     const { name, endDate, duration, currentProjects } = data;
     return dispatch(addSprint({ name, endDate, duration, currentProjects }));
   };
+  
   const onClick = (_id) => {
     const data = { _id, currentProjects };
     dispatch(deleteSprint(data));
@@ -119,31 +131,63 @@ const RenameSprint = ({ id, renameSprint }) => {
         </button>
         <p className={s.text}>Створити спринт</p>
       </div>
+
+      <div>
+        <p className={s.hederSprint__text}>
+          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового
+          блоку
+        </p>
+      </div>
+
+      <div className={s.addWrapper}>
+          <img src={img} onClick={toggleModal} alt={"addMember"} />
+          <button type="button" onClick={toggleModal} className={s.addMemberBtn}>
+            Додати людей
+          </button>
+        </div>
+
+        {showModal && (
+          <Modal onClose={toggleModal}>
+            <AddMember toggleModal={toggleModal} />
+          </Modal>
+        )}
+
       <ul>
         {sprints &&
           sprints.map(({ name, endDate, duration, _id }) => {
             return (
-              <li key={_id} className={s.list}>
+              <div className={s.container__sprints}>
+              <li key={_id} className={s.single__item}>
                 <Link to={`${url}/${_id}`} className={s.link}>
-                  <div>
-                    <h3>{name}</h3>
-                    <p>{endDate}</p>
-                    <p>{duration}</p>
+                  <div className={s.single__card}>
+                    <h3 className={s.card__header}>{name}</h3>
+                    <div className={s.sprint__wrapper}>
+                    <p className={`${s.card__content} ${s.card__content_header}`}>Дата початку</p>
+                    <p className={`${s.card__content} ${s.card__content_info}`}>
+                    {"23 Jun"}
+                   </p>
+                    <p className={`${s.card__content} ${s.card__content_header}`}>Дата закінчення</p>
+                    <p className={`${s.card__content} ${s.card__content_info}`}>
+                     {"12 Jun"}
+                     </p>
+                    <p className={`${s.card__content} ${s.card__content_header}`}>Тривалість</p>
+                    <p className={`${s.card__content} ${s.card__content_info} ${s.card__content_duration}`}>
+                       {duration}
+                    </p>
+                  </div>
                   </div>
                 </Link>
-                <button onClick={() => onClick(_id)} aria-label="delete">
-                  DELETE
+                <button 
+                  className={s.card__button} 
+                  onClick={() => onClick(_id)} 
+                  aria-label="delete">
                 </button>
               </li>
+              </div>
             );
           })}
       </ul>
-      );
-      <div>
-        <p className={s.hederSprint__text}>
-          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку
-        </p>
-      </div>
+
     </>
   );
 
