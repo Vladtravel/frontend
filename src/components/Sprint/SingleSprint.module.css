@@ -165,7 +165,7 @@
 
 .card__content_header {
   text-align: left;
-  color:rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
 }
 
 .card__content_info {
@@ -240,19 +240,39 @@
   }
 }
 
-.hederSprint_box{
+.hederSprint_box {
   display: flex;
   align-items: baseline;
 }
-.text{
+.text {
   display: none;
 }
 
-@media screen and (min-width: 900px){
-  .text{
+@media screen and (min-width: 900px) {
+  .text {
     display: contents;
   }
 }
+
+.create_box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+@media screen and (min-width: 768px) {
+  .create_box {
+    top: 120px;
+    right: 40px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .create_box {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
 
 .addMemberBtn {
   font-family: Montserrat Medium;
@@ -281,3 +301,16 @@
     margin-left: 20px;
   }
 }
+
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
