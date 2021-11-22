@@ -1,19 +1,21 @@
 .container__sprints {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px){
   .container__sprints{
     margin-right: 20px;
+    margin-bottom: 20px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container__sprints {
     margin-right: 30px;
+    margin-bottom: 30px;
   }
 }
 
@@ -46,13 +48,10 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
-  
-
 }
 
 .hederSprint__title {
   display: flex;
- 
   justify-content: space-between;
 }
 
@@ -87,8 +86,8 @@
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.21;  
-  width: 280px;
+  line-height: 1.21; 
+  letter-spacing: 0.04em; 
 }
 .create__sprint {
   outline: none;
@@ -123,14 +122,12 @@
 }
 
 .single__card {
-  width: 270px;
-  min-height: 224px;
+  width: 280px;
   background: #ffffff;
   box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
   border-radius: 5px;
   font-family: "Montserrat";
   position: relative;
-
   padding: 20px 30px 30px;
 }
 
@@ -161,14 +158,6 @@
   text-align: left;
   width: 100%;
   overflow-wrap: break-word;
-}
-
-.sprint__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-top: 30px;
 }
 
 .card__content {
@@ -264,7 +253,6 @@
 }
 @media screen and (min-width: 768px){
   .create_box{
-    
     top: 120px;
     right: 40px;
     
@@ -272,31 +260,10 @@
 }
 @media screen and (min-width: 900px){
   .create_box{
-    
     display: flex;
     align-items: baseline;
   }
 }
-
-.create_box {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  /* z-index: 2; */
-}
-@media screen and (min-width: 768px) {
-  .create_box {
-    top: 120px;
-    right: 40px;
-  }
-}
-@media screen and (min-width: 900px) {
-  .create_box {
-    display: flex;
-    align-items: baseline;
-  }
-}
-
 
 .addMemberBtn {
   font-family: Montserrat Medium;
@@ -318,7 +285,7 @@
 
 .addWrapper {
   display: flex;
-  margin-left: 70px;
+  /* margin-left: 70px; */
 }
 
 @media screen and (max-width: 767px) {
@@ -326,7 +293,6 @@
     margin-left: 20px;
   }
 }
-
 
 
 @media screen and (min-width: 900px){
@@ -344,7 +310,6 @@
     width: 452px;
   }
 }
-
 
 .loader {
   position: absolute;
