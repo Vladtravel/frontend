@@ -68,7 +68,9 @@ function ModalCreateSprint({
                 <Grid container justifyContent="space-around">
                   <DatePicker
                     required
+                    autoOk
                     disableToolbar
+                    autoClose={true}
                     variant="inline"
                     format="dd MMMM"
                     id="date-picker-inline"
