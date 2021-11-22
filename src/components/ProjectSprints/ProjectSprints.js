@@ -82,24 +82,6 @@ function ProjectSprints() {
         <RenameSprint />
         {/* <arrowButton /> */}
 
-        <div className={s.addWrapper}>
-          <img src={img} onClick={toggleModal} alt={"addMember"} />
-          <button
-            type="button"
-            onClick={toggleModal}
-            className={s.addMemberBtn}
-          >
-            Додати людей
-          </button>
-        </div>
-
-        {showModal && (
-          <Modal onClose={toggleModal}>
-            <AddMember toggleModal={toggleModal} />
-          </Modal>
-        )}
-
-        <SingleSprint />
       </div>
     </div>
   );

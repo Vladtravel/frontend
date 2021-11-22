@@ -1,14 +1,44 @@
 .container__sprints {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.cards__wrapper {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 30px;
-  overflow-y: auto;
-  justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px){
+  .cards__wrapper{
+    display: flex;
+    max-width: 452px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cards__wrapper {
+    max-width: 870px;
+  }
+}
+
+.sprint__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  
 }
 
 .hederSprint__title {
   display: flex;
-  /* align-items: baseline; */
   justify-content: space-between;
 }
 
@@ -67,6 +97,7 @@
 .create__sprint:hover {
   box-shadow: 1px 1px 5px 1px #ff6b08;
 }
+
 .single__item {
   list-style: none;
   cursor: pointer;
@@ -78,14 +109,28 @@
 }
 
 .single__card {
-  width: 270px;
-  min-height: 224px;
+  width: 280px;
   background: #ffffff;
   box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
   border-radius: 5px;
   font-family: "Montserrat";
   position: relative;
-  padding: 20px 30px 40px;
+  padding: 20px 30px 30px;
+}
+
+@media screen and (min-width: 768px){
+  .single__card{
+    width: 215px;
+    height: 190px;
+    padding: 15px 20px 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .single__card {
+    width: 270px;
+    padding: 20px 30px 30px;
+  }
 }
 
 .card__header {
@@ -98,14 +143,6 @@
   text-align: left;
   width: 100%;
   overflow-wrap: break-word;
-}
-
-.sprint__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-top: 30px;
 }
 
 .card__content {
@@ -139,11 +176,24 @@
   border: none;
   outline: none;
   cursor: pointer;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  position: relative;
+
+  right: -245px;
+  bottom: 30px;
   background-color: transparent;
   transition: all 500ms linear;
+}
+
+@media screen and (min-width: 768px){
+  .card__button{
+    right: -180px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card__button {
+    right: -235px;
+  }
 }
 
 .card__button:hover {
@@ -184,6 +234,7 @@
     display: contents;
   }
 }
+
 .create_box {
   position: fixed;
   bottom: 20px;
@@ -202,6 +253,7 @@
     align-items: baseline;
   }
 }
+
 
 .addMemberBtn {
   font-family: Montserrat Medium;
@@ -223,7 +275,6 @@
 
 .addWrapper {
   display: flex;
-  margin-left: 70px;
 }
 
 @media screen and (max-width: 767px) {
@@ -231,6 +282,7 @@
     margin-left: 20px;
   }
 }
+
 
 .loader {
   position: absolute;
@@ -242,3 +294,4 @@
   justify-content: center;
   align-items: center;
 }
+

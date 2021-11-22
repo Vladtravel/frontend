@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, Suspense } from "react";
 import Header from "../Header/Header";
@@ -47,16 +47,9 @@ function App() {
 
             <PrivateRoute path="/projects" exact>
               <ProjectList />
-              <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                theme={"colored"}
-              />
+              <ToastContainer position="top-right" autoClose={5000} theme={"colored"} />
             </PrivateRoute>
-            <PrivateRoute
-              path="/projects/:projectId/sprints/:sprintId"
-              restricted
-            >
+            <PrivateRoute path="/projects/:projectId/sprints/:sprintId" restricted>
               <TasksView />
             </PrivateRoute>
             <PrivateRoute path="/projects/:projectId/sprints" redirectTo="/">
