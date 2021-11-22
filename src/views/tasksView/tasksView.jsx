@@ -7,7 +7,7 @@ import ProjectButtonAdd from "../../components/ProjectList/ProjectButtonAdd";
 import { ReactComponent as Close } from "../../components/Modal/IconButton/+.svg";
 import Modal from "../../components/Modal/Modal";
 import ModalCreateSprint from "../../components/ModalCreateSprint";
-
+import Chart from "../../components/Chart";
 import ArrowBtn from "../../components/ArrowBtn/ArrowBtn";
 import FastAccessTemplate from "../../components/fastAccessTemplate/fastAccessTemplate";
 import Pagination from "../../components/Pagimation";
@@ -267,6 +267,9 @@ function TasksView(params) {
                   }
                 )}
             </ul>
+            <div>
+              <Chart />
+            </div>
           </div>
         </div>
       </div>
