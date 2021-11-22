@@ -26,6 +26,7 @@ import {
   deleteTask,
   taskHourChange,
 } from "../../redux/tasks/operation";
+import { addSprint } from "../../redux/sprint/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
 
@@ -37,15 +38,18 @@ function TasksView(params) {
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const getTasks = useSelector(getAllTasks);
+  const [endDate, setEndDate] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [name, setName] = useState("");
 
   // const loader = useSelector(getLoading);
   const sprints = useSelector(getAllSprints);
   // const error = useSelector(getError);
   const dispatch = useDispatch();
   const { url } = useRouteMatch();
-  localStorage.setItem("url", url);
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
+
   const currentSprintDuration = sprints.find(
     (e) => e._id === currentSprint
   ).duration;
@@ -74,15 +78,22 @@ function TasksView(params) {
   const onClick = (data) => {
     dispatch(deleteTask(data));
   };
+
   const onBlur = (data) => {
     dispatch(taskHourChange(data));
   };
-
+  const onSubmit = (data) => {
+    dispatch(addSprint(data));
+  };
   const toggleModal = () => {
     setShowModal(!showModal);
   };
-
-
+  const data = {
+    name,
+    duration,
+    endDate,
+    currentProjects,
+  };
   return (
     <div className={s.wrapper}>
       <div className={s.sideBar}>
@@ -95,6 +106,8 @@ function TasksView(params) {
               sprints.map(({ name, _id }) => (
                 <li className={s.sprint} key={_id}>
                   <FastAccessTemplate
+                    setCurrentDate={setCurrentDate}
+                    currentDate={sprints.find((e) => e._id === _id).createdAt}
                     key={_id}
                     setPage={setPage}
                     sprintName={name}
@@ -106,32 +119,35 @@ function TasksView(params) {
           </ul>
         </div>
 
-       <>
-        <div className={s.btnWrapper}>
-          <IconButton
-          onClick={toggleModal}
-          aria-label="create project"
-          className={"btnIconAddProject"}
-          style={{marginLeft: 'auto',
-        marginRight: 'auto'}}
-          // className={s.modalEl}
-          >
+        <>
+          <div className={s.btnWrapper}>
+            <IconButton
+              onClick={toggleModal}
+              aria-label="create project"
+              className={"btnIconAddProject"}
+              style={{ marginLeft: "auto", marginRight: "auto" }}
+              // className={s.modalEl}
+            >
+              <IconAddProject />
+            </IconButton>
 
-          {/* < ProjectButtonAdd 
-          onClick={toggleModal}
-          className={"btnIconAddProject"
-        }/> */}
-        <IconAddProject />
+            <p className={s.addSprintText}>Створити спринт</p>
+          </div>
 
-           </IconButton>
-
-          <p className={s.addSprintText}>Створити спринт</p>
-        </div>
-
-        {showModal && (
-           <ModalCreateSprint setIsModalOpen={toggleModal}/>
-        )}
-</>
+          {showModal && (
+            <ModalCreateSprint
+              onSubmit={() => onSubmit(data)}
+              setIsModalOpen={toggleModal}
+              value={name}
+              setName={setName}
+              data={data}
+              endDate={endDate}
+              setEndDate={setEndDate}
+              duration={duration}
+              setDurr={setDuration}
+            />
+          )}
+        </>
       </div>
       <div>
         <div className={s.mainWrapper}>

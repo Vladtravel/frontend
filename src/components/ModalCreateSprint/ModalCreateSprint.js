@@ -11,6 +11,7 @@ import Modal from "../Modal";
 import { dataTheme, useStyles } from "./styles-dataPicker";
 import "react-datepicker/dist/react-datepicker.css";
 import s from "./ModalCreateSprint.module.css";
+import { isNull } from "lodash-es";
 
 function ModalCreateSprint({
   onSubmit,
@@ -24,7 +25,7 @@ function ModalCreateSprint({
   duration,
 }) {
   const classes = useStyles();
-
+  //
   return (
     <Modal onClose={setIsModalOpen}>
       <IconButton
@@ -42,6 +43,9 @@ function ModalCreateSprint({
           e.preventDefault();
           onSubmit(data);
           setIsModalOpen(false);
+          setDurr(null);
+          setName("");
+          // setEndDate(null);
         }}
       >
         <div className={s.formItem}>
