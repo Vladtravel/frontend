@@ -1,5 +1,13 @@
 import { useState } from "react";
-import IconBtn from "../../components/iconButton";
+// import IconBtn from "../../components/iconButton";
+
+import IconButton from "../../components/Modal/IconButton";
+import { ReactComponent as IconAddProject } from "../../components/Modal/IconButton/addProject.svg";
+import ProjectButtonAdd from "../../components/ProjectList/ProjectButtonAdd";
+import { ReactComponent as Close } from "../../components/Modal/IconButton/+.svg";
+import Modal from "../../components/Modal/Modal";
+import ModalCreateSprint from "../../components/ModalCreateSprint";
+
 import ArrowBtn from "../../components/ArrowBtn/ArrowBtn";
 import FastAccessTemplate from "../../components/fastAccessTemplate/fastAccessTemplate";
 import Pagination from "../../components/Pagimation";
@@ -18,13 +26,22 @@ import {
   deleteTask,
   taskHourChange,
 } from "../../redux/tasks/operation";
+import { addSprint } from "../../redux/sprint/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
-import { getAllTasks} from "../../redux/tasks/selectors";
+
+// import { getAllTasks, getLoading, getError } from "../../redux/tasks/selectors";
+
+import { getAllTasks } from "../../redux/tasks/selectors";
+
 function TasksView(params) {
   const [page, setPage] = useState(1);
+  const [showModal, setShowModal] = useState(false);
   const getTasks = useSelector(getAllTasks);
-  console.log(getTasks, "Tasks");
+  const [endDate, setEndDate] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [name, setName] = useState("");
+
   // const loader = useSelector(getLoading);
   const sprints = useSelector(getAllSprints);
   // const error = useSelector(getError);
@@ -32,6 +49,7 @@ function TasksView(params) {
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
+
   const currentSprintDuration = sprints.find(
     (e) => e._id === currentSprint
   ).duration;
@@ -55,12 +73,25 @@ function TasksView(params) {
     ) {
       return e;
     }
+    return false;
   });
   const onClick = (data) => {
     dispatch(deleteTask(data));
   };
   const onBlur = (data) => {
     dispatch(taskHourChange(data));
+  };
+  const onSubmit = (data) => {
+    dispatch(addSprint(data));
+  };
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  const data = {
+    name,
+    duration,
+    endDate,
+    currentProjects,
   };
   return (
     <div className={s.wrapper}>
@@ -86,11 +117,40 @@ function TasksView(params) {
               ))}
           </ul>
         </div>
-        <div className={s.btnWrapper}>
-          <IconBtn name="add" />
 
-          <p className={s.addSprintText}>Створити спринт</p>
-        </div>
+        <>
+          <div className={s.btnWrapper}>
+            <IconButton
+              onClick={toggleModal}
+              aria-label="create project"
+              className={"btnIconAddProject"}
+              style={{ marginLeft: "auto", marginRight: "auto" }}
+              // className={s.modalEl}
+            >
+              {/* < ProjectButtonAdd 
+          onClick={toggleModal}
+          className={"btnIconAddProject"
+        }/> */}
+              <IconAddProject />
+            </IconButton>
+
+            <p className={s.addSprintText}>Створити спринт</p>
+          </div>
+
+          {showModal && (
+            <ModalCreateSprint
+              onSubmit={() => onSubmit(data)}
+              setIsModalOpen={toggleModal}
+              value={name}
+              setName={setName}
+              data={data}
+              endDate={endDate}
+              setEndDate={setEndDate}
+              duration={duration}
+              setDurr={setDuration}
+            />
+          )}
+        </>
       </div>
       <div>
         <div className={s.mainWrapper}>

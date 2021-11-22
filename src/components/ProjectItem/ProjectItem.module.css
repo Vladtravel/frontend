@@ -208,18 +208,18 @@
   box-shadow: 0px 0px 20px 7px rgba(255, 255, 255, 0.5);
 }
 
-.loader {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .error {
   color: red;
   text-align: center;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

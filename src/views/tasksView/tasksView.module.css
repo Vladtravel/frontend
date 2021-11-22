@@ -1,38 +1,36 @@
-.wrapper {
-  box-sizing: border-box;
-  display: flex;
-  margin: 0%;
-  padding: 0%;
-  height: 100%;
-}
+
+
 .sideBar {
   height: 100%;
   width: 200px;
   height: auto;
-  border-right: 1px solid rgba(24, 28, 39, 0.1);
-  outline: 1px tomato;
-  box-sizing: border-box;
-  padding-bottom: 50px;
+  
 }
 .ArrowBtn {
-  margin-top: 20px;
-  margin-right: 30px;
-  margin-bottom: 110px;
+  width: 279px;
+ padding: 10px 0;
+ border-bottom:1px solid rgba(24, 28, 39, 0.1) ;
 }
-.sprintsWrapper {
-  width: 170px;
-  margin-right: 30px;
-  margin-bottom: 111px;
-}
+
 .sprint:not(:last-child) {
   margin-bottom: 30px;
 }
-
+.sprintsWrapper{
+  display: none;
+}
 .btnWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 34px;
 }
+
+@media screen and (max-width: 1023px) {
+  .btnWrapper {
+   margin-right: 27px;
+  }
+}
+
 .addSprintText {
   font-family: Montserrat;
   font-style: 400;
@@ -53,12 +51,14 @@
 /*стили для основного меню*/
 .mainWrapper {
   padding-right: 30px;
-  padding-left: 70px;
+  padding-left: 20px;
 }
 .firstLvl {
+  width: 260px;
   margin-top: 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 .PaginationWrapper {
@@ -66,37 +66,33 @@
   justify-content: center;
 }
 .secondLvl {
-  width: 870px;
+ 
   display: flex;
   margin-bottom: 30px;
+  justify-content: space-between;
 }
 .titleWrapper {
-  margin-right: 230px;
+  
   display: inline-block;
+  font-weight: 500;
+font-size: 26px;
+line-height: 1.23;
 }
 .btnCreateTaskWrapper {
   display: flex;
   align-items: center;
 }
+.btnCreateTaskWrapper:hover{
+  box-shadow: 1px 1px 5px 1px #ff6b08;
+}
 .secondLevelText {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  /* identical to box height */
-  text-align: center;
-  letter-spacing: 0.04em;
-
-  color: #181c27;
-  padding-bottom: 0%;
-  margin-left: 20px;
+ display:none
+  
 }
 .list {
-  padding-bottom: 40px;
-  list-style: none;
-  display: flex;
-  align-items: center;
+  
+  display: none;
+  
 }
 .listItem:not(:last-child) {
   margin-right: 90px;
@@ -128,4 +124,72 @@
   width: 1025px;
   height: 1px;
   background-color: rgba(24, 28, 39, 0.1);
+}
+
+@media screen and (min-width: 767px) {
+  .wrapper {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+  }
+  .sideBar{
+    border-right: 1px solid rgba(24, 28, 39, 0.1);
+    outline: 1px tomato;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+  }
+  .sprintsWrapper {
+    display: flex;
+    width: 170px;
+    margin-right: 30px;
+    margin-bottom: 111px;
+  }
+  .btnWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ArrowBtn {
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 30px;
+    margin-bottom: 60px;
+    border-bottom: none;
+  }
+  .mainWrapper {
+    padding-left: 40px;
+    
+  }
+  .firstLvl{
+    width: 287px;
+  }
+  .list {
+    padding-bottom: 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  .btnCreateTaskWrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1020px) {
+  .secondLevelText {
+    display: block;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.04em;
+  
+    color: #181c27;
+    padding-bottom: 0%;
+    
+  }
 }

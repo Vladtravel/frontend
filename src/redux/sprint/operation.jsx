@@ -32,18 +32,15 @@ export const addSprint =
   (dispatch) => {
     const sprint = {
       name,
-      duration,
-      endDate,
+      duration: Number(duration),
+      endDate: new Date(endDate),
     };
     dispatch(addRequest());
 
     axios
       .post(`api/projects/${currentProjects}/sprints`, sprint)
       .then(({ data }) => {
-        console.log(typeof data.data.endDate);
-        dispatch(
-          addSuccess({ ...data.data, endDate: String(data.data.endDate) })
-        );
+        dispatch(addSuccess(data.data));
       })
       .catch((error) => dispatch(addError(error.message)));
   };
@@ -74,7 +71,6 @@ export const sprintNameChange =
         data
       )
       .then(() => {
-        console.log(123);
-        dispatch(nameChange(name));
+        dispatch(nameChange({ currentSprint, name }));
       });
   };

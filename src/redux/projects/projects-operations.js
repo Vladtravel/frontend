@@ -11,9 +11,9 @@ import {
   deleteProjectsSuccess,
   deleteProjectsError,
   nameChange,
-  // addPeopleRequest,
-  // addPeopleSuccess,
-  // addPeopleError,
+  addPeopleRequest,
+  addPeopleSuccess,
+  addPeopleError,
 } from "./projects-actions";
 
 import { deleteRequest, deleteSuccess } from "../sprint/actions.jsx";
@@ -64,25 +64,18 @@ export const projectNameChange =
     };
 
     axios.patch(`api/projects/${currentProject}/name`, data).then(() => {
-      dispatch(nameChange(name));
+      dispatch(nameChange({ currentProject, name }));
       dispatch(deleteSuccess());
     });
   };
 
-// export const addPeople = (projectId, email) => async (dispatch) => {
-//   dispatch(projectsActions.addPeopleRequest());
-
-//   try {
-//     const { data } = await axios.patch(`/api/projects/${projectId}/invite`, email);
-
-//     const newTeamMember = data.user.email;
-//     dispatch(projectsActions.addPeopleSuccess({ newTeamMember, projectId }));
-//   } catch ({ message }) {
-//     dispatch(projectsActions.addPeopleError(message));
-
-//     if (message === "Request failed with status code 404") {
-//       toast.error("User with such email does not exist");
-//       return;
-//     }
-//   }
-// };
+export const addPeople = (projectId, email) => async (dispatch) => {
+  dispatch(addPeopleRequest());
+  try {
+    await axios.post(`/api/projects/${projectId}/owners`, email);
+    console.log(email);
+    dispatch(addPeopleSuccess({ email, projectId }));
+  } catch ({ message }) {
+    dispatch(addPeopleError(message));
+  }
+};

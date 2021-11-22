@@ -2,8 +2,8 @@
   position: relative;
   /* z-index: 999; */
   margin-top: 0;
-   width: 429px;
-} 
+  width: 429px;
+}
 
 @media screen and (max-width: 767px) {
   .modalContainer {
@@ -16,10 +16,12 @@
   margin-bottom: 50px;
   text-align: center;
   font-family: Montserrat Medium;
-  font-style: normal;
   font-weight: 500;
   font-size: 36px;
-  line-height: 1.32;
+  line-height: 44px;
+  letter-spacing: 0.04em;
+  
+  color: #181C27;
 }
 
 @media screen and (max-width: 767px) {
@@ -43,6 +45,7 @@
   outline: none;
   border-color: transparent;
   border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 767px) {
@@ -100,3 +103,37 @@
     line-height: 1.22;
   }
 } */
+
+.membersList {
+  margin-top: 20px;
+  width: 430px;
+  height: 160px;
+  overflow-y: auto;
+}
+
+.membersItem {
+  text-align: center;
+  display: flex;
+  /* flex-wrap: nowrap; */
+  /* justify-content: space-between; */
+  align-items: center;
+  
+  font-family: "Montserrat";
+
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  color: #181C27;
+  margin-bottom: 10px;
+}
+
+.membersTitleList{
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  margin-bottom: 20px;
+
+  }
+

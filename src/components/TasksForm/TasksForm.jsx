@@ -18,7 +18,7 @@ function TasksForm({ toggleModal }) {
 
   // const error = useSelector(getError);
 
-  console.log(hours);
+  // console.log(hours);
   const dispatch = useDispatch();
 
   const onSubmit = ({ name, hours, currentSprint, currentProjects }) => {

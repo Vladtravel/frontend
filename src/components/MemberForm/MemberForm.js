@@ -1,122 +1,62 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
-
-import operations from "../../redux/members/members-operations";
+import { addPeople } from "../../redux/projects/projects-operations";
 import Button from "../Modal/Button/Button";
-import MemberList from "../MemberList/MemberList";
 import btnClose from "./btnClose.svg";
-import { getEmails } from "../../redux/selectors";
 import s from "./MemberForm.module.css";
+import { getAllProjects } from "../../redux/projects/projects-selectors";
+import selectors from "../../redux/selectors";
 
 const MemberForm = ({ toggleModal }) => {
   const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState({});
-  const location = useLocation();
-
-  const { url } = useRouteMatch();
-  console.log(url);
-
+  const [validEmail, setValidEmail] = useState("valid");
   const dispatch = useDispatch();
 
-  const inputEmailValue = (e) => {
-    const { email, value } = e.currentTarget;
+  const { url } = useRouteMatch();
 
-    setEmail(value);
-  };
+  const currentProjectId = url.split("/")[2];
 
-  const validateEmail = (email) => {
-    const errorsObject = {};
+  const handleInputChange = (event) => setEmail(event.currentTarget.value);
 
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      errorsObject.title = "Введіть існуючий email";
-    }
-    if (email.length === 0) {
-      errorsObject.title = "Обов'язкове поле";
-    }
-    setErrors(errorsObject);
+  const projects = useSelector(getAllProjects);
 
-    return !!Object.keys(errorsObject).length;
-  };
+  const currentUser = useSelector(selectors.getUserEmail);
 
-  // const addPeople = (e) => {
-  //   e.preventDefault();
-  //   const newEmail = emails.some((email) => email.name === email);
-  //   if (newEmail) {
-  //     alert(`Цей користувач ${email} вже є учасником`);
-  //     formReset();
-  //     return;
-  //   }
-  //   onFormSubmit();
-  //   formReset();
-  //   toggleModal();
-  // };
+  // Вытягиваем масив owners текущего проекта
+  const owners = projects.find(({ _id }) => _id === currentProjectId).owners;
 
-  // const projectId = useSelector((state) => state.projects.items.map((project) => project.name.item._id))
+  // Фильтруем массив owners, оставляем толко команду (удаляем текущего ползователя)
+  const team = owners.filter((owner) => owner.email !== currentUser);
 
-  // const onFormSubmit = async ({ _id, email }) => {
-
-  //   // const projectId = location.pathname.split("/")[2];
-
-  //   const value = { _id, email };
-
-  //   const result = await validateEmail(email);
-
-  //   if(!result) {
-  //     alert('Почта не вірна')
-  //   }
-
-  //   return dispatch(operations.addMemberOperation({ _id, email }));
-
-  // };
-
-  const formReset = () => {
+  const reset = () => {
     setEmail("");
   };
-  // 1
-  const onSubmitEmail = ({ email }) => {
-    return dispatch(operations.addMemberOperation({ email }));
-  };
-  console.log(onSubmitEmail({ email }));
-  // =======
-  //   const formReset = () => {
-  //     setEmail("");
-  //   };
-  // // 1
-  //   const onSubmitEmail = async ({email}) => {
-  //     console.log(email)
-  //     const currentProjectId = url.split("/")[2];
-  //     console.log(currentProjectId)
-  //     const value = { email, currentProjectId}
-  //     console.log(value)
-  //     // const result = await validateEmail({email})
-  //       return dispatch(operations.addMemberOperation(value))
 
-  //   }
-  // >>>>>>> 2e483104d9b6a564699a8e70238cf81c7bfdac93
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const id = url.split("/")[2];
+    const alreadyExist = team.find((el) => el.email === email);
 
-  // 1
+    if (!email) {
+      setValidEmail("noEmail");
 
-  // 2
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmitEmail({ email });
-    formReset();
+      return;
+    } else if (alreadyExist) {
+      setValidEmail("alreadyExist");
+      return;
+    } else {
+      setValidEmail("valid");
+    }
+    dispatch(addPeople(currentProjectId, { email }));
+    reset();
     toggleModal();
   };
 
   return (
     <>
       <div>
-        <img
-          onClick={toggleModal}
-          className={s.buttonClose}
-          src={btnClose}
-          alt="modal close icon"
-        />
+        <img onClick={toggleModal} className={s.buttonClose} src={btnClose} alt="modal close icon" />
 
         <div className={s.modalContainer}>
           <h2 className={s.addFormTitle}>Додати людей</h2>
@@ -128,7 +68,7 @@ const MemberForm = ({ toggleModal }) => {
             <input
               id="members-email"
               className={s.input}
-              onChange={inputEmailValue}
+              onChange={handleInputChange}
               type="text"
               name="email"
               value={email}
@@ -136,47 +76,24 @@ const MemberForm = ({ toggleModal }) => {
               autoComplete="on"
               required
             />
-            <button type="submit">Gotovo</button>
-          </form>
-          <div className={s.buttonWrapper}>
-            {/* <Button className="button" type="submit" text={"Готово"} /> */}
-            <Button
-              type="button"
-              className="btnLink"
-              text={"Відміна"}
-              onClick={toggleModal}
-            />
-
-            <div className={s.modalContainer}>
-              <h2 className={s.addFormTitle}>Додати людей</h2>
-              <form onSubmit={handleSubmit}>
-                <input
-                  id="members-email"
-                  className={s.input}
-                  onChange={inputEmailValue}
-                  type="text"
-                  name="email"
-                  value={email}
-                  placeholder="Введіть e-mail"
-                  autoComplete="on"
-                  required
-                />
-
-                <h4 className={s.usersTitle}>Додані користувачі:</h4>
-                <MemberList />
-
-                <div className={s.buttonWrapper}>
-                  <Button className="button" type="submit" text={"Готово"} />
-                  <Button
-                    type="button"
-                    className="btnLink"
-                    text={"Відміна"}
-                    onClick={toggleModal}
-                  />
-                </div>
-              </form>
+            {validEmail === "alreadyExist" && <p>*User is already in project</p>}
+            <span className={s.membersTitleList}>Додані користувачі:</span>
+            {owners ? (
+              <ul className={s.membersList}>
+                {owners.map(({ email }) => (
+                  <li key={email} className={s.membersItem}>
+                    <p>{email}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className={s.membersItem}>Ви ще не додали жодного користувача</p>
+            )}
+            <div className={s.buttonWrapper}>
+              <Button className="button" type="submit" text={"Готово"} />
+              <Button type="button" className="btnLink" text={"Відміна"} onClick={toggleModal} />
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>
