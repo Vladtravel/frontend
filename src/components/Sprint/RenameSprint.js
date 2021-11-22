@@ -23,7 +23,7 @@ const RenameSprint = ({ id, renameSprint }) => {
   const [isNameChaged, setIsNameChaged] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const [durr, setDurr] = useState();
   const [endDate, setEndDate] = useState(new Date());
   const currentData = new Date();
   const [name, setName] = useState("");
@@ -112,6 +112,8 @@ const RenameSprint = ({ id, renameSprint }) => {
           setIsModalOpen={setIsModalOpen}
           setEndDate={setEndDate}
           endDate={endDate}
+          setDurr={setDurr}
+          duration={durr}
         />
       )}
       <div className={s.hederSprint__title}>
