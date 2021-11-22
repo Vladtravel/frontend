@@ -260,7 +260,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 2;
+  /* z-index: 2; */
 }
 @media screen and (min-width: 768px){
   .create_box{
@@ -282,7 +282,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 2;
+  /* z-index: 2; */
 }
 @media screen and (min-width: 768px) {
   .create_box {
