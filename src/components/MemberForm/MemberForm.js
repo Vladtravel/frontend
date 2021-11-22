@@ -77,7 +77,7 @@ const MemberForm = ({ toggleModal }) => {
               required
             />
             {validEmail === "alreadyExist" && <p>*User is already in project</p>}
-            <h4>Додані користувачі:</h4>
+            <span className={s.membersTitleList}>Додані користувачі:</span>
             {owners ? (
               <ul className={s.membersList}>
                 {owners.map(({ email }) => (
@@ -87,7 +87,7 @@ const MemberForm = ({ toggleModal }) => {
                 ))}
               </ul>
             ) : (
-              <p>Ви ще не додали жодного користувача</p>
+              <p className={s.membersItem}>Ви ще не додали жодного користувача</p>
             )}
             <div className={s.buttonWrapper}>
               <Button className="button" type="submit" text={"Готово"} />
