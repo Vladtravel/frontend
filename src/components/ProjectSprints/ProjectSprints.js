@@ -1,42 +1,40 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 import SingleSprint from "../Sprint/SingleSprint";
 import s from "./ProjectSprints.module.css";
-import { useSelector } from "react-redux";
-import { getAllProjects } from "../../redux/projects/projects-selectors";
-import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
+// import { useSelector } from "react-redux";
+// import { getAllProjects } from "../../redux/projects/projects-selectors";
+// import ProjectButtonAdd from "../ProjectList/ProjectButtonAdd";
 import RenameSprint from "../Sprint/RenameSprint";
-import { useRouteMatch } from "react-router-dom";
+// import { useRouteMatch } from "react-router-dom";
 
 import AddMember from "../MemberForm/MemberForm";
 import Modal from "../Modal/Modal";
-import IconButton from "../Modal/IconButton/IconButton";
-import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
+// import IconButton from "../Modal/IconButton/IconButton";
+// import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import img from "./Vector.svg";
 
 import Sidebar from "../Sidebar";
 
-const randomColor = [
-  "rgba(255, 107, 8)",
-  "rgba(140, 114, 223)",
-  "rgba(113, 223, 129)",
-  "rgba(60, 114, 223)",
-  "rgba(113, 191, 231)",
-];
+// const randomColor = [
+//   "rgba(255, 107, 8)",
+//   "rgba(140, 114, 223)",
+//   "rgba(113, 223, 129)",
+//   "rgba(60, 114, 223)",
+//   "rgba(113, 191, 231)",
+// ];
 
 function ProjectSprints() {
   const [showModal, setShowModal] = useState(false);
 
-  const getProjects = useSelector(getAllProjects);
   // const getProjects = useSelector(getAllProjects);
+  // const { url } = useRouteMatch();
+  // const currentProjects = url.split("/")[2];
 
   const toggleModal = (e) => {
     setShowModal(!showModal);
   };
-
-  const { url } = useRouteMatch();
-  const currentProjects = url.split("/")[2];
 
   return (
     <div className={s.Sprints}>
@@ -106,5 +104,4 @@ function ProjectSprints() {
     </div>
   );
 }
-
 export default ProjectSprints;
