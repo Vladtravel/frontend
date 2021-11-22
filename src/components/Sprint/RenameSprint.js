@@ -47,7 +47,22 @@ const RenameSprint = ({ id, renameSprint }) => {
     (endDate.getUTCMonth() - currentData.getUTCMonth()) * 30 +
     endDate.getUTCDate() -
     currentData.getUTCDate();
+
   const sprints = useSelector(getAllSprints);
+  console.log(sprints, "sprints");
+
+  const transformationOfDate = (date) => {
+    const dateNew = new Date(date);
+    const transformation = new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+    }).format(dateNew);
+    const result = {
+      day: Number(transformation.split(" ")[1]),
+      month: transformation.split(" ")[0].slice(0, 3),
+    };
+    return result;
+  };
 
   const data = {
     currentProjects,
@@ -153,7 +168,9 @@ const RenameSprint = ({ id, renameSprint }) => {
 
       <ul className={s.cards__wrapper}>
         {sprints &&
-          sprints.map(({ name, endDate, duration, _id }) => {
+          sprints.map(({ name, endDate, duration, _id, createdAt }) => {
+            const end = transformationOfDate(endDate);
+            const begin = transformationOfDate(createdAt);
             return (
               <div key={_id} className={s.container__sprints}>
                 
@@ -163,9 +180,9 @@ const RenameSprint = ({ id, renameSprint }) => {
                       <h3 className={s.card__header}>{name}</h3>
                       <div className={s.sprint__wrapper}>
                         <p className={`${s.card__content} ${s.card__content_header}`}>Дата початку</p>
-                        <p className={`${s.card__content} ${s.card__content_info}`}>{"23 Jun"}</p>
+                        <p className={`${s.card__content} ${s.card__content_info}`}>{begin.day} {begin.month}</p>
                         <p className={`${s.card__content} ${s.card__content_header}`}>Дата закінчення</p>
-                        <p className={`${s.card__content} ${s.card__content_info}`}>{"12 Jun"}</p>
+                        <p className={`${s.card__content} ${s.card__content_info}`}>{end.day} {end.month}</p>
                         <p className={`${s.card__content} ${s.card__content_header}`}>Тривалість</p>
                         <p
                           className={`${s.card__content} ${s.card__content_info} ${s.card__content_duration}`}
