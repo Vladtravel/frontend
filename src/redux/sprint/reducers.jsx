@@ -24,10 +24,9 @@ const itemReducer = createReducer([], {
     return state.filter(({ _id }) => _id !== payload);
   },
   [nameChange]: (state, { payload }) => {
-    console.log(1);
     return state.map((item) => {
-      if (item._id) {
-        item = { ...item, name: payload };
+      if (item._id === payload.currentSprint) {
+        item = { ...item, name: payload.name };
       }
       return item;
     });

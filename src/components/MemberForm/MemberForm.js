@@ -111,12 +111,7 @@ const MemberForm = ({ toggleModal }) => {
   return (
     <>
       <div>
-        <img
-          onClick={toggleModal}
-          className={s.buttonClose}
-          src={btnClose}
-          alt="modal close icon"
-        />
+        <img onClick={toggleModal} className={s.buttonClose} src={btnClose} alt="modal close icon" />
 
         <div className={s.modalContainer}>
           <h2 className={s.addFormTitle}>Додати людей</h2>
@@ -136,6 +131,7 @@ const MemberForm = ({ toggleModal }) => {
               autoComplete="on"
               required
             />
+
             {/* <button type="submit">Gotovo</button> */}
           </form>
           <div className={s.buttonWrapper}>
@@ -176,6 +172,14 @@ const MemberForm = ({ toggleModal }) => {
                 </div>
               </form>
             </div>
+
+            <h4 className={s.usersTitle}>Додані користувачі:</h4>
+            <MemberList />
+          </form>
+          <div className={s.buttonWrapper}>
+            <Button className="button" type="submit" text={"Готово"} />
+            <Button type="button" className="btnLink" text={"Відміна"} onClick={toggleModal} />
+
           </div>
         </div>
       </div>

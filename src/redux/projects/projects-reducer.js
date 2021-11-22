@@ -19,11 +19,12 @@ const itemReducer = createReducer([], {
   [addProjectsSuccess]: (state, { payload }) => {
     return [...state, payload];
   },
-  [deleteProjectsSuccess]: (state, { payload }) => state.filter(({ _id }) => _id !== payload),
+  [deleteProjectsSuccess]: (state, { payload }) =>
+    state.filter(({ _id }) => _id !== payload),
   [nameChange]: (state, { payload }) => {
     return state.map((item) => {
-      if (item._id) {
-        item = { ...item, name: payload };
+      if (item._id === payload.currentProject) {
+        item = { ...item, name: payload.name };
       }
       return item;
     });
