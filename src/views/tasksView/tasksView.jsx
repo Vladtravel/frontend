@@ -78,6 +78,7 @@ function TasksView(params) {
   const onClick = (data) => {
     dispatch(deleteTask(data));
   };
+
   const onBlur = (data) => {
     dispatch(taskHourChange(data));
   };
@@ -127,10 +128,6 @@ function TasksView(params) {
               style={{ marginLeft: "auto", marginRight: "auto" }}
               // className={s.modalEl}
             >
-              {/* < ProjectButtonAdd 
-          onClick={toggleModal}
-          className={"btnIconAddProject"
-        }/> */}
               <IconAddProject />
             </IconButton>
 
