@@ -90,15 +90,15 @@
   letter-spacing: 0.04em; 
 }
 .create__sprint {
-  outline: none;
-  border: none;
-
   width: 44px;
   height: 44px;
-  fill: #fff;
-  background-color: #ff6b08;
-  text-align: center;
-  border-radius: 25px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #ff6b08;
+  transition: all 250ms linear;
   margin-right: 20px;
 }
 @media screen and (max-width: 1023px) {
@@ -108,7 +108,9 @@
 }
 
 .create__sprint:hover {
-  box-shadow: 1px 1px 5px 1px #ff6b08;
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
+  transform: scale(1.2);
+  transition: all 250ms linear;
 }
 .single__item {
   position: relative;
