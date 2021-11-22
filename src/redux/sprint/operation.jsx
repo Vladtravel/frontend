@@ -35,13 +35,15 @@ export const addSprint =
       duration,
       endDate,
     };
-    dispatch(addRequest(sprint));
+    dispatch(addRequest());
 
     axios
       .post(`api/projects/${currentProjects}/sprints`, sprint)
       .then(({ data }) => {
-        console.log(data);
-        dispatch(addSuccess(data.data));
+        console.log(typeof data.data.endDate);
+        dispatch(
+          addSuccess({ ...data.data, endDate: String(data.data.endDate) })
+        );
       })
       .catch((error) => dispatch(addError(error.message)));
   };
@@ -66,8 +68,13 @@ export const sprintNameChange =
       name,
     };
 
-    axios.patch(`api/projects/${currentProjects}/sprints/${currentSprint}/name`, data).then(() => {
-      console.log(123);
-      dispatch(nameChange(name));
-    });
+    axios
+      .patch(
+        `api/projects/${currentProjects}/sprints/${currentSprint}/name`,
+        data
+      )
+      .then(() => {
+        console.log(123);
+        dispatch(nameChange(name));
+      });
   };
