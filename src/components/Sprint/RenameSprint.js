@@ -91,6 +91,8 @@ const RenameSprint = ({ id, renameSprint }) => {
 
   return (
     <>
+       <div className={s.hederSprint__title}>
+       <div className={s.hederSprint_box}> 
       {isNameChaged ? (
         <h1 className={s.title}>{currentProject.name}</h1>
       ) : (
@@ -122,14 +124,15 @@ const RenameSprint = ({ id, renameSprint }) => {
           endDate={endDate}
         />
       )}
-      <div className={s.hederSprint__title}>
-        {/* <h2 className={s.hederSprint}>{currentProject.name}</h2> */}
+   
+        
         <button
           className={s.penBtn}
           onClick={() => {
             setIsNameChaged((s) => !s);
           }}
         ></button>
+        <div className={s.create_box}>
         <button
           onClick={() => setIsModalOpen(true)}
           aria-label={"create sprint"}
@@ -138,7 +141,9 @@ const RenameSprint = ({ id, renameSprint }) => {
           <AddProject />
         </button>
         <p className={s.text}>Створити спринт</p>
-      </div>
+        </div>
+        </div>
+        </div>
 
       <div>
         <p className={s.hederSprint__text}>
