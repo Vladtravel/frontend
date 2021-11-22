@@ -131,12 +131,55 @@ const MemberForm = ({ toggleModal }) => {
               autoComplete="on"
               required
             />
+
+            {/* <button type="submit">Gotovo</button> */}
+          </form>
+          <div className={s.buttonWrapper}>
+            <Button className="button" type="submit" text={"Готово"} />
+            <Button
+              type="button"
+              className="btnLink"
+              text={"Відміна"}
+              onClick={toggleModal}
+            />
+
+            <div className={s.modalContainer}>
+              <h2 className={s.addFormTitle}>Додати людей</h2>
+              <form onSubmit={handleSubmit}>
+                <input
+                  id="members-email"
+                  className={s.input}
+                  onChange={inputEmailValue}
+                  type="text"
+                  name="email"
+                  value={email}
+                  placeholder="Введіть e-mail"
+                  autoComplete="on"
+                  required
+                />
+
+                <h4 className={s.usersTitle}>Додані користувачі:</h4>
+                <MemberList />
+
+                <div className={s.buttonWrapper}>
+                  <Button className="button" type="submit" text={"Готово"} />
+                  <Button
+                    type="button"
+                    className="btnLink"
+                    text={"Відміна"}
+                    onClick={toggleModal}
+                  />
+                </div>
+              </form>
+            </div>
+
             <h4 className={s.usersTitle}>Додані користувачі:</h4>
             <MemberList />
           </form>
           <div className={s.buttonWrapper}>
             <Button className="button" type="submit" text={"Готово"} />
             <Button type="button" className="btnLink" text={"Відміна"} onClick={toggleModal} />
+
           </div>
         </div>
       </div>
