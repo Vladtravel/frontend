@@ -1,5 +1,13 @@
 import { useState } from "react";
-import IconBtn from "../../components/iconButton";
+// import IconBtn from "../../components/iconButton";
+
+import IconButton from "../../components/Modal/IconButton";
+import { ReactComponent as IconAddProject } from "../../components/Modal/IconButton/addProject.svg";
+import ProjectButtonAdd from "../../components/ProjectList/ProjectButtonAdd";
+import { ReactComponent as Close } from "../../components/Modal/IconButton/+.svg";
+import Modal from "../../components/Modal/Modal";
+import ModalCreateSprint from "../../components/ModalCreateSprint";
+
 import ArrowBtn from "../../components/ArrowBtn/ArrowBtn";
 import FastAccessTemplate from "../../components/fastAccessTemplate/fastAccessTemplate";
 import Pagination from "../../components/Pagimation";
@@ -21,8 +29,10 @@ import {
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
 import { getAllTasks, getLoading, getError } from "../../redux/tasks/selectors";
+
 function TasksView(params) {
   const [page, setPage] = useState(1);
+  const [showModal, setShowModal] = useState(false);
   const getTasks = useSelector(getAllTasks);
   console.log(getTasks, "Tasks");
   const loader = useSelector(getLoading);
@@ -62,6 +72,11 @@ function TasksView(params) {
   const onBlur = (data) => {
     dispatch(taskHourChange(data));
   };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <div className={s.wrapper}>
       <div className={s.sideBar}>
@@ -84,11 +99,33 @@ function TasksView(params) {
               ))}
           </ul>
         </div>
+
+       <>
         <div className={s.btnWrapper}>
-          <IconBtn name="add" />
+          <IconButton
+          onClick={toggleModal}
+          aria-label="create project"
+          className={"btnIconAddProject"}
+          style={{marginLeft: 'auto',
+        marginRight: 'auto'}}
+          // className={s.modalEl}
+          >
+
+          {/* < ProjectButtonAdd 
+          onClick={toggleModal}
+          className={"btnIconAddProject"
+        }/> */}
+        <IconAddProject />
+
+           </IconButton>
 
           <p className={s.addSprintText}>Створити спринт</p>
         </div>
+
+        {showModal && (
+           <ModalCreateSprint setIsModalOpen={toggleModal}/>
+        )}
+</>
       </div>
       <div>
         <div className={s.mainWrapper}>

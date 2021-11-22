@@ -136,10 +136,10 @@ const MemberForm = ({ toggleModal }) => {
               autoComplete="on"
               required
             />
-            <button type="submit">Gotovo</button>
+            {/* <button type="submit">Gotovo</button> */}
           </form>
           <div className={s.buttonWrapper}>
-            {/* <Button className="button" type="submit" text={"Готово"} /> */}
+            <Button className="button" type="submit" text={"Готово"} />
             <Button
               type="button"
               className="btnLink"
