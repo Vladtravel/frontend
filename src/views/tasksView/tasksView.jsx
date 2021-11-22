@@ -24,7 +24,7 @@ import { getAllTasks} from "../../redux/tasks/selectors";
 function TasksView(params) {
   const [page, setPage] = useState(1);
   const getTasks = useSelector(getAllTasks);
-  console.log(getTasks, "Tasks");
+  // console.log(getTasks, "Tasks");
   // const loader = useSelector(getLoading);
   const sprints = useSelector(getAllSprints);
   // const error = useSelector(getError);
