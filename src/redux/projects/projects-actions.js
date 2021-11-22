@@ -13,3 +13,7 @@ export const deleteProjectsSuccess = createAction("projects/deleteProjectsSucces
 export const deleteProjectsError = createAction("projects/deleteProjectsError");
 
 export const nameChange = createAction("projects/nameChange");
+
+export const addPeopleRequest = createAction("projects/addPeopleRequest");
+export const addPeopleSuccess = createAction("projects/addPeopleSuccess");
+export const addPeopleError = createAction("projects/addPeopleError");

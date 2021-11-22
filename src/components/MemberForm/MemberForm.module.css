@@ -2,8 +2,8 @@
   position: relative;
   /* z-index: 999; */
   margin-top: 0;
-   width: 429px;
-} 
+  width: 429px;
+}
 
 @media screen and (max-width: 767px) {
   .modalContainer {
@@ -100,3 +100,20 @@
     line-height: 1.22;
   }
 } */
+
+.membersList {
+  margin: 0 auto;
+  width: 430px;
+  height: 160px;
+  overflow-y: auto;
+}
+
+.membersItem {
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Montserrat";
+}

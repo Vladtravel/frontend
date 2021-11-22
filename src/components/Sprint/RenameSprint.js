@@ -3,27 +3,19 @@ import { ReactComponent as AddProject } from "../Modal/IconButton/addProject.svg
 import ModalCreateSprint from "../ModalCreateSprint/ModalCreateSprint";
 
 import Modal from "../Modal/Modal";
-import AddMember from "../MemberForm/MemberForm";
+import MemberForm from "../MemberForm/MemberForm";
 import img from "./Vector.svg";
 
 import s from "./SingleSprint.module.css";
 
-import {
-  addSprint,
-  fetchSprint,
-  deleteSprint,
-} from "../../redux/sprint/operation";
+import { addSprint, fetchSprint, deleteSprint } from "../../redux/sprint/operation";
 import { useRouteMatch, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
 import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getError,
-  getAllSprints,
-  getLoading,
-} from "../../redux/sprint/selectors";
+import { getError, getAllSprints, getLoading } from "../../redux/sprint/selectors";
 import { getAllProjects } from "../../redux/projects/projects-selectors";
 import { projectNameChange } from "../../redux/projects/projects-operations";
 
@@ -104,66 +96,64 @@ const RenameSprint = ({ id, renameSprint }) => {
 
   return (
     <>
-       <div className={s.hederSprint__title}>
-       <div className={s.hederSprint_box}> 
-      {isNameChaged ? (
-        <h1 className={s.title}>{currentProject.name}</h1>
-      ) : (
-        <input
-          value={text}
-          onChange={(e) => {
-            const { value } = e.currentTarget;
-            setText(value);
-          }}
-          onBlur={() => {
-            const data = {
-              currentProject: currentProjects,
-              name: text,
-            };
-            onNameChange(data);
-            setIsNameChaged((s) => !s);
-          }}
-          type="text"
-        />
-      )}
-      {isModalOpen && (
-        <ModalCreateSprint
-          onSubmit={onSubmit}
-          data={data}
-          value={name}
-          setName={setName}
-          setIsModalOpen={setIsModalOpen}
-          setEndDate={setEndDate}
-          endDate={endDate}
-          setDurr={setDurr}
-          duration={durr}
-        />
-      )}
-   
-        
-        <button
-          className={s.penBtn}
-          onClick={() => {
-            setIsNameChaged((s) => !s);
-          }}
-        ></button>
-        <div className={s.create_box}>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          aria-label={"create sprint"}
-          className={s.create__sprint}
-        >
-          <AddProject />
-        </button>
-        <p className={s.text}>Створити спринт</p>
+      <div className={s.hederSprint__title}>
+        <div className={s.hederSprint_box}>
+          {isNameChaged ? (
+            <h1 className={s.title}>{currentProject.name}</h1>
+          ) : (
+            <input
+              value={text}
+              onChange={(e) => {
+                const { value } = e.currentTarget;
+                setText(value);
+              }}
+              onBlur={() => {
+                const data = {
+                  currentProject: currentProjects,
+                  name: text,
+                };
+                onNameChange(data);
+                setIsNameChaged((s) => !s);
+              }}
+              type="text"
+            />
+          )}
+          {isModalOpen && (
+            <ModalCreateSprint
+              onSubmit={onSubmit}
+              data={data}
+              value={name}
+              setName={setName}
+              setIsModalOpen={setIsModalOpen}
+              setEndDate={setEndDate}
+              endDate={endDate}
+              setDurr={setDurr}
+              duration={durr}
+            />
+          )}
+
+          <button
+            className={s.penBtn}
+            onClick={() => {
+              setIsNameChaged((s) => !s);
+            }}
+          ></button>
+          <div className={s.create_box}>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              aria-label={"create sprint"}
+              className={s.create__sprint}
+            >
+              <AddProject />
+            </button>
+            <p className={s.text}>Створити спринт</p>
+          </div>
         </div>
-        </div>
-        </div>
+      </div>
 
       <div>
         <p className={s.hederSprint__text}>
-          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового
-          блоку
+          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку
         </p>
       </div>
 
@@ -176,7 +166,7 @@ const RenameSprint = ({ id, renameSprint }) => {
 
       {showModal && (
         <Modal onClose={toggleModal}>
-          <AddMember toggleModal={toggleModal} />
+          <MemberForm toggleModal={toggleModal} />
         </Modal>
       )}
 
@@ -192,31 +182,15 @@ const RenameSprint = ({ id, renameSprint }) => {
                     <div className={s.single__card}>
                       <h3 className={s.card__header}>{name}</h3>
                       <div className={s.sprint__wrapper}>
-                        <p
-                          className={`${s.card__content} ${s.card__content_header}`}
-                        >
-                          Дата початку
-                        </p>
-                        <p
-                          className={`${s.card__content} ${s.card__content_info}`}
-                        >
+                        <p className={`${s.card__content} ${s.card__content_header}`}>Дата початку</p>
+                        <p className={`${s.card__content} ${s.card__content_info}`}>
                           {begin.day} {begin.month}
                         </p>
-                        <p
-                          className={`${s.card__content} ${s.card__content_header}`}
-                        >
-                          Дата закінчення
-                        </p>
-                        <p
-                          className={`${s.card__content} ${s.card__content_info}`}
-                        >
+                        <p className={`${s.card__content} ${s.card__content_header}`}>Дата закінчення</p>
+                        <p className={`${s.card__content} ${s.card__content_info}`}>
                           {end.day} {end.month}
                         </p>
-                        <p
-                          className={`${s.card__content} ${s.card__content_header}`}
-                        >
-                          Тривалість
-                        </p>
+                        <p className={`${s.card__content} ${s.card__content_header}`}>Тривалість</p>
                         <p
                           className={`${s.card__content} ${s.card__content_info} ${s.card__content_duration}`}
                         >
