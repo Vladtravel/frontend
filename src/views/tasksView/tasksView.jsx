@@ -4,9 +4,9 @@ import ArrowBtn from "../../components/ArrowBtn/ArrowBtn";
 import FastAccessTemplate from "../../components/fastAccessTemplate/fastAccessTemplate";
 import Pagination from "../../components/Pagimation";
 import CurrentTime from "../../components/CurrentTime/CurrentTime";
-import Task from "../../components/Task/Task";
+// import Task from "../../components/Task/Task";
 import Title from "../../components/Title/Title";
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 
 import Icons from "../../components/icons";
 import s from "./tasksView.module.css";
@@ -20,14 +20,14 @@ import {
 } from "../../redux/tasks/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
-import { getAllTasks, getLoading, getError } from "../../redux/tasks/selectors";
+import { getAllTasks} from "../../redux/tasks/selectors";
 function TasksView(params) {
   const [page, setPage] = useState(1);
   const getTasks = useSelector(getAllTasks);
   console.log(getTasks, "Tasks");
-  const loader = useSelector(getLoading);
+  // const loader = useSelector(getLoading);
   const sprints = useSelector(getAllSprints);
-  const error = useSelector(getError);
+  // const error = useSelector(getError);
   const dispatch = useDispatch();
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];

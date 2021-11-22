@@ -1,5 +1,5 @@
 import axios from "axios";
-import shortid from "shortid";
+// import shortid from "shortid";
 import {
   addRequest,
   addSuccess,
@@ -10,7 +10,7 @@ import {
   deleteRequest,
   deleteSuccess,
   deleteError,
-  hoursChange,
+  // hoursChange,
 } from "./action";
 axios.defaults.baseURL = "https://goitproject.herokuapp.com";
 
