@@ -75,7 +75,6 @@ export const taskHourChange =
         data
       )
       .then((data) => {
-        // console.log(data.data.data.tasks, "data");
         dispatch(getRequest(data.data.data.tasks));
       });
   };
