@@ -1,6 +1,7 @@
 .container__sprints {
   display: flex;
   flex-wrap: wrap;
+
   justify-content: center;
 }
 
@@ -46,10 +47,12 @@
   flex-wrap: wrap;
   margin-top: 20px;
   
+
 }
 
 .hederSprint__title {
   display: flex;
+ 
   justify-content: space-between;
 }
 
@@ -84,8 +87,8 @@
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.04em;
+  line-height: 1.21;  
+  width: 280px;
 }
 .create__sprint {
   outline: none;
@@ -108,8 +111,8 @@
 .create__sprint:hover {
   box-shadow: 1px 1px 5px 1px #ff6b08;
 }
-
 .single__item {
+  position: relative;
   list-style: none;
   cursor: pointer;
   transition: all 250ms linear;
@@ -120,12 +123,14 @@
 }
 
 .single__card {
-  width: 280px;
+  width: 270px;
+  min-height: 224px;
   background: #ffffff;
   box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
   border-radius: 5px;
   font-family: "Montserrat";
   position: relative;
+
   padding: 20px 30px 30px;
 }
 
@@ -143,6 +148,7 @@
     height: 215px;
     padding: 20px 30px 30px;
   }
+
 }
 
 .card__header {
@@ -155,6 +161,14 @@
   text-align: left;
   width: 100%;
   overflow-wrap: break-word;
+}
+
+.sprint__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 30px;
 }
 
 .card__content {
@@ -195,24 +209,11 @@
   border: none;
   outline: none;
   cursor: pointer;
-  position: relative;
-
-  right: -245px;
-  bottom: 30px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
   background-color: transparent;
   transition: all 500ms linear;
-}
-
-@media screen and (min-width: 768px){
-  .card__button{
-    right: -180px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .card__button {
-    right: -235px;
-  }
 }
 
 .card__button:hover {
@@ -224,11 +225,13 @@
   padding-left: 20 px;
 }
 
+
 .headerSprint__titleButton {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .text {
   margin: 0;
@@ -251,6 +254,27 @@
 @media screen and (min-width: 900px) {
   .text {
     display: contents;
+  }
+}
+.create_box{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+@media screen and (min-width: 768px){
+  .create_box{
+    
+    top: 120px;
+    right: 40px;
+    
+  }
+}
+@media screen and (min-width: 900px){
+  .create_box{
+    
+    display: flex;
+    align-items: baseline;
   }
 }
 
@@ -294,11 +318,30 @@
 
 .addWrapper {
   display: flex;
+  margin-left: 70px;
 }
 
 @media screen and (max-width: 767px) {
   .addWrapper {
     margin-left: 20px;
+  }
+}
+
+
+
+@media screen and (min-width: 900px){
+  .title{
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.22;  
+  }
+}
+
+@media screen and (min-width: 900px){
+  .hederSprint__text {
+    font-size: 18px;
+    line-height: 1.22;  
+    width: 452px;
   }
 }
 
@@ -313,4 +356,5 @@
   justify-content: center;
   align-items: center;
 }
+
 
