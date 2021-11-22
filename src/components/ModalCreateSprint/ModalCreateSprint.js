@@ -9,9 +9,7 @@ import IconButton from "../Modal/IconButton";
 import { ReactComponent as Close } from "../Modal/IconButton/+.svg";
 import Button from "../Modal/Button";
 import Modal from "../Modal";
-// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import btnClose from "./btnClose.svg";
 import s from "./ModalCreateSprint.module.css";
 
 const dataTheme = createTheme({
@@ -236,6 +234,8 @@ function ModalCreateSprint({
   setIsModalOpen,
   endDate,
   setEndDate,
+  setDurr,
+  duration,
 }) {
   const classes = useStyles();
 
@@ -296,9 +296,9 @@ function ModalCreateSprint({
 
             <div className={s.formItem}>
               <input
-                // value={value}
-                // onChange={(e) => setName(e.currentTarget.value)}
-                id="sprint-name"
+                value={duration}
+                onChange={(e) => setDurr(e.currentTarget.value)}
+                id="duration-name"
                 className={s.inputDuration}
                 placeholder=" "
                 type="text"
@@ -308,7 +308,7 @@ function ModalCreateSprint({
                 autoComplete="off"
                 required
               />
-              <label htmlFor="sprint-name" className={s.label}>
+              <label htmlFor="duration-name" className={s.label}>
                 Тривалість
               </label>
             </div>
