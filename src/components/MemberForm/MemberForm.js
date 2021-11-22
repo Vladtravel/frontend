@@ -175,7 +175,7 @@ const MemberForm = ({ toggleModal }) => {
 
             <h4 className={s.usersTitle}>Додані користувачі:</h4>
             <MemberList />
-          </form>
+          </div>
           <div className={s.buttonWrapper}>
             <Button className="button" type="submit" text={"Готово"} />
             <Button type="button" className="btnLink" text={"Відміна"} onClick={toggleModal} />
