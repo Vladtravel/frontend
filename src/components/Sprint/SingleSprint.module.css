@@ -1,14 +1,58 @@
 .container__sprints {
   display: flex;
   flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px){
+  .container__sprints{
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container__sprints {
+    margin-right: 30px;
+  }
+}
+
+.cards__wrapper {
+  display: block;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 30px;
-  overflow-y: auto;
-  justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px){
+  .cards__wrapper{
+    display: flex;
+    justify-content: first baseline;
+    max-width: 472px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cards__wrapper {
+    max-width: 930px;
+  }
+}
+
+.sprint__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  
+
 }
 
 .hederSprint__title {
   display: flex;
-  /* align-items: baseline; */
+ 
   justify-content: space-between;
 }
 
@@ -86,7 +130,25 @@
   border-radius: 5px;
   font-family: "Montserrat";
   position: relative;
-  padding: 20px 30px 40px;
+
+  padding: 20px 30px 30px;
+}
+
+@media screen and (min-width: 768px){
+  .single__card{
+    width: 215px;
+    height: 190px;
+    padding: 15px 20px 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .single__card {
+    width: 270px;
+    height: 215px;
+    padding: 20px 30px 30px;
+  }
+
 }
 
 .card__header {
@@ -128,6 +190,13 @@
 .card__content_header:not(:nth-last-child(-n + 3)),
 .card__content_info:not(:nth-last-child(-n + 2)) {
   margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .card__content_header:not(:nth-last-child(-n + 3)),
+  .card__content_info:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 25px;
+  }
 }
 
 .card__button {

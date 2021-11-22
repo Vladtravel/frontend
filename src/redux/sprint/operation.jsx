@@ -40,7 +40,6 @@ export const addSprint =
     axios
       .post(`api/projects/${currentProjects}/sprints`, sprint)
       .then(({ data }) => {
-        // console.log(data);
         dispatch(addSuccess(data.data));
       })
       .catch((error) => dispatch(addError(error.message)));
@@ -66,8 +65,12 @@ export const sprintNameChange =
       name,
     };
 
-    axios.patch(`api/projects/${currentProjects}/sprints/${currentSprint}/name`, data).then(() => {
-      // console.log(123);
-      dispatch(nameChange(name));
-    });
+    axios
+      .patch(
+        `api/projects/${currentProjects}/sprints/${currentSprint}/name`,
+        data
+      )
+      .then(() => {
+        dispatch(nameChange({ currentSprint, name }));
+      });
   };

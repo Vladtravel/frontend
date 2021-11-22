@@ -31,6 +31,14 @@ export const dataTheme = createTheme({
         },
       },
 
+      iconButton: {
+        backgroundColor: "transparent",
+
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+      },
+
       dayLabel: {
         fontFamily: "Montserrat",
         fontWeight: 600,

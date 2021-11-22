@@ -8,14 +8,22 @@ import img from "./Vector.svg";
 
 import s from "./SingleSprint.module.css";
 
-import { addSprint, fetchSprint, deleteSprint } from "../../redux/sprint/operation";
+import {
+  addSprint,
+  fetchSprint,
+  deleteSprint,
+} from "../../redux/sprint/operation";
 import { useRouteMatch, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
 import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getError, getAllSprints, getLoading } from "../../redux/sprint/selectors";
+import {
+  getError,
+  getAllSprints,
+  getLoading,
+} from "../../redux/sprint/selectors";
 import { getAllProjects } from "../../redux/projects/projects-selectors";
 import { projectNameChange } from "../../redux/projects/projects-operations";
 
@@ -29,7 +37,6 @@ const RenameSprint = ({ id, renameSprint }) => {
   const [name, setName] = useState("");
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
-
   const projects = useSelector(getAllProjects);
 
   const currentProject = projects.find((e) => e._id === currentProjects);
@@ -47,7 +54,21 @@ const RenameSprint = ({ id, renameSprint }) => {
     (endDate.getUTCMonth() - currentData.getUTCMonth()) * 30 +
     endDate.getUTCDate() -
     currentData.getUTCDate();
+
   const sprints = useSelector(getAllSprints);
+
+  const transformationOfDate = (date) => {
+    const dateNew = new Date(date);
+    const transformation = new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+    }).format(dateNew);
+    const result = {
+      day: Number(transformation.split(" ")[1]),
+      month: transformation.split(" ")[0].slice(0, 3),
+    };
+    return result;
+  };
 
   const data = {
     currentProjects,
@@ -141,7 +162,8 @@ const RenameSprint = ({ id, renameSprint }) => {
 
       <div>
         <p className={s.hederSprint__text}>
-          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку
+          Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового
+          блоку
         </p>
       </div>
 
@@ -160,20 +182,41 @@ const RenameSprint = ({ id, renameSprint }) => {
 
       <ul className={s.cards__wrapper}>
         {sprints &&
-          sprints.map(({ name, endDate, duration, _id }) => {
+          sprints.map(({ name, endDate, duration, _id, createdAt }) => {
+            const end = transformationOfDate(endDate);
+            const begin = transformationOfDate(createdAt);
             return (
               <div key={_id} className={s.container__sprints}>
-                
                 <li key={_id} className={s.single__item}>
                   <Link to={`${url}/${_id}`} className={s.link}>
                     <div className={s.single__card}>
                       <h3 className={s.card__header}>{name}</h3>
                       <div className={s.sprint__wrapper}>
-                        <p className={`${s.card__content} ${s.card__content_header}`}>Дата початку</p>
-                        <p className={`${s.card__content} ${s.card__content_info}`}>{"23 Jun"}</p>
-                        <p className={`${s.card__content} ${s.card__content_header}`}>Дата закінчення</p>
-                        <p className={`${s.card__content} ${s.card__content_info}`}>{"12 Jun"}</p>
-                        <p className={`${s.card__content} ${s.card__content_header}`}>Тривалість</p>
+                        <p
+                          className={`${s.card__content} ${s.card__content_header}`}
+                        >
+                          Дата початку
+                        </p>
+                        <p
+                          className={`${s.card__content} ${s.card__content_info}`}
+                        >
+                          {begin.day} {begin.month}
+                        </p>
+                        <p
+                          className={`${s.card__content} ${s.card__content_header}`}
+                        >
+                          Дата закінчення
+                        </p>
+                        <p
+                          className={`${s.card__content} ${s.card__content_info}`}
+                        >
+                          {end.day} {end.month}
+                        </p>
+                        <p
+                          className={`${s.card__content} ${s.card__content_header}`}
+                        >
+                          Тривалість
+                        </p>
                         <p
                           className={`${s.card__content} ${s.card__content_info} ${s.card__content_duration}`}
                         >
