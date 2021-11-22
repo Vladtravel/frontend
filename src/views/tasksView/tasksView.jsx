@@ -30,7 +30,6 @@ function TasksView(params) {
   // const error = useSelector(getError);
   const dispatch = useDispatch();
   const { url } = useRouteMatch();
-  console.log(url);
   localStorage.setItem("url", url);
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
