@@ -32,7 +32,7 @@ export const addTask =
       name,
       sheduledHours: hours,
     };
-    console.log(task);
+    // console.log(task);
     dispatch(addRequest(task));
 
     axios
@@ -41,7 +41,7 @@ export const addTask =
         task
       )
       .then(({ data }) => {
-        console.log(data.data.tasks, "data.data.tasks");
+        // console.log(data.data.tasks, "data.data.tasks");
         dispatch(addSuccess(data.data.tasks));
       })
       .catch((error) => dispatch(addError(error.message)));
@@ -75,7 +75,7 @@ export const taskHourChange =
         data
       )
       .then((data) => {
-        console.log(data.data.data.tasks, "data");
+        // console.log(data.data.data.tasks, "data");
         dispatch(getRequest(data.data.data.tasks));
       });
   };

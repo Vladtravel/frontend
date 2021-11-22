@@ -55,6 +55,7 @@ function TasksView(params) {
     ) {
       return e;
     }
+    return false;
   });
   const onClick = (data) => {
     dispatch(deleteTask(data));
