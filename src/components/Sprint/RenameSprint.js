@@ -160,7 +160,7 @@ const RenameSprint = ({ id, renameSprint }) => {
         </Modal>
       )}
 
-      <ul>
+      <ul className={s.cards__wrapper}>
         {sprints &&
           sprints.map(({ name, endDate, duration, _id }) => {
             return (
@@ -216,31 +216,6 @@ const RenameSprint = ({ id, renameSprint }) => {
     </>
   );
 
-  // return (
-  //     <>
-  //         <div className={s.hederSprint__title}>
-  //         <div>
-  //             <input tupe="text" naame="" placeholder="" value=""></input>
-  //             <label></label>
-  //         </div>
-  //         <button className={s.penBtn} type="sabmit" aria-label="rename"
-  //               onClick={renameSprint}>
-  //             </button>
-  //             <button
-  //               // onClick={toggleModal}
-  //               aria-label={"create sprint"}
-  //               className={s.create__sprint}
-  //             >
-  //               <AddProject />
-  //             </button>
-  //             <p className={s.text}>Створити спринт</p>
-  //           </div>
-
-  //         <div>
-  //           <p className={s.hederSprint__text}>Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку</p>
-  //         </div>
-  //         </>
-  //     )
 };
 
 export default RenameSprint;
