@@ -16,6 +16,13 @@
 
   padding: 0%;
 }
+@media screen and (max-width: 768px) {
+  .button {
+    display: flex;
+  align-items: center;
+  text-align: start;
+  }
+}
 .icon {
   width: 30px;
   height: 10px;
@@ -24,7 +31,18 @@
   fill: currentColor;
   stroke: currentColor;
 }
+@media screen and (max-width: 768px) {
+  .icon {
+    margin-right: 20px;
+  }
+}
 .text {
   width: 115px;
   margin: 0%;
+}
+@media screen and (max-width: 768px) {
+  .text {
+    width: 100%;
+    padding: 0px;
+  }
 }
