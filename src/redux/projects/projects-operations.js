@@ -64,7 +64,7 @@ export const projectNameChange =
     };
 
     axios.patch(`api/projects/${currentProject}/name`, data).then(() => {
-      dispatch(nameChange(name));
+      dispatch(nameChange({ currentProject, name }));
       dispatch(deleteSuccess());
     });
   };
