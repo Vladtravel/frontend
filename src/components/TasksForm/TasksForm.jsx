@@ -1,10 +1,10 @@
 import { useState } from "react";
-import PropTypes, { number } from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+// import { toast } from "react-toastify";
 import Button from "../Modal/Button";
 import { addTask } from "../../redux/tasks/operation";
-import { getError } from "../../redux/tasks/selectors";
+// import { getError } from "../../redux/tasks/selectors";
 import { useRouteMatch } from "react-router-dom";
 
 import s from "../Modal/FormCreateProject/FormCreateProject.module.css";
@@ -16,9 +16,9 @@ function TasksForm({ toggleModal }) {
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
 
-  const error = useSelector(getError);
+  // const error = useSelector(getError);
 
-  console.log(hours);
+  // console.log(hours);
   const dispatch = useDispatch();
 
   const onSubmit = ({ name, hours, currentSprint, currentProjects }) => {

@@ -4,7 +4,7 @@ import { useRouteMatch, Link } from "react-router-dom";
 function FastAccessTemplate({ sprintName, id, current, setPage }) {
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
-  const currentSprint = url.split("/")[4];
+  // const currentSprint = url.split("/")[4];
   const style = {
     backgroundColor: `#${(Math.random().toString(16) + "000000")
       .substring(2, 8)
