@@ -165,6 +165,7 @@ const RenameSprint = ({ id, renameSprint }) => {
           sprints.map(({ name, endDate, duration, _id }) => {
             return (
               <div key={_id} className={s.container__sprints}>
+                
                 <li key={_id} className={s.single__item}>
                   <Link to={`${url}/${_id}`} className={s.link}>
                     <div className={s.single__card}>
