@@ -10,6 +10,7 @@ import {
   deleteRequest,
   deleteSuccess,
   deleteError,
+  hoursChange,
 } from "./action";
 axios.defaults.baseURL = "https://goitproject.herokuapp.com";
 
@@ -20,7 +21,6 @@ export const fetchTasks =
     axios
       .get(`api/projects/${currentProjects}/sprints/${currentSprint}`)
       .then(({ data }) => {
-        console.log(data.data, "tasks");
         dispatch(getSuccess(data.data.tasks));
       })
       .catch((error) => dispatch(getError(error.message)));
@@ -60,4 +60,22 @@ export const deleteTask =
         dispatch(deleteSuccess(_id));
       })
       .catch((error) => dispatch(deleteError(error.message)));
+  };
+export const taskHourChange =
+  ({ currentSprint, currentProjects, currentTask, hours }) =>
+  (dispatch) => {
+    dispatch(getRequest());
+    const data = {
+      spendedHours: Number(hours),
+    };
+
+    axios
+      .patch(
+        `api/projects/${currentProjects}/sprints/${currentSprint}/tasks/${currentTask}`,
+        data
+      )
+      .then((data) => {
+        console.log(data.data.data.tasks, "data");
+        dispatch(getRequest(data.data.data.tasks));
+      });
   };

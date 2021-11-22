@@ -14,11 +14,8 @@ function Title(params) {
   const currentSprintId = url.split("/")[4];
   const sprints = useSelector(getAllSprints);
   const currentSprint = sprints.find((e) => e._id === currentSprintId);
-  console.log(currentProjects, "currentProjects");
-  console.log(currentSprintId, "currentSprintId");
 
   const [text, setText] = useState(currentSprint.name);
-  console.log(sprints);
   const dispatch = useDispatch();
   const onNameChange = (data) => {
     return dispatch(sprintNameChange(data));

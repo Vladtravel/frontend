@@ -11,6 +11,7 @@ import {
   deleteRequest,
   deleteSuccess,
   deleteError,
+  hoursChange,
 } from "./action";
 
 const itemReducer = createReducer([], {
@@ -19,6 +20,9 @@ const itemReducer = createReducer([], {
   [addSuccess]: (_, { payload }) => payload,
   [deleteSuccess]: (state, { payload }) => {
     return state.filter(({ _id }) => _id !== payload);
+  },
+  [hoursChange]: (_, { payload }) => {
+    return payload;
   },
 });
 const loadingReducer = createReducer(false, {
