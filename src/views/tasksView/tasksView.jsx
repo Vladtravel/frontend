@@ -105,6 +105,8 @@ function TasksView(params) {
               sprints.map(({ name, _id }) => (
                 <li className={s.sprint} key={_id}>
                   <FastAccessTemplate
+                    setCurrentDate={setCurrentDate}
+                    currentDate={sprints.find((e) => e._id === _id).createdAt}
                     key={_id}
                     setPage={setPage}
                     sprintName={name}
