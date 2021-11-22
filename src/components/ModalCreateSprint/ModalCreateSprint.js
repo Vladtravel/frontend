@@ -70,7 +70,6 @@ function ModalCreateSprint({
                     required
                     autoOk
                     disableToolbar
-                    autoClose={true}
                     variant="inline"
                     format="dd MMMM"
                     id="date-picker-inline"
