@@ -32,8 +32,8 @@ export const addSprint =
   (dispatch) => {
     const sprint = {
       name,
-      duration,
-      endDate,
+      duration: Number(duration),
+      endDate: new Date(endDate),
     };
     dispatch(addRequest());
 
