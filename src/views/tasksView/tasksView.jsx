@@ -20,16 +20,18 @@ import {
 } from "../../redux/tasks/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
-import { getAllTasks} from "../../redux/tasks/selectors";
+import { getAllTasks } from "../../redux/tasks/selectors";
 function TasksView(params) {
   const [page, setPage] = useState(1);
   const getTasks = useSelector(getAllTasks);
-  console.log(getTasks, "Tasks");
+
   // const loader = useSelector(getLoading);
   const sprints = useSelector(getAllSprints);
   // const error = useSelector(getError);
   const dispatch = useDispatch();
   const { url } = useRouteMatch();
+  console.log(url);
+  localStorage.setItem("url", url);
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
   const currentSprintDuration = sprints.find(
@@ -63,6 +65,7 @@ function TasksView(params) {
   const onBlur = (data) => {
     dispatch(taskHourChange(data));
   };
+
   return (
     <div className={s.wrapper}>
       <div className={s.sideBar}>
