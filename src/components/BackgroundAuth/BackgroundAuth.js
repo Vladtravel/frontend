@@ -8,6 +8,7 @@ import picture4 from "./images/Picture 4.svg";
 import picture5 from "./images/Picture 5.svg";
 import picture6 from "./images/Picture 6.svg";
 import orange from "./images/Orange.svg";
+import orange_tablet from "./images/Orange_tablet.svg";
 import white from "./images/White.svg";
 
 const BackgroundAuth = () => {
@@ -21,6 +22,7 @@ const BackgroundAuth = () => {
       <img src={picture6} alt="orange-ellipse" className={s.picture6} />
       <img src={white} alt="ellipse" className={s.white} />
       <img src={orange} alt="ellipse" className={s.orange} />
+      <img src={orange_tablet} alt="ellipse" className={s.orange_tablet} />
     </div>
   );
 };
