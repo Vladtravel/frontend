@@ -258,20 +258,21 @@ function TasksView(params) {
                 return (
                   <li id={_id} key={_id} className={s.blokTasks}>
                     <p className={s.blokTasksTitle}>{name}</p>
-                    <p>
-                    Заплановано годин <span>{sheduledHours}</span>
+                    <p className={s.taskLabel}>
+                    Заплановано годин <span className={s.taskValue}>{sheduledHours}</span>
                     </p>
-                    {isSpendedHoursChange ? (
-                      <div>
+                    {/* {isSpendedHoursChange ? ( */}
+                      {/* <div>
                         <span>Витрачено годин</span>
                         {spendedHours}
-                      </div>
-                    ) : (
-                      <div>
-                        <label className={s.formaLabel}>
+                      </div> */}
+                    {/* ) : ( */}
+                      <div className={s.positionInput}>
+                        <label className={s.taskLabel}>
                         Витрачено годин за день
                         </label> 
                         <input
+                        className={s.taskInput}
                         onBlur={(e) => {
                           const { value } = e.currentTarget;
                           if (value < sheduledHours) {
@@ -288,9 +289,16 @@ function TasksView(params) {
                         type="number"
                       />
                       </div>
+                      <div className={s.taskLabel}>
+                        Витрачено годин
+                        <span className={s.taskValue}>{spendedHours}</span>
+                      </div>
                       
-                    )}
-                    <button onClick={() => onClick({ currentProjects, currentSprint, _id })}>DELETE</button>
+                     {/* )} */}
+                    <button className={s.taskDelBtn} 
+                            onClick={() => onClick({ currentProjects, currentSprint, _id })}>
+                            {/* DELETE */}
+                    </button>
                   </li>
                 );
               })}
