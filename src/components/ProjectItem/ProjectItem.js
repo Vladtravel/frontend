@@ -36,6 +36,15 @@ const ProjectItem = () => {
   const onClick = (_id) => dispatch(deleteProject(_id));
 
   return (
+
+    <>
+      {projects.length === 0 && (
+        <h2 className={s.emptyList}>
+          Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
+          проект"
+        </h2>
+      )}
+
     <ul className={s.item}>
       {projects.map(({ name, description, _id }) => {
         return (
@@ -55,6 +64,7 @@ const ProjectItem = () => {
         );
       })}
     </ul>
+    </>
   );
 };
 
