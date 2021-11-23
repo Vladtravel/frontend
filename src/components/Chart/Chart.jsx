@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
 import { getAllTasks } from "../../redux/tasks/selectors";
 import { getAllSprints } from "../../redux/sprint/selectors";
+import s from "../../components/Diagram/Diagram.module.css";
 
 function Chart() {
   const { url } = useRouteMatch();
@@ -32,31 +33,21 @@ function Chart() {
   for (let i = 0; i < sprintDuration; i++) {
     const date = new Date(currentSprint.createdAt);
     date.setDate(date.getDate() + i);
-    const totalDays =
-      (date.getMonth() + 1) * 30 + date.getFullYear() * 365 + date.getDate();
+    const totalDays = (date.getMonth() + 1) * 30 + date.getFullYear() * 365 + date.getDate();
     const tasksCreatedAtThisDate = tasks.filter((e) => {
       const date = new Date(e.createdAt);
-      const totalDaysInThisTasks =
-        (date.getMonth() + 1) * 30 + date.getFullYear() * 365 + date.getDate();
+      const totalDaysInThisTasks = (date.getMonth() + 1) * 30 + date.getFullYear() * 365 + date.getDate();
       if (totalDaysInThisTasks === totalDays) {
         return e;
       }
       return false;
     });
-    const totalHours = tasksCreatedAtThisDate.reduce(function (
-      accumulator,
-      currentValue
-    ) {
+    const totalHours = tasksCreatedAtThisDate.reduce(function (accumulator, currentValue) {
       return accumulator + currentValue.sheduledHours;
-    },
-    0);
-    const totalHoursInRealLife = tasksCreatedAtThisDate.reduce(function (
-      accumulator,
-      currentValue
-    ) {
+    }, 0);
+    const totalHoursInRealLife = tasksCreatedAtThisDate.reduce(function (accumulator, currentValue) {
       return accumulator + currentValue.spendedHours;
-    },
-    0);
+    }, 0);
     totalHoursForDayInRealLife.push(totalHoursInRealLife);
     totalHoursForDay.push(totalHours);
     const format = transformationOfDate(date);
@@ -93,10 +84,9 @@ function Chart() {
       },
     ],
   };
-  console.log(tasks);
 
   return (
-    <div>
+    <div className={s.chartContainer}>
       <Line options={options} data={data} />
     </div>
   );
