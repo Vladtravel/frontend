@@ -1,33 +1,39 @@
 .title {
-  max-width: 337px;
-
+  max-width: 260px;
   font-family: Montserrat;
-  font-style: 400;
   font-weight: 500;
-  font-size: 36px;
-  line-height: 44px;
-  display: flex;
-  align-items: center;
+  font-size: 26px;
+  line-height: 1.23;
   letter-spacing: 0.04em;
-  color: #181c27;
   word-wrap: break-word;
-  margin-right: 43px;
+  align-items: center;
+  color: #181c27;
 }
+
+@media screen and (min-width: 1024px) {
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    margin-right: 20px;
+  }
+}
+
 .btn {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   color: white;
   border: none;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 .wrapper {
   display: flex;
-  align-items: center;
 }

@@ -135,7 +135,7 @@
   background-color: rgba(113, 191, 231);
 }
 
-.btnIconAddProject {
+.btnIconAddSideBare {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -147,14 +147,14 @@
   transition: all 250ms linear;
 }
 
-.btnIconAddProject:hover {
+.btnIconAddSideBare:hover {
   box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.5);
   transform: scale(1.2);
   transition: all 250ms linear;
 }
 
 @media screen and (max-width: 767px) {
-  .btnIconAddProject {
+  .btnIconAddSideBare {
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -162,7 +162,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .btnIconAddProject {
+  .btnIconAddSideBare {
     position: relative;
     margin-left: auto;
   }
@@ -183,4 +183,5 @@
   letter-spacing: 0.04em;
 
   color: #181c27;
+  margin-top: 15px;
 }

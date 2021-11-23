@@ -7,7 +7,7 @@ import { addTask } from "../../redux/tasks/operation";
 // import { getError } from "../../redux/tasks/selectors";
 import { useRouteMatch } from "react-router-dom";
 
-import s from "../Modal/FormCreateProject/FormCreateProject.module.css";
+import s from "./TasksForm.module.css";
 
 function TasksForm({ toggleModal }) {
   const [name, setName] = useState("");
@@ -57,59 +57,57 @@ function TasksForm({ toggleModal }) {
 
   return (
     <>
-    <div className={s.modalContainer}>
-    <h2 className={s.title}>Создание задачи</h2>
+      <div className={s.modalContainer}>
+        <h2 className={s.title}>Создание задачи</h2>
 
-  <form  onSubmit={handleSubmit}>
-  <div className={s.formItem}>
-    <input
-      id="project-name"
-      className={s.input}
-      placeholder=" "
-      type="text"
-      name="name"
-      title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
-      pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-      value={name}
-      onChange={handleInputChange}
-      autoComplete="off"
-      required
-    />
-    <label htmlFor="project-name" className={s.label}>
-      Название задачи
-    </label>
-  </div>
+        <form className={s.form} onSubmit={handleSubmit}>
+          <div className={s.formItem}>
+            <input
+              id="project-name"
+              className={s.input}
+              placeholder=" "
+              type="text"
+              name="name"
+              title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
+              pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              value={name}
+              onChange={handleInputChange}
+              autoComplete="off"
+              required
+            />
+            <label htmlFor="project-name" className={s.label}>
+              Название задачи
+            </label>
+          </div>
 
-  <div className={s.formItem}>
-    <input
-      id="project-phone"
-      className={s.input}
-      placeholder=" "
-      type="number"
-      name="hours"
-      pattern="^[a-zA-Zа-яА-Я-0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-      value={hours}
-      onChange={handleInputChange}
-      title="Имя может состоять из букв, цифр, апострофа, тире и пробелов."
-      autoComplete="off"
-      required
-    />
-    <label htmlFor="project-phone" className={s.label}>
-      Опис
-    </label>
-  </div>
-  <Button className="button" type="submit" text={"Готово"} />
-  {/* <button type="submit">Готово</button> */}
+          <div className={s.formItem}>
+            <input
+              id="project-phone"
+              className={s.inputHour}
+              placeholder=" "
+              type="number"
+              name="hours"
+              pattern="^[0-9]*$"
+              value={hours}
+              onChange={handleInputChange}
+              title="Имя может состоять из цифр."
+              autoComplete="off"
+              required
+            />
+            <label htmlFor="project-phone" className={s.label}>
+              Заплановано годин
+            </label>
+          </div>
+          <Button className="button" type="submit" text={"Готово"} />
 
-  <Button
-  type="button"
-  className="btnLink"
-  text={"Відміна"}
-  onClick={toggleModal}
-/>
-</form>
-    </div>
-      
+          <Button
+            type="button"
+            className="btnLink"
+            text={"Відміна"}
+            onClick={toggleModal}
+          />
+        </form>
+      </div>
     </>
   );
 }
