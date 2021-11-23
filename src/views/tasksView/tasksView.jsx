@@ -5,6 +5,9 @@ import IconButton from "../../components/Modal/IconButton";
 import { ReactComponent as IconAddProject } from "../../components/Modal/IconButton/addProject.svg";
 // import ProjectButtonAdd from "../../components/ProjectList/ProjectButtonAdd";
 import ModalCreateSprint from "../../components/ModalCreateSprint";
+
+import Chart from "../../components/Chart";
+
 import ArrowBtn from "../../components/ArrowBtn/ArrowBtn";
 import FastAccessTemplate from "../../components/fastAccessTemplate/fastAccessTemplate";
 import Pagination from "../../components/Pagimation";
@@ -19,11 +22,7 @@ import s from "./tasksView.module.css";
 import TaskButtonAdd from "../../components/TasksModal";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchTasks,
-  deleteTask,
-  taskHourChange,
-} from "../../redux/tasks/operation";
+import { fetchTasks, deleteTask, taskHourChange } from "../../redux/tasks/operation";
 import { addSprint } from "../../redux/sprint/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
@@ -48,13 +47,9 @@ function TasksView(params) {
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
 
-  const currentSprintDuration = sprints.find(
-    (e) => e._id === currentSprint
-  ).duration;
 
-  const currentSprintCreateDate = sprints.find(
-    (e) => e._id === currentSprint
-  ).createdAt;
+  const currentSprintDuration = sprints.find((e) => e._id === currentSprint).duration;
+  const currentSprintCreateDate = sprints.find((e) => e._id === currentSprint).createdAt;
 
   const [currentDate, setCurrentDate] = useState(currentSprintCreateDate);
 
@@ -76,6 +71,7 @@ function TasksView(params) {
     }
     return false;
   });
+
 
   const onClick = (data) => {
     dispatch(deleteTask(data));
@@ -127,7 +123,9 @@ function TasksView(params) {
         <div className={s.taskSidebar}>
           <ArrowBtn />
 
+
           <ul className={s.item}>
+
             {Array.isArray(sprints) &&
               sprints.map(({ name, _id }) => (
                 <li className={s.sprint} key={_id}>
@@ -254,6 +252,7 @@ function TasksView(params) {
             </div>
           </div>
 
+
           <ul>
             {Array.isArray(getTasks) &&
               visibleTasks.map(({ name, sheduledHours, _id, spendedHours }) => {
@@ -300,6 +299,7 @@ function TasksView(params) {
               })}
           </ul>
           <AnalyticsButton onClick={buttonHandlerDiagram} />
+<Chart />
         </div>
 
         {/* <Pagination

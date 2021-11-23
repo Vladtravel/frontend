@@ -73,7 +73,6 @@ export const addPeople = (projectId, email) => async (dispatch) => {
   dispatch(addPeopleRequest());
   try {
     await axios.post(`/api/projects/${projectId}/owners`, email);
-    console.log(email);
     dispatch(addPeopleSuccess({ email, projectId }));
   } catch ({ message }) {
     dispatch(addPeopleError(message));

@@ -27,6 +27,8 @@ function Sidebar() {
           Показати проекти
         </NavLink>
       </div>
+      <div className={s.menuLine}></div>
+      <div className={s.menuProjectsNone}>
       <div className={s.menuProjects}>
         <ul className={s.item}>
           {getProjects.map(({ name, _id }) => {
@@ -49,6 +51,8 @@ function Sidebar() {
         <ProjectButtonAdd className={"btnIconAddSideBare"} />
         <samp className={s.text}>Створити проект</samp>
       </div>
+    </div>
+
     </div>
   );
 }

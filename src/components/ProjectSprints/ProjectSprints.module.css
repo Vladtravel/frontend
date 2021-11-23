@@ -24,6 +24,13 @@
 .Sprints {
   display: flex;
 }
+@media screen and (max-width: 768px) {
+  .Sprints {
+    display: block;
+    
+  }
+}
+
 .menuSprints {
   display: flexbox;
   flex-direction: column;

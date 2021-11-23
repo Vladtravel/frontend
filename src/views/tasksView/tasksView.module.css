@@ -23,13 +23,14 @@
   font-size: 14px;
   line-height: 1.21;
 
+
   color: #181c27;
   letter-spacing: 0.04em;
 }
 .icon {
   width: 20px;
   height: 20px;
-}
+
 
 @media screen and (max-width: 767px) {
   .icon {
@@ -77,6 +78,7 @@
   display: none;
 }
 
+
 @media screen and (min-width: 768px) {
   .addSprintText {
     display: block;
@@ -95,6 +97,7 @@
   .taskHeader {
     width: 100%;
     border-bottom: 1px solid rgba(24, 28, 39, 0.1);
+
   }
 }
 
@@ -302,6 +305,7 @@
   background-image: url("./ActivBin.svg");
 }
 
+
 .taskItem {
   position: relative;
   list-style: none;
@@ -329,6 +333,7 @@
     width: 215px;
     height: 190px;
     padding: 15px 20px 20px;
+
   }
 }
 

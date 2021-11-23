@@ -9,7 +9,9 @@ const getUserEmail = (state) => state.auth.user.email;
 
 const getAllProjects = (state) => state.projects;
 
-const getVisibleOwners = (state) => state.projects.owners
+const getVisibleOwners = (state) => state.projects.owners;
+
+const getUsers = (state) => state.auth.users;
 
 const selectors = {
   getToken,
@@ -17,6 +19,7 @@ const selectors = {
   getUserEmail,
   getAllProjects,
   getVisibleOwners,
+  getUsers,
 };
 
 export default selectors;
