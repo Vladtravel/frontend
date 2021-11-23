@@ -16,20 +16,21 @@ const getCurrentUserRequest = createAction("auth/getCurrentUserRequest");
 const getCurrentUserSuccess = createAction("auth/getCurrentUserRequest");
 const getCurrentUserError = createAction("auth/getCurrentUserError");
 
+const getUsersSuccess = createAction("auth/getUsersSuccess");
 
 const actions = {
-    registerRequest,
-    registerSuccess,
-    registerError,
-    loginRequest,
-    loginSuccess,
-    loginError,
-    logoutRequest,
-    logoutSuccess,
-    logoutError,
-    getCurrentUserRequest,
-    getCurrentUserSuccess,
-    getCurrentUserError,
-    
+  registerRequest,
+  registerSuccess,
+  registerError,
+  loginRequest,
+  loginSuccess,
+  loginError,
+  logoutRequest,
+  logoutSuccess,
+  logoutError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
+  getUsersSuccess,
 };
 export default actions;

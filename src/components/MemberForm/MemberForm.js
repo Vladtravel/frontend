@@ -6,11 +6,14 @@ import Button from "../Modal/Button/Button";
 import btnClose from "./btnClose.svg";
 import s from "./MemberForm.module.css";
 import { getAllProjects } from "../../redux/projects/projects-selectors";
+import operations from "../../redux/operations";
 import selectors from "../../redux/selectors";
 
 const MemberForm = ({ toggleModal }) => {
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState("valid");
+  const [isRegisteredUser, setIsRegisteredUser] = useState("valid");
+
   const dispatch = useDispatch();
 
   const { url } = useRouteMatch();
@@ -20,6 +23,8 @@ const MemberForm = ({ toggleModal }) => {
   const handleInputChange = (event) => setEmail(event.currentTarget.value);
 
   const projects = useSelector(getAllProjects);
+
+  const users = useSelector(selectors.getUsers);
 
   const currentUser = useSelector(selectors.getUserEmail);
 
@@ -35,8 +40,15 @@ const MemberForm = ({ toggleModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(operations.getUsers(currentProjectId));
 
     const alreadyExist = team.find((el) => el.email === email);
+    const isRegisteredUser = users.find((user) => user === email);
+
+    if (!isRegisteredUser) {
+      setIsRegisteredUser("notValid");
+      return;
+    }
 
     if (!email) {
       setValidEmail("noEmail");
@@ -76,7 +88,8 @@ const MemberForm = ({ toggleModal }) => {
               autoComplete="on"
               required
             />
-            {validEmail === "alreadyExist" && <p>*User is already in project</p>}
+            {validEmail === "alreadyExist" && <p>*Такой пользователь уже добавлен в проект</p>}
+            {isRegisteredUser === "notValid" && <p>*Такой пользователь не зарегистрирован</p>}
             <span className={s.membersTitleList}>Додані користувачі:</span>
             {owners ? (
               <ul className={s.membersList}>

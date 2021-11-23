@@ -64,12 +64,19 @@ const repeatEmailVerify = (email) => (dispatch) => {
   axios.post("/users/verify", email);
 };
 
+const getUsers = () => (dispatch) => {
+  axios.get("/users/all").then((res) => {
+    dispatch(actions.getUsersSuccess(res.data.data));
+  });
+};
+
 const operations = {
   register,
   logIn,
   logOut,
   getCurrentUser,
   repeatEmailVerify,
+  getUsers,
 };
 
 export default operations;
