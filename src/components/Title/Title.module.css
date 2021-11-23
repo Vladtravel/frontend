@@ -1,5 +1,5 @@
 .title {
-  max-width: 260px;
+  width: 100%;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 26px;
@@ -8,6 +8,7 @@
   word-wrap: break-word;
   align-items: center;
   color: #181c27;
+  
 }
 
 @media screen and (min-width: 1024px) {
