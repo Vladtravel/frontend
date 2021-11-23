@@ -99,6 +99,7 @@ function TasksView(params) {
       <div className={s.sideBar}>
         <div className={s.ArrowBtn}>
           <ArrowBtn />
+          <div className={s.menuLine}></div>
         </div>
         <div className={s.sprintsWrapper}>
           <ul>
