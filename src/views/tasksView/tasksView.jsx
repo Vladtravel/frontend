@@ -259,18 +259,22 @@ function TasksView(params) {
                 const isSpendedHoursChange = spendedHours !== 0;
 
                 return (
-                  <li id={_id} key={_id}>
-                    <p>{name}</p>
-                    <q>
-                      duration <span>{sheduledHours}</span>
-                    </q>
+                  <li id={_id} key={_id} className={s.blokTasks}>
+                    <p className={s.blokTasksTitle}>{name}</p>
+                    <p>
+                    Заплановано годин <span>{sheduledHours}</span>
+                    </p>
                     {isSpendedHoursChange ? (
-                      <p>
-                        <span>spendedHours</span>
+                      <div>
+                        <span>Витрачено годин</span>
                         {spendedHours}
-                      </p>
+                      </div>
                     ) : (
-                      <input
+                      <div>
+                        <label className={s.formaLabel}>
+                        Витрачено годин за день
+                        </label> 
+                        <input
                         onBlur={(e) => {
                           const { value } = e.currentTarget;
                           if (value < sheduledHours) {
@@ -286,6 +290,8 @@ function TasksView(params) {
                         }}
                         type="number"
                       />
+                      </div>
+                      
                     )}
                     <button
                       onClick={() =>
