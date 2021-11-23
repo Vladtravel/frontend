@@ -28,11 +28,15 @@ const MemberForm = ({ toggleModal }) => {
 
   const currentUser = useSelector(selectors.getUserEmail);
 
+  const userFind = users.find((user) => user === email);
+
   // Вытягиваем масив owners текущего проекта
   const owners = projects.find(({ _id }) => _id === currentProjectId).owners;
 
   // Фильтруем массив owners, оставляем толко команду (удаляем текущего ползователя)
   const team = owners.filter((owner) => owner.email !== currentUser);
+
+  const alreadyExist = team.find((el) => el.email === email);
 
   const reset = () => {
     setEmail("");
@@ -42,10 +46,7 @@ const MemberForm = ({ toggleModal }) => {
     event.preventDefault();
     dispatch(operations.getUsers(currentProjectId));
 
-    const alreadyExist = team.find((el) => el.email === email);
-    const isRegisteredUser = users.find((user) => user === email);
-
-    if (!isRegisteredUser) {
+    if (!userFind) {
       setIsRegisteredUser("notValid");
       return;
     }
@@ -90,18 +91,21 @@ const MemberForm = ({ toggleModal }) => {
             />
             {validEmail === "alreadyExist" && <p>*Такой пользователь уже добавлен в проект</p>}
             {isRegisteredUser === "notValid" && <p>*Такой пользователь не зарегистрирован</p>}
-            <span className={s.membersTitleList}>Додані користувачі:</span>
-            {owners ? (
-              <ul className={s.membersList}>
-                {owners.map(({ email }) => (
-                  <li key={email} className={s.membersItem}>
-                    <p>{email}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className={s.membersItem}>Ви ще не додали жодного користувача</p>
-            )}
+            <span className={s.membersTitleList}>
+              Додані користувачі:
+              {team.length === 0 ? (
+                <p className={s.membersItem}>Ви ще не додали жодного користувача</p>
+              ) : (
+                <ul className={s.membersList}>
+                  {owners.map(({ email }) => (
+                    <li key={email} className={s.membersItem}>
+                      <p>{email}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </span>
+
             <div className={s.buttonWrapper}>
               <Button className="button" type="submit" text={"Готово"} />
               <Button type="button" className="btnLink" text={"Відміна"} onClick={toggleModal} />
