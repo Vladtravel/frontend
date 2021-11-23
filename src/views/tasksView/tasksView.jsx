@@ -7,7 +7,7 @@ import ProjectButtonAdd from "../../components/ProjectList/ProjectButtonAdd";
 import { ReactComponent as Close } from "../../components/Modal/IconButton/+.svg";
 import Modal from "../../components/Modal/Modal";
 import ModalCreateSprint from "../../components/ModalCreateSprint";
-
+import Chart from "../../components/Chart";
 import ArrowBtn from "../../components/ArrowBtn/ArrowBtn";
 import FastAccessTemplate from "../../components/fastAccessTemplate/fastAccessTemplate";
 import Pagination from "../../components/Pagimation";
@@ -21,11 +21,7 @@ import s from "./tasksView.module.css";
 import TaskButtonAdd from "../../components/TasksModal";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchTasks,
-  deleteTask,
-  taskHourChange,
-} from "../../redux/tasks/operation";
+import { fetchTasks, deleteTask, taskHourChange } from "../../redux/tasks/operation";
 import { addSprint } from "../../redux/sprint/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
@@ -50,12 +46,8 @@ function TasksView(params) {
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
 
-  const currentSprintDuration = sprints.find(
-    (e) => e._id === currentSprint
-  ).duration;
-  const currentSprintCreateDate = sprints.find(
-    (e) => e._id === currentSprint
-  ).createdAt;
+  const currentSprintDuration = sprints.find((e) => e._id === currentSprint).duration;
+  const currentSprintCreateDate = sprints.find((e) => e._id === currentSprint).createdAt;
   const [currentDate, setCurrentDate] = useState(currentSprintCreateDate);
 
   useEffect(() => {
@@ -75,9 +67,13 @@ function TasksView(params) {
     }
     return false;
   });
+
+  console.log(visibleTasks);
+
   const onClick = (data) => {
     dispatch(deleteTask(data));
   };
+
   const onBlur = (data) => {
     dispatch(taskHourChange(data));
   };
@@ -98,6 +94,7 @@ function TasksView(params) {
       <div className={s.sideBar}>
         <div className={s.ArrowBtn}>
           <ArrowBtn />
+          <div className={s.menuLine}></div>
         </div>
         <div className={s.sprintsWrapper}>
           <ul>
@@ -127,10 +124,6 @@ function TasksView(params) {
               style={{ marginLeft: "auto", marginRight: "auto" }}
               // className={s.modalEl}
             >
-              {/* < ProjectButtonAdd 
-          onClick={toggleModal}
-          className={"btnIconAddProject"
-        }/> */}
               <IconAddProject />
             </IconButton>
 
@@ -224,52 +217,46 @@ function TasksView(params) {
           <div>
             <ul>
               {Array.isArray(getTasks) &&
-                visibleTasks.map(
-                  ({ name, sheduledHours, _id, spendedHours }) => {
-                    const isSpendedHoursChange = spendedHours !== 0;
-
-                    return (
-                      <li id={_id} key={_id}>
-                        <p>{name}</p>
-                        <q>
-                          duration <span>{sheduledHours}</span>
-                        </q>
-                        {isSpendedHoursChange ? (
-                          <p>
-                            <span>spendedHours</span>
-                            {spendedHours}
-                          </p>
-                        ) : (
-                          <input
-                            onBlur={(e) => {
-                              const { value } = e.currentTarget;
-                              if (value < sheduledHours) {
-                                alert("you work not enough");
-                                return;
-                              }
-                              onBlur({
-                                currentSprint,
-                                currentProjects,
-                                currentTask: _id,
-                                hours: value,
-                              });
-                            }}
-                            type="number"
-                          />
-                        )}
-                        )
-                        <button
-                          onClick={() =>
-                            onClick({ currentProjects, currentSprint, _id })
-                          }
-                        >
-                          DELETE
-                        </button>
-                      </li>
-                    );
-                  }
-                )}
+                visibleTasks.map(({ name, sheduledHours, _id, spendedHours }) => {
+                  const isSpendedHoursChange = spendedHours !== 0;
+                  return (
+                    <li id={_id} key={_id}>
+                      <p>{name}</p>
+                      <q>
+                        duration <span>{sheduledHours}</span>
+                      </q>
+                      {isSpendedHoursChange ? (
+                        <p>
+                          <span>spendedHours</span>
+                          {spendedHours}
+                        </p>
+                      ) : (
+                        <input
+                          onBlur={(e) => {
+                            const { value } = e.currentTarget;
+                            if (value < sheduledHours) {
+                              alert("you work not enough");
+                              return;
+                            }
+                            onBlur({
+                              currentSprint,
+                              currentProjects,
+                              currentTask: _id,
+                              hours: value,
+                            });
+                          }}
+                          type="number"
+                        />
+                      )}
+                      )
+                      <button onClick={() => onClick({ currentProjects, currentSprint, _id })}>DELETE</button>
+                    </li>
+                  );
+                })}
             </ul>
+            <div>
+              <Chart />
+            </div>
           </div>
         </div>
       </div>

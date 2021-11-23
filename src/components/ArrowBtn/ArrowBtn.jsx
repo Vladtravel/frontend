@@ -13,5 +13,6 @@ export default function ArrowBtn() {
       <IconsSVG className={s.icon} name={"arrow"} />{" "}
       <p className={s.text}>Показати спринти</p>
     </Link>
+    
   );
 }

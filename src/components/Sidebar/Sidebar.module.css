@@ -10,8 +10,15 @@
   padding-right: 30px;
   padding-bottom: 50px;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .menuSprints {
+    padding: 0;
+    border-right: 0px;
+    /* border-bottom: 1px solid rgba(24, 28, 39, 0.1); */
+  }
+}
+@media screen and (max-width: 768px) {
+  .menuProjectsNone {
     display: none;
   }
 }
@@ -22,6 +29,15 @@
   width: 170px;
   text-align: left;
   margin-bottom: 125px;
+}
+@media screen and (max-width: 768px) {
+  .menuNav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100vw;
+    /* text-align: center; */
+    
+  }
 }
 
 .menuLink {
@@ -40,6 +56,15 @@
 
   color: #181c27;
 }
+@media screen and (max-width: 768px) {
+  .menuLink {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    /* text-align: center; */
+    
+  }
+}
 
 .iconLink {
   position: absolute;
@@ -54,6 +79,31 @@
   background-image: url(./Arrow1.svg);
   outline: none;
 }
+
+@media screen and (max-width: 768px) {
+  .iconLink {
+    position:absolute;
+    margin-left: auto;
+    margin-right: 20px;
+ 
+  }
+}
+
+.menuLine{
+  position: absolute;
+  top: 110px;
+  left: -20px;
+  width:800px;
+  border-bottom: 0.5px solid rgba(24, 28, 39, 0.1);
+}
+
+@media screen and (min-width: 769px) {
+  .menuLine {
+    display: none;
+ 
+  }
+}
+
 
 .item {
   display: flex;
@@ -184,3 +234,4 @@
 
   color: #181c27;
 }
+

@@ -9,6 +9,10 @@ const user = createReducer(initState, {
   [actions.logoutSuccess.type]: () => initState,
   [actions.getCurrentUserSuccess.type]: (state, action) => action.payload,
 });
+const users = createReducer([], {
+  [actions.getUsersSuccess.type]: (state, action) => action.payload,
+});
+
 const token = createReducer(null, {
   [actions.registerSuccess.type]: (state, action) => action.payload.token,
   [actions.loginSuccess.type]: (state, action) => action.payload.token,
@@ -31,17 +35,13 @@ const isAuthenticated = createReducer(false, {
   [actions.getCurrentUserError.type]: () => false,
 });
 
-
-// const projects = combineReducers({
-  
-// });
-
 const auth = combineReducers({
-    user,
-    isAuthenticated,
-    token,
-    error,
-  });
-  
-  const reducers = { auth };
-  export default reducers;
+  user,
+  isAuthenticated,
+  token,
+  error,
+  users,
+});
+
+const reducers = { auth };
+export default reducers;
