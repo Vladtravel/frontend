@@ -89,8 +89,8 @@ const MemberForm = ({ toggleModal }) => {
               autoComplete="on"
               required
             />
-            {validEmail === "alreadyExist" && <p>*Такой пользователь уже добавлен в проект</p>}
-            {isRegisteredUser === "notValid" && <p>*Такой пользователь не зарегистрирован</p>}
+            {validEmail === "alreadyExist" && <p>*Такого користувача вже додано до проекту</p>}
+            {isRegisteredUser === "notValid" && <p>*Такий користувач не зареєстрований</p>}
             <span className={s.membersTitleList}>
               Додані користувачі:
               {team.length === 0 ? (
