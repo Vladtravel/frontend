@@ -8,7 +8,9 @@
   outline: none;
   background: #ff6b08;
   transition: all 250ms linear;
-  /* margin-top: 40px; */
+  position: fixed;
+  left: 10%;
+  transform: translateX(-10%);
 }
 
 .analyticsBtn:hover,
@@ -29,18 +31,12 @@
   transition: all 250ms linear;
 }
 
-@media screen and (max-width: 767px) {
-  .analyticsBtn {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .analyticsBtn {
-    position: relative;
-    bottom: -20px;
-    right: -20px;
+    right: 10%;
+    left: auto;
+    position: fixed;
+    bottom: 64px;
+    transform: translateX(-10%);
   }
 }

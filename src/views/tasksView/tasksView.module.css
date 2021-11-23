@@ -35,14 +35,14 @@
   .icon {
     position: absolute;
     top: 150px;
-    right: 40px;
+    left: 20px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .icon {
     position: absolute;
-    top: 105px;
+    top: 85px;
     right: 40px;
   }
 }
@@ -132,15 +132,12 @@
 .input {
   padding: 5px;
   border: none;
-  width: 100%;
+  max-width: 320px;
 
   border-bottom: none;
   background: no-repeat bottom, 50% calc(100% - 1px);
   background-size: 0 100%, 100% 100%;
-  background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0),
-    linear-gradient(0deg, rgba(24, 28, 39, 0.2) 1px, hsla(0, 0%, 82%, 0) 0);
-
-  padding: 5px;
+  background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0);
 
   font-size: 16px;
   line-height: 1.25;
@@ -152,10 +149,13 @@
     line-height: 1.22;
 
     width: 100%;
-    padding-right: 35px;
+    padding-left: 45px;
     position: absolute;
     top: 150px;
-    right: 40px;
+    right: 0;
+
+    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0),
+      linear-gradient(0deg, rgba(24, 28, 39, 0.2) 1px, hsla(0, 0%, 82%, 0) 0);
   }
 }
 
@@ -165,6 +165,9 @@
     max-width: 280px;
     font-size: 18px;
     line-height: 1.22;
+
+    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0),
+      linear-gradient(0deg, rgba(24, 28, 39, 0.2) 1px, hsla(0, 0%, 82%, 0) 0);
   }
 }
 
@@ -178,6 +181,8 @@
     position: absolute;
     top: 215px;
     right: 40px;
+
+    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0);
   }
 }
 
@@ -251,7 +256,7 @@
 
 .listItemTask {
   display: none;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -271,7 +276,7 @@
   color: #181c27;
 }
 
-.containerTask {
+/* .containerTask {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -359,4 +364,4 @@
 
 .card__button:hover {
   background-image: url("./ActivBin.svg");
-}
+} */
