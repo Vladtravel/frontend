@@ -18,6 +18,7 @@ import Title from "../../components/Title/Title";
 
 import Icons from "../../components/icons";
 import AnalyticsButton from "../../components/Diagram/AnalyticsButton";
+import ModalBackdrop from "../../components/Diagram/ModalBackdrop";
 import s from "./tasksView.module.css";
 import TaskButtonAdd from "../../components/TasksModal";
 import { useEffect } from "react";
@@ -26,6 +27,7 @@ import { fetchTasks, deleteTask, taskHourChange } from "../../redux/tasks/operat
 import { addSprint } from "../../redux/sprint/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
+import styles from "../../components/Diagram/Diagram.module.css";
 
 // import { getAllTasks, getLoading, getError } from "../../redux/tasks/selectors";
 
@@ -46,7 +48,6 @@ function TasksView(params) {
   const { url } = useRouteMatch();
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
-
 
   const currentSprintDuration = sprints.find((e) => e._id === currentSprint).duration;
   const currentSprintCreateDate = sprints.find((e) => e._id === currentSprint).createdAt;
@@ -71,7 +72,6 @@ function TasksView(params) {
     }
     return false;
   });
-
 
   const onClick = (data) => {
     dispatch(deleteTask(data));
@@ -106,6 +106,10 @@ function TasksView(params) {
     setShowDiagram(false);
   };
 
+  const backdropStyles = {
+    overflowX: "scroll",
+  };
+
   const doArrayOfDate = (startDate, endDate) => {
     let start = new Date(startDate),
       end = new Date(endDate),
@@ -123,9 +127,7 @@ function TasksView(params) {
         <div className={s.taskSidebar}>
           <ArrowBtn />
 
-
           <ul className={s.item}>
-
             {Array.isArray(sprints) &&
               sprints.map(({ name, _id }) => (
                 <li className={s.sprint} key={_id}>
@@ -143,11 +145,7 @@ function TasksView(params) {
           </ul>
 
           <div className={s.menuAdd}>
-            <IconButton
-              onClick={toggleModal}
-              aria-label="create project"
-              className={"btnIconAddSideBare"}
-            >
+            <IconButton onClick={toggleModal} aria-label="create project" className={"btnIconAddSideBare"}>
               <IconAddProject />
             </IconButton>
 
@@ -252,7 +250,6 @@ function TasksView(params) {
             </div>
           </div>
 
-
           <ul>
             {Array.isArray(getTasks) &&
               visibleTasks.map(({ name, sheduledHours, _id, spendedHours }) => {
@@ -293,19 +290,20 @@ function TasksView(params) {
                       </div>
                       
                     )}
-                    <button
-                      onClick={() =>
-                        onClick({ currentProjects, currentSprint, _id })
-                      }
-                    >
-                      DELETE
-                    </button>
+                    <button onClick={() => onClick({ currentProjects, currentSprint, _id })}>DELETE</button>
                   </li>
                 );
               })}
           </ul>
-          <AnalyticsButton onClick={buttonHandlerDiagram} />
-<Chart />
+
+          {showDiagram && (
+            <ModalBackdrop onClose={btnCloseDiagram} style={backdropStyles}>
+              <Chart />
+            </ModalBackdrop>
+          )}
+          {getTasks.length > 1 && (
+            <AnalyticsButton onClick={buttonHandlerDiagram} classes={styles.analyticsBtn} />
+          )}
         </div>
 
         {/* <Pagination
