@@ -163,6 +163,12 @@ const RenameSprint = ({ id, renameSprint }) => {
           Додати людей
         </button>
       </div>
+      
+      {sprints.length === 0 && (
+        <h2 className={s.emptyList}>
+          Ваш проект не має спринтів, скористайтесь кнопкою "Створити спринт"
+        </h2>
+      )}
 
       {showModal && (
         <Modal onClose={toggleModal}>
