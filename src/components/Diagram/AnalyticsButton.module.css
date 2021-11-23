@@ -21,6 +21,8 @@
   transition: all 250ms linear;
 }
 
+
+
 .analyticsIcon {
   width: 22px;
   height: 22px;
@@ -32,8 +34,15 @@
   transition: all 250ms linear;
 }
 
-@media screen and (min-width: 768px) {
+
+/* @media screen and (min-width: 768px) {
   .analyticsBtn {
+    display: none;
+  }
+} */
+@media screen and (min-width: 1024px) {
+  .analyticsBtn {
+    display: block;
     right: 10%;
     left: auto;
     position: fixed;
