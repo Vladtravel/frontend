@@ -36,7 +36,6 @@
     margin-bottom: 10px;
     width: 100vw;
     /* text-align: center; */
-    
   }
 }
 
@@ -62,7 +61,6 @@
     margin-bottom: 10px;
     width: 100%;
     /* text-align: center; */
-    
   }
 }
 
@@ -82,28 +80,25 @@
 
 @media screen and (max-width: 768px) {
   .iconLink {
-    position:absolute;
+    position: absolute;
     margin-left: auto;
     margin-right: 20px;
- 
   }
 }
 
-.menuLine{
+.menuLine {
   position: absolute;
   top: 110px;
   left: -20px;
-  width:800px;
+  width: 800px;
   border-bottom: 0.5px solid rgba(24, 28, 39, 0.1);
 }
 
 @media screen and (min-width: 769px) {
   .menuLine {
     display: none;
- 
   }
 }
-
 
 .item {
   display: flex;
@@ -128,11 +123,10 @@
   word-wrap: break-word;
   max-width: 119px;
 
-  font-family: Montserrat;
-
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
   line-height: 1.21;
+
   letter-spacing: 0.04em;
 
   color: #181c27;
@@ -235,4 +229,3 @@
   color: #181c27;
   margin-top: 15px;
 }
-
