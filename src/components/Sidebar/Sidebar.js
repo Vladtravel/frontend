@@ -48,7 +48,7 @@ function Sidebar() {
         </ul>
       </div>
       <div className={s.menuAdd}>
-        <ProjectButtonAdd className={"btnIconAddProject"} />
+        <ProjectButtonAdd className={"btnIconAddSideBare"} />
         <samp className={s.text}>Створити проект</samp>
       </div>
     </div>

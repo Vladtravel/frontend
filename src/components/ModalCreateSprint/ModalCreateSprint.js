@@ -25,7 +25,7 @@ function ModalCreateSprint({
   duration,
 }) {
   const classes = useStyles();
-  //
+
   return (
     <Modal onClose={setIsModalOpen}>
       <IconButton
