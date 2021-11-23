@@ -51,9 +51,7 @@
 
 .btnIconAddProject {
   margin-bottom: 15px;
+  position: fixed;
 }
 
-.taskAdd{
-  position: fixed;
-  color: green;
-}
+
