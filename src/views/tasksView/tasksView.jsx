@@ -251,7 +251,7 @@ function TasksView(params) {
             </div>
           </div>
 
-          <ul>
+          <ul className={s.blokListTasks}>
             {Array.isArray(getTasks) &&
               visibleTasks.map(({ name, sheduledHours, _id, spendedHours }) => {
                 const isSpendedHoursChange = spendedHours !== 0;
