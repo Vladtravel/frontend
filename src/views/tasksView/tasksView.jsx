@@ -233,13 +233,13 @@ function TasksView(params) {
                     <p className={s.textTask}>Задача</p>
                   </li>
                   <li className={s.listItem}>
-                    <p className={s.text}>Запланировано часов</p>
+                    <p className={s.text}>Заплановано годин</p>
                   </li>
                   <li className={s.listItem}>
-                    <p className={s.text}>Потрачено час / день</p>
+                    <p className={s.text}>Витрачено год / день</p>
                   </li>
                   <li className={s.listItem}>
-                    <p className={s.text}>Потрачено часов</p>
+                    <p className={s.text}>Витрачено годин</p>
                   </li>
                   <li>
                     <label htmlFor="task-name" className={s.label}>
