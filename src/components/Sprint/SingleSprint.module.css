@@ -106,9 +106,9 @@
   letter-spacing: 0.04em;
 }
 .create__sprint {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  /* position: fixed; */
+  /* bottom: 20px;
+  right: 20px; */
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -121,7 +121,7 @@
   margin-right: 20px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .create__sprint {
     bottom: 20px;
     right: 40px;
@@ -290,7 +290,7 @@
   display: none;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1024px) {
   .text {
     display: contents;
   }
