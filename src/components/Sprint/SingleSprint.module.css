@@ -142,23 +142,23 @@
   position: relative;
   padding: 20px;
 
-  width: 280px;
-  height: 170px;
+  /* width: 280px;
+  height: 170px; */
 
   z-index: -1;
 }
 
 @media screen and (min-width: 768px) {
   .single__card {
-    width: 216px;
-    height: 255px;
+    min-width: 216px;
+    min-height: 255px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .single__card {
-    width: 206px;
-    height: 224px;
+    min-width: 206px;
+    min-height: 224px;
     padding: 20px;
   }
 }
