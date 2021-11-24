@@ -226,7 +226,7 @@
   display: none;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
   .headerContainerTask {
     display: block;
   }
@@ -294,13 +294,13 @@
 }
 
 .listItem {
-  margin-left: 93px;
+  margin-left: 107px;
 }
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .listItem {
-    margin-left: 60px;
+    margin-left: 10px;
   }
-}
+} */
 
 .listItemTask {
   display: none;
@@ -415,7 +415,21 @@
 }
 
 /* Оформление тасок */
-.blokTasks {
+
+.blokListTasks{
+
+}
+@media screen and (min-width: 768px) {
+  .blokListTasks {
+    display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+  margin-top: 30px;
+  }
+}
+
+.blokTasks{
+
   width: 100%;
   position: relative;
   background: #ffffff;
@@ -426,10 +440,10 @@
 }
 @media screen and (min-width: 768px) {
   .blokTasks {
-    width: 216px;
-    height: 284px;
+    /* width: 216px;
+    height: 284px; */
     margin: 20px;
-    flex-basis: calc((100% - 2 * 10px) / 2);
+    flex-basis: calc((100% - 2 * 20px) / 3);
   }
 }
 
@@ -560,9 +574,11 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .taskInput {
-    margin-right: 100px;
-    text-align: start;
+
+  .taskInput{
+   margin-right: 150px;
+   text-align: start;
+
   }
 }
 
