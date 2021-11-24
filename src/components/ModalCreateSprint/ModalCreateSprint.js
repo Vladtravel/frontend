@@ -11,7 +11,7 @@ import Modal from "../Modal";
 import { dataTheme, useStyles } from "./styles-dataPicker";
 import "react-datepicker/dist/react-datepicker.css";
 import s from "./ModalCreateSprint.module.css";
-import { isNull } from "lodash-es";
+// import { isNull } from "lodash-es";
 
 function ModalCreateSprint({
   onSubmit,
