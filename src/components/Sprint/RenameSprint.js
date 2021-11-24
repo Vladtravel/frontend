@@ -102,8 +102,6 @@ const RenameSprint = ({ id, renameSprint }) => {
     return dispatch(projectNameChange(data));
   };
 
-  console.log(currentProject);
-
   return (
     <>
       <div className={s.hederSprint__title}>

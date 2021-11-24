@@ -23,13 +23,15 @@ import s from "./tasksView.module.css";
 import TaskButtonAdd from "../../components/TasksModal";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTasks, deleteTask, taskHourChange } from "../../redux/tasks/operation";
+import {
+  fetchTasks,
+  deleteTask,
+  taskHourChange,
+} from "../../redux/tasks/operation";
 import { addSprint } from "../../redux/sprint/operation";
 import { useRouteMatch } from "react-router-dom";
 import { getAllSprints } from "../../redux/sprint/selectors";
 import styles from "../../components/Diagram/Diagram.module.css";
-
-// import { getAllTasks, getLoading, getError } from "../../redux/tasks/selectors";
 
 import { getAllTasks } from "../../redux/tasks/selectors";
 
@@ -49,8 +51,12 @@ function TasksView(params) {
   const currentProjects = url.split("/")[2];
   const currentSprint = url.split("/")[4];
 
-  const currentSprintDuration = sprints.find((e) => e._id === currentSprint).duration;
-  const currentSprintCreateDate = sprints.find((e) => e._id === currentSprint).createdAt;
+  const currentSprintDuration = sprints.find(
+    (e) => e._id === currentSprint
+  ).duration;
+  const currentSprintCreateDate = sprints.find(
+    (e) => e._id === currentSprint
+  ).createdAt;
 
   const [currentDate, setCurrentDate] = useState(currentSprintCreateDate);
 
@@ -110,16 +116,16 @@ function TasksView(params) {
     overflowX: "scroll",
   };
 
-  const doArrayOfDate = (startDate, endDate) => {
-    let start = new Date(startDate),
-      end = new Date(endDate),
-      array = [];
+  // const doArrayOfDate = (startDate, endDate) => {
+  //   let start = new Date(startDate),
+  //     end = new Date(endDate),
+  //     array = [];
 
-    for (let q = start; q <= end; q.setDate(q.getDate() + 1)) {
-      array.push(q.toLocaleDateString());
-    }
-    return array;
-  };
+  //   for (let q = start; q <= end; q.setDate(q.getDate() + 1)) {
+  //     array.push(q.toLocaleDateString());
+  //   }
+  //   return array;
+  // };
 
   return (
     <>
@@ -145,8 +151,12 @@ function TasksView(params) {
           </ul>
 
           <div className={s.menuAdd}>
-            <IconButton  onClick={toggleModal} aria-label="create project" className={"btnIconAddSideBare"}>
-              <IconAddProject/>
+            <IconButton
+              onClick={toggleModal}
+              aria-label="create project"
+              className={"btnIconAddSideBare"}
+            >
+              <IconAddProject />
             </IconButton>
 
             <p className={s.addSprintText}>Створити спринт</p>
@@ -223,8 +233,8 @@ function TasksView(params) {
                 <Title />
 
                 <div className={s.positionAddBtnTask}>
-                <TaskButtonAdd />
-                <p className={s.secondLevelText}>Створити задачу</p>
+                  <TaskButtonAdd />
+                  <p className={s.secondLevelText}>Створити задачу</p>
                 </div>
               </div>
               <div className={s.headerContainerTask}>
@@ -254,28 +264,28 @@ function TasksView(params) {
           <ul>
             {Array.isArray(getTasks) &&
               visibleTasks.map(({ name, sheduledHours, _id, spendedHours }) => {
-                const isSpendedHoursChange = spendedHours !== 0;
+                // const isSpendedHoursChange = spendedHours !== 0;
 
                 return (
                   <li id={_id} key={_id} className={s.blokTasks}>
                     <p className={s.blokTasksTitle}>{name}</p>
                     <p className={s.taskLabel}>
-                    <span className={s.taskLabelText}> Заплановано годин </span>
-                    <span className={s.taskValue}>
-                      {sheduledHours}
-                    </span>
+                      <span className={s.taskLabelText}>Заплановано годин</span>
+                      <span className={s.taskValue}>{sheduledHours}</span>
                     </p>
                     {/* {isSpendedHoursChange ? ( */}
-                      {/* <div>
+                    {/* <div>
                         <span>Витрачено годин</span>
                         {spendedHours}
                       </div> */}
                     {/* ) : ( */}
-                      <div className={s.positionInput}>
-                        <label className={s.taskLabel}>
-                        <span className={s.taskLabelText}>Витрачено  годин/день</span>
-                        </label> 
-                        <input
+                    <div className={s.positionInput}>
+                      <label className={s.taskLabel}>
+                        <span className={s.taskLabelText}>
+                          Витрачено годин/день
+                        </span>
+                      </label>
+                      <input
                         className={s.taskInput}
                         onBlur={(e) => {
                           const { value } = e.currentTarget;
@@ -292,17 +302,19 @@ function TasksView(params) {
                         }}
                         type="number"
                       />
-                      </div>
-                      <div className={s.taskLabel}>
+                    </div>
+                    <div className={s.taskLabel}>
                       <span className={s.taskLabelText}> Витрачено годин </span>
                       <span className={s.taskValue}>{spendedHours}</span>
-                      </div>
-                      
-                     {/* )} */}
-                    <button className={s.taskDelBtn} 
-                            onClick={() => onClick({ currentProjects, currentSprint, _id })}>
-                            
-                    </button>
+                    </div>
+
+                    {/* )} */}
+                    <button
+                      className={s.taskDelBtn}
+                      onClick={() =>
+                        onClick({ currentProjects, currentSprint, _id })
+                      }
+                    ></button>
                   </li>
                 );
               })}
@@ -314,7 +326,10 @@ function TasksView(params) {
             </ModalBackdrop>
           )}
           {getTasks.length > 1 && (
-            <AnalyticsButton onClick={buttonHandlerDiagram} classes={styles.analyticsBtn} />
+            <AnalyticsButton
+              onClick={buttonHandlerDiagram}
+              classes={styles.analyticsBtn}
+            />
           )}
         </div>
 
