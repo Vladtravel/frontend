@@ -2,52 +2,70 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 10px;
-}
-
-@media screen and (min-width: 768px){
-  .container__sprints{
-    margin-right: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .container__sprints {
-    margin-right: 30px;
-    margin-bottom: 30px;
-  }
 }
 
 .cards__wrapper {
-  display: block;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-@media screen and (min-width: 768px){
-  .cards__wrapper{
-    display: flex;
-    justify-content: first baseline;
-    max-width: 472px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .cards__wrapper {
-    max-width: 930px;
-  }
-}
-
-.sprint__wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  padding-top: 10px;
+  margin: -10px;
+}
+
+@media screen and (max-width: 768px) {
+  .cards__wrapper {
+    margin: -5px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cards__wrapper {
+    margin: -15px;
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .single__item {
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+    transition: all 250ms linear;
+
+    margin: 5px;
+    margin-top: 20px;
+
+    flex-basis: calc((100% - 2 * 10px) / 2);
+  }
+}
+
+/* .single__item {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  transition: all 250ms linear;
+
+  margin: 5px;
   margin-top: 20px;
+
+  flex-basis: calc((100% - 2 * 10px) / 2);
+} */
+
+@media screen and (min-width: 1024px) {
+  .single__item {
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+    transition: all 250ms linear;
+
+    margin: 15px;
+    margin-top: 20px;
+
+    flex-basis: calc((100% - 3 * 30px) / 3);
+  }
+}
+
+.single__item:hover {
+  transform: scale(1.02);
 }
 
 .hederSprint__title {
@@ -86,10 +104,13 @@
   margin-bottom: 30px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.21; 
-  letter-spacing: 0.04em; 
+  line-height: 1.21;
+  letter-spacing: 0.04em;
 }
 .create__sprint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -112,85 +133,102 @@
   transform: scale(1.2);
   transition: all 250ms linear;
 }
-.single__item {
-  position: relative;
-  list-style: none;
-  cursor: pointer;
-  transition: all 250ms linear;
-}
-
-.single__item:hover {
-  transform: scale(1.02);
-}
 
 .single__card {
-  width: 280px;
   background: #ffffff;
   box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
   border-radius: 5px;
   font-family: "Montserrat";
   position: relative;
-  padding: 20px 30px 30px;
+  padding: 20px;
+
+  /* width: 280px;
+  height: 170px; */
+
+  z-index: -1;
 }
 
-@media screen and (min-width: 768px){
-  .single__card{
-    width: 215px;
-    height: 190px;
-    padding: 15px 20px 20px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .single__card {
-    width: 270px;
-    height: 215px;
-    padding: 20px 30px 30px;
+    min-width: 216px;
+    min-height: 255px;
   }
+}
 
+@media screen and (min-width: 1024px) {
+  .single__card {
+    min-width: 206px;
+    min-height: 224px;
+    padding: 20px;
+  }
 }
 
 .card__header {
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 20px;
   letter-spacing: 0.04em;
   color: #181c27;
   text-align: left;
   width: 100%;
   overflow-wrap: break-word;
-}
-
-.card__content {
-  font-size: 14px;
-  letter-spacing: 0.01em;
-  line-height: 17px;
-}
-
-.card__content_header {
-  text-align: left;
-  color: rgba(0, 0, 0, 1);
-}
-
-.card__content_info {
-  text-align: right;
-  color: rgba(0, 0, 0, 1);
-}
-
-.card__content_header:not(:nth-last-child(-n + 3)),
-.card__content_info:not(:nth-last-child(-n + 2)) {
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 1280px) {
-  .card__content_header:not(:nth-last-child(-n + 3)),
-  .card__content_info:not(:nth-last-child(-n + 2)) {
-    margin-bottom: 25px;
+@media screen and (min-width: 768px) {
+  .card__header {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.card__content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.textContent {
+  font-family: Montserrat;
+
+  font-size: 10px;
+  line-height: 12px;
+
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .textContent {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.textContentDate {
+  font-family: Montserrat;
+
+  font-size: 10px;
+  line-height: 12px;
+
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .textContentDate {
+    font-size: 14px;
+    line-height: 17px;
+    word-wrap: break-word;
   }
 }
 
 .card__button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
   display: block;
   width: 20px;
   height: 20px;
@@ -200,11 +238,16 @@
   border: none;
   outline: none;
   cursor: pointer;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
   background-color: transparent;
   transition: all 500ms linear;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .card__button {
+    right: 20px;
+    bottom: 10px;
+  }
 }
 
 .card__button:hover {
@@ -212,17 +255,15 @@
 }
 
 .projectDetails {
-  padding-top: 40 px;
-  padding-left: 20 px;
+  padding-top: 40px;
+  padding-left: 20px;
 }
-
 
 .headerSprint__titleButton {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .text {
   margin: 0;
@@ -247,21 +288,20 @@
     display: contents;
   }
 }
-.create_box{
+.create_box {
   position: absolute;
   bottom: 20px;
   right: 20px;
   /* z-index: 2; */
 }
-@media screen and (min-width: 768px){
-  .create_box{
+@media screen and (min-width: 768px) {
+  .create_box {
     top: 120px;
     right: 40px;
-    
   }
 }
-@media screen and (min-width: 900px){
-  .create_box{
+@media screen and (min-width: 900px) {
+  .create_box {
     display: flex;
     align-items: baseline;
   }
@@ -296,19 +336,29 @@
   }
 }
 
-
-@media screen and (min-width: 900px){
-  .title{
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 1.22;  
+@media screen and (min-width: 900px) {
+  .title {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1.22;
   }
 }
 
-@media screen and (min-width: 900px){
+.currentProjectDescription {
+  font-family: Montserrat;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 900px) {
   .hederSprint__text {
     font-size: 18px;
-    line-height: 1.22;  
+    line-height: 1.22;
     width: 452px;
   }
 }
@@ -331,4 +381,3 @@
   margin-top: 100px;
   font-size: 24px;
 }
-

@@ -1,25 +1,27 @@
 .menuSprints {
-  position: relative;
+  /* position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 255px;
+  flex-direction: column; */
+
+  width: 255px;
 
   border-right: 1px solid rgba(24, 28, 39, 0.1);
 
   padding-top: 20px;
   padding-right: 30px;
-  padding-bottom: 50px;
+  height: 100vh;
+  /* padding-bottom: 50px; */
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .menuSprints {
     padding: 0;
     border-right: 0px;
-    /* border-bottom: 1px solid rgba(24, 28, 39, 0.1); */
+    border-bottom: 1px solid rgba(24, 28, 39, 0.1);
   }
-}
-@media screen and (max-width: 768px) {
-  .menuProjectsNone {
+} */
+
+@media screen and (max-width: 767px) {
+  .menuSprints {
     display: none;
   }
 }
@@ -35,7 +37,7 @@
   .menuNav {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 100vw;
+    width: 100%;
     /* text-align: center; */
   }
 }
@@ -87,24 +89,27 @@
   }
 }
 
-.menuLine {
-  position: absolute;
-  top: 110px;
-  left: -20px;
-  width: 800px;
-  border-bottom: 0.5px solid rgba(24, 28, 39, 0.1);
+@media screen and (max-width: 768px) {
+  .menuLine {
+    position: absolute;
+    top: 110px;
+    left: -20px;
+
+    border-bottom: 0.5px solid rgba(24, 28, 39, 0.1);
+  }
 }
 
 @media screen and (min-width: 769px) {
   .menuLine {
     display: none;
+    height: 100vh;
   }
 }
 
-.item {
+/* .item {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .menuProjects {
   display: block;
@@ -118,6 +123,7 @@
   width: 170px;
   height: 38px;
   margin-bottom: 30px;
+  margin-top: 170px;
 }
 
 .subtitleCurrent {
@@ -214,8 +220,10 @@
 }
 
 .menuAdd {
-  /* position: fixed;
-  z-index: 50; */
+  position: fixed;
+  bottom: 50px;
+  left: 5%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
