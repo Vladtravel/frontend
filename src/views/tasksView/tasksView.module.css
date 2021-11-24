@@ -408,6 +408,18 @@
 }
 
 /* Оформление тасок */
+.blokListTasks{
+
+}
+@media screen and (min-width: 768px) {
+  .blokListTasks {
+    display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+  margin-top: 30px;
+  }
+}
+
 .blokTasks{
   width: 100%;
   position: relative;
@@ -420,10 +432,10 @@ margin-bottom: 10px;
 }
 @media screen and (min-width: 768px) {
   .blokTasks {
-    width: 216px;
-    height: 284px;
+    /* width: 216px;
+    height: 284px; */
     margin: 20px;
-    flex-basis: calc((100% - 2 * 10px) / 2);
+    flex-basis: calc((100% - 2 * 20px) / 3);
   }
 }
 
