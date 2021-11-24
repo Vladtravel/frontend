@@ -217,7 +217,7 @@
   display: none;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
   .headerContainerTask {
     display: block;
   }
@@ -286,13 +286,13 @@
 
 
 .listItem {
-  margin-left: 93px;
+  margin-left: 107px;
 }
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .listItem {
-    margin-left: 60px;
+    margin-left: 10px;
   }
-}
+} */
 
 .listItemTask {
   display: none;
@@ -565,7 +565,7 @@ margin-bottom: 20px;
 
 @media screen and (min-width: 1024px) {
   .taskInput{
-   margin-right: 100px;
+   margin-right: 150px;
    text-align: start;
   }
 }
