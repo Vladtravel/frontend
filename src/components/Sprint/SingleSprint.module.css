@@ -5,15 +5,17 @@
 }
 
 .cards__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 10px;
-  margin: -10px;
+  /* display: flex;
+  flex-wrap: wrap; */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .cards__wrapper {
-    margin: -5px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+
+    margin: -10px;
   }
 }
 
@@ -24,31 +26,27 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .single__item {
-    position: relative;
-    list-style: none;
-    cursor: pointer;
-    transition: all 250ms linear;
-
-    margin: 5px;
-    margin-top: 20px;
-
-    flex-basis: calc((100% - 2 * 10px) / 2);
-  }
+.single__item {
+  position: relative;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-/* .single__item {
-  position: relative;
-  list-style: none;
-  cursor: pointer;
-  transition: all 250ms linear;
+@media screen and (min-width: 768px) {
+  .single__item {
+    padding-top: 10px;
+    margin-top: 0;
+    margin: 10px;
+    position: relative;
+    list-style: none;
 
-  margin: 5px;
-  margin-top: 20px;
+    transition: all 250ms linear;
 
-  flex-basis: calc((100% - 2 * 10px) / 2);
-} */
+    /* margin: 5px; */
+
+    flex-basis: calc((100% - 2 * 20px) / 2);
+  }
+}
 
 @media screen and (min-width: 1024px) {
   .single__item {
@@ -122,6 +120,15 @@
   transition: all 250ms linear;
   margin-right: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .create__sprint {
+    bottom: 20px;
+    right: 40px;
+    margin-right: 0;
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .create__sprint {
     margin-right: 0;
@@ -142,8 +149,8 @@
   position: relative;
   padding: 20px;
 
-  /* width: 280px;
-  height: 170px; */
+  min-width: 280px;
+  min-height: 170px;
 
   z-index: -1;
 }
