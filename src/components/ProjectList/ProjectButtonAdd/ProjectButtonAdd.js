@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IconButton from "../../Modal/IconButton";
 import { ReactComponent as IconAddProject } from "../../Modal/IconButton/addProject.svg";
 import { ReactComponent as Close } from "../../Modal/IconButton/+.svg";
@@ -12,7 +12,11 @@ const ProjectButtonAdd = ({ text, description, className }) => {
 
   const toggleModal = () => {
     setShowModal(!showModal);
-  };
+    };
+    useEffect(() => {
+      const body = document.querySelector('body');
+      body.style.overflow = showModal ? 'hidden' : 'auto';
+    }, [showModal])
 
   return (
     <>
@@ -30,7 +34,9 @@ const ProjectButtonAdd = ({ text, description, className }) => {
       </div>
 
       {showModal && (
-        <Modal onClose={toggleModal}>
+        <Modal 
+        
+        onClose={toggleModal}>
           <IconButton
             onClick={toggleModal}
             className="iconBtn"
