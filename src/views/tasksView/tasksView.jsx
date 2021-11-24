@@ -145,8 +145,8 @@ function TasksView(params) {
           </ul>
 
           <div className={s.menuAdd}>
-            <IconButton onClick={toggleModal} aria-label="create project" className={"btnIconAddSideBare"}>
-              <IconAddProject />
+            <IconButton  onClick={toggleModal} aria-label="create project" className={"btnIconAddSideBare"}>
+              <IconAddProject/>
             </IconButton>
 
             <p className={s.addSprintText}>Створити спринт</p>
@@ -222,9 +222,10 @@ function TasksView(params) {
               <div className={s.nameTaskAdd}>
                 <Title />
 
+                <div className={s.positionAddBtnTask}>
                 <TaskButtonAdd />
-
                 <p className={s.secondLevelText}>Створити задачу</p>
+                </div>
               </div>
               <div className={s.headerContainerTask}>
                 <ul className={s.list}>
@@ -232,13 +233,13 @@ function TasksView(params) {
                     <p className={s.textTask}>Задача</p>
                   </li>
                   <li className={s.listItem}>
-                    <p className={s.text}>Запланировано часов</p>
+                    <p className={s.text}>Заплановано годин</p>
                   </li>
                   <li className={s.listItem}>
-                    <p className={s.text}>Потрачено час / день</p>
+                    <p className={s.text}>Витрачено год / день</p>
                   </li>
                   <li className={s.listItem}>
-                    <p className={s.text}>Потрачено часов</p>
+                    <p className={s.text}>Витрачено годин</p>
                   </li>
                   <li>
                     <label htmlFor="task-name" className={s.label}>
@@ -250,24 +251,32 @@ function TasksView(params) {
             </div>
           </div>
 
-          <ul>
+          <ul className={s.blokListTasks}>
             {Array.isArray(getTasks) &&
               visibleTasks.map(({ name, sheduledHours, _id, spendedHours }) => {
                 const isSpendedHoursChange = spendedHours !== 0;
 
                 return (
-                  <li id={_id} key={_id}>
-                    <p>{name}</p>
-                    <q>
-                      duration <span>{sheduledHours}</span>
-                    </q>
-                    {isSpendedHoursChange ? (
-                      <p>
-                        <span>spendedHours</span>
+                  <li id={_id} key={_id} className={s.blokTasks}>
+                    <p className={s.blokTasksTitle}>{name}</p>
+                    <p className={s.taskLabel}>
+                    <span className={s.taskLabelText}> Заплановано годин </span>
+                    <span className={s.taskValue}>
+                      {sheduledHours}
+                    </span>
+                    </p>
+                    {/* {isSpendedHoursChange ? ( */}
+                      {/* <div>
+                        <span>Витрачено годин</span>
                         {spendedHours}
-                      </p>
-                    ) : (
-                      <input
+                      </div> */}
+                    {/* ) : ( */}
+                      <div className={s.positionInput}>
+                        <label className={s.taskLabel}>
+                        <span className={s.taskLabelText}>Витрачено  годин/день</span>
+                        </label> 
+                        <input
+                        className={s.taskInput}
                         onBlur={(e) => {
                           const { value } = e.currentTarget;
                           if (value < sheduledHours) {
@@ -283,8 +292,17 @@ function TasksView(params) {
                         }}
                         type="number"
                       />
-                    )}
-                    <button onClick={() => onClick({ currentProjects, currentSprint, _id })}>DELETE</button>
+                      </div>
+                      <div className={s.taskLabel}>
+                      <span className={s.taskLabelText}> Витрачено годин </span>
+                      <span className={s.taskValue}>{spendedHours}</span>
+                      </div>
+                      
+                     {/* )} */}
+                    <button className={s.taskDelBtn} 
+                            onClick={() => onClick({ currentProjects, currentSprint, _id })}>
+                            
+                    </button>
                   </li>
                 );
               })}
