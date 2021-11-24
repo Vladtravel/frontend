@@ -145,8 +145,8 @@ function TasksView(params) {
           </ul>
 
           <div className={s.menuAdd}>
-            <IconButton onClick={toggleModal} aria-label="create project" className={"btnIconAddSideBare"}>
-              <IconAddProject />
+            <IconButton  onClick={toggleModal} aria-label="create project" className={"btnIconAddSideBare"}>
+              <IconAddProject/>
             </IconButton>
 
             <p className={s.addSprintText}>Створити спринт</p>
@@ -222,9 +222,10 @@ function TasksView(params) {
               <div className={s.nameTaskAdd}>
                 <Title />
 
+                <div className={s.positionAddBtnTask}>
                 <TaskButtonAdd />
-
                 <p className={s.secondLevelText}>Створити задачу</p>
+                </div>
               </div>
               <div className={s.headerContainerTask}>
                 <ul className={s.list}>
@@ -259,7 +260,10 @@ function TasksView(params) {
                   <li id={_id} key={_id} className={s.blokTasks}>
                     <p className={s.blokTasksTitle}>{name}</p>
                     <p className={s.taskLabel}>
-                    Заплановано годин <span className={s.taskValue}>{sheduledHours}</span>
+                    <span className={s.taskLabelText}> Заплановано годин </span>
+                    <span className={s.taskValue}>
+                      {sheduledHours}
+                    </span>
                     </p>
                     {/* {isSpendedHoursChange ? ( */}
                       {/* <div>
@@ -269,7 +273,7 @@ function TasksView(params) {
                     {/* ) : ( */}
                       <div className={s.positionInput}>
                         <label className={s.taskLabel}>
-                        Витрачено годин за день
+                        <span className={s.taskLabelText}>Витрачено  годин/день</span>
                         </label> 
                         <input
                         className={s.taskInput}
@@ -290,14 +294,14 @@ function TasksView(params) {
                       />
                       </div>
                       <div className={s.taskLabel}>
-                        Витрачено годин
-                        <span className={s.taskValue}>{spendedHours}</span>
+                      <span className={s.taskLabelText}> Витрачено годин </span>
+                      <span className={s.taskValue}>{spendedHours}</span>
                       </div>
                       
                      {/* )} */}
                     <button className={s.taskDelBtn} 
                             onClick={() => onClick({ currentProjects, currentSprint, _id })}>
-                            {/* DELETE */}
+                            
                     </button>
                   </li>
                 );

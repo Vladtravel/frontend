@@ -71,7 +71,7 @@ function LoginForm() {
             </form>
           
           <div className={s.formaNavigate}>
-            <span>Маєте акаунт? </span>
+            <span>Немає акаунту? </span>
             <NavLink to="/" className={s.formaNavigateLink}>
             Зареєструватись
             </NavLink>
