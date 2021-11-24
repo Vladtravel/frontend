@@ -15,8 +15,6 @@
     border-right: 1px solid rgba(24, 28, 39, 0.1);
     height: calc(100vh - 100px);
     width: 256px;
-    
-
   }
 }
 
@@ -122,11 +120,10 @@
   padding-bottom: 20px;
 }
 
-.positionAddBtnTask{
+.positionAddBtnTask {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
   margin-right: 20px;
 }
 
@@ -170,7 +167,11 @@
     top: 150px;
     right: 0;
 
-    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0),
+    background-image: linear-gradient(
+        0deg,
+        #ff6b08 2px,
+        rgba(156, 39, 176, 0) 0
+      ),
       linear-gradient(0deg, rgba(24, 28, 39, 0.2) 1px, hsla(0, 0%, 82%, 0) 0);
   }
 }
@@ -182,7 +183,11 @@
     font-size: 18px;
     line-height: 1.22;
 
-    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0),
+    background-image: linear-gradient(
+        0deg,
+        #ff6b08 2px,
+        rgba(156, 39, 176, 0) 0
+      ),
       linear-gradient(0deg, rgba(24, 28, 39, 0.2) 1px, hsla(0, 0%, 82%, 0) 0);
   }
 }
@@ -198,7 +203,11 @@
     top: 215px;
     right: 40px;
 
-    background-image: linear-gradient(0deg, #ff6b08 2px, rgba(156, 39, 176, 0) 0);
+    background-image: linear-gradient(
+      0deg,
+      #ff6b08 2px,
+      rgba(156, 39, 176, 0) 0
+    );
   }
 }
 
@@ -280,10 +289,9 @@
 @media screen and (min-width: 1024px) {
   .list {
     width: 107px;
-  height: 34px;
+    height: 34px;
   }
 }
-
 
 .listItem {
   margin-left: 107px;
@@ -315,7 +323,6 @@
 
   color: #181c27;
 }
-
 
 /* .containerTask {
   display: flex;
@@ -408,6 +415,7 @@
 }
 
 /* Оформление тасок */
+
 .blokListTasks{
 
 }
@@ -421,14 +429,14 @@
 }
 
 .blokTasks{
+
   width: 100%;
   position: relative;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
   border-radius: 5px;
   padding: 20px;
-margin-bottom: 10px;
-  
+  margin-bottom: 10px;
 }
 @media screen and (min-width: 768px) {
   .blokTasks {
@@ -445,22 +453,21 @@ margin-bottom: 10px;
     width: 100%;
     height: auto;
     margin: 10px;
-    
   }
 }
 
-.blokTasksTitle{
-width: 100%;
+.blokTasksTitle {
+  width: 100%;
 
-font-family: Montserrat Medium;
-font-weight: 500;
-font-size: 18px;
-line-height: 22px;
-letter-spacing: 0.04em;
-border-bottom: 1px solid rgba(24, 28, 39, 0.2);
-padding-bottom: 8px;
-color: #181C27;
-margin-bottom: 20px;
+  font-family: Montserrat Medium;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+  padding-bottom: 8px;
+  color: #181c27;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -468,13 +475,8 @@ margin-bottom: 20px;
     display: flex;
     width: 170px;
     margin-right: 50px;
-    
-    
-    
   }
 }
-
-
 
 .taskDelBtn {
   display: block;
@@ -497,7 +499,7 @@ margin-bottom: 20px;
   background-image: url("./ActivBin.svg");
 }
 
-.taskLabel{
+.taskLabel {
   display: flex;
   justify-self: stretch;
   font-family: Montserrat;
@@ -507,56 +509,52 @@ margin-bottom: 20px;
   letter-spacing: 0.04em;
 
   color: #000000;
- 
+
   margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .taskLabel{
+  .taskLabel {
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 17px;
   }
 }
 
-
-.taskLabelText{
-  
+.taskLabelText {
 }
 @media screen and (min-width: 768px) {
-  .taskLabelText{
+  .taskLabelText {
     display: block;
     width: 98px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .taskLabelText{
-   display: none;
+  .taskLabelText {
+    display: none;
   }
 }
 
-
-
-.taskValue{
+.taskValue {
   display: block;
   margin-left: auto;
 }
 @media screen and (min-width: 1024px) {
-  .taskValue{
+  .taskValue {
     width: 100px;
-   margin-right: 100px;
+    margin-right: 100px;
   }
 }
-.taskInput{
- display: block;
+.taskInput {
+  display: block;
   width: 60px;
   outline: transparent;
-  
+
   margin-bottom: 10px;
   border-color: transparent;
   border-bottom: 1px solid rgba(24, 28, 39, 0.2);
-  background-color: #FFFFFF;
-  
+  background-color: #ffffff;
+
   font-family: Montserrat;
   font-size: 14px;
   line-height: 17px;
@@ -570,24 +568,25 @@ margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .taskInput{
+  .taskInput {
     margin-bottom: 20px;
   }
 }
 
 @media screen and (min-width: 1024px) {
+
   .taskInput{
    margin-right: 150px;
    text-align: start;
+
   }
 }
 
-.positionInput{
-display: flex;
+.positionInput {
+  display: flex;
 }
 
-.taskAdd{
+.taskAdd {
   position: fixed;
   background-color: green;
 }
-
